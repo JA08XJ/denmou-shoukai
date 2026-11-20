@@ -166,6 +166,96 @@
   .howto ol{margin:0;padding-left:1.4em;color:var(--ink2);font-size:14.5px}
   .howto li{margin-bottom:4px}
   footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);color:var(--ink3);font-size:12.5px;line-height:1.8}
+  /* ── 漢文ステッププレイヤー ── */
+  .kplayer{font-size:16.5px}
+  .kplayer.fs0{font-size:15px}
+  .kplayer.fs1{font-size:16.5px}
+  .kplayer.fs2{font-size:18.5px}
+  .ktoolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px}
+  .ktoolbar .sp{flex:1}
+  .fsbtn{display:inline-flex;border:1px solid var(--line2);border-radius:999px;overflow:hidden}
+  .fsbtn button{background:var(--paper);border:none;border-right:1px solid var(--line);color:var(--ink2);font-family:inherit;font-weight:700;font-size:13px;padding:6px 13px;cursor:pointer;min-height:2.4rem}
+  .fsbtn button:last-child{border-right:none}
+  .fsbtn button.on{background:var(--accent);color:#fff}
+  @media (prefers-color-scheme: dark){.fsbtn button.on{color:#171512}}
+  .listbtn{background:var(--paper);border:1px solid var(--line2);border-radius:999px;color:var(--ink);font-family:inherit;font-weight:700;font-size:13px;padding:6px 14px;cursor:pointer;min-height:2.4rem}
+  .kprog{margin-top:14px}
+  .kprog .bar{height:9px;border-radius:99px;background:var(--bg2);border:1px solid var(--line);overflow:hidden}
+  .kprog .fill{height:100%;background:var(--accent);border-radius:99px;transition:width .3s ease}
+  .kprog .txt{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink3);margin-top:5px;font-weight:700}
+  .kcard{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 22px;margin-top:16px}
+  .ksec{font-size:12px;font-weight:900;letter-spacing:.18em;color:var(--indigo)}
+  .kcard h2{font-family:"Noto Serif JP",serif;font-size:clamp(19px,4.6vw,23px);font-weight:900;line-height:1.5;margin:4px 0 12px}
+  .kcard p{margin:0 0 12px}
+  .kcard p:last-child{margin-bottom:0}
+  .kcard ul,.kcard ol{margin:0 0 12px;padding-left:1.35em}
+  .kcard li{margin-bottom:5px}
+  /* 白文（縦書き） */
+  .sen-box{background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:20px 14px;margin:14px 0;text-align:center;overflow-x:auto}
+  .sen-box .src{font-size:12px;color:var(--ink3);margin-top:10px;letter-spacing:.08em}
+  .haku{display:inline-block;writing-mode:vertical-rl;text-orientation:upright;font-family:"Noto Serif JP","Hiragino Mincho ProN",serif;font-weight:700;font-size:1.85em;line-height:1;color:var(--ink)}
+  .haku .kc{display:inline-flex;align-items:center;justify-content:center;width:1.12em;height:1.52em;position:relative}
+  .haku .kt{position:absolute;left:-0.42em;bottom:0.02em;font-size:.34em;line-height:1;color:var(--accent);font-weight:900;font-family:"Zen Kaku Gothic New",sans-serif}
+  .haku ruby{ruby-position:over}
+  .haku rt{font-size:.52em;font-weight:700;color:var(--accent-ink);font-family:"Zen Kaku Gothic New",sans-serif}
+  .haku .punct{color:var(--ink3)}
+  /* 例文の層 */
+  .layer{border:1px solid var(--line);border-radius:10px;padding:13px 15px;margin-top:10px;background:var(--paper);animation:fade .25s ease}
+  .layer .lb{font-size:11.5px;font-weight:900;letter-spacing:.14em;color:var(--accent);margin-bottom:4px}
+  .layer .bd{font-size:.98em}
+  .layer .bd .kk{font-family:"Noto Serif JP",serif;font-weight:700;font-size:1.12em}
+  .gobi{background:var(--gold-bg);border-radius:10px;padding:11px 14px;font-size:.9em;margin-top:12px}
+  .gobi b{color:var(--gold)}
+  .revealbtn{display:block;width:100%;margin-top:12px;background:var(--indigo);color:#fff;border:none;border-radius:10px;padding:12px;font-family:inherit;font-weight:700;font-size:.95em;cursor:pointer}
+  @media (prefers-color-scheme: dark){.revealbtn{color:#171512}}
+  .revealbtn.hintb{background:var(--paper);color:var(--indigo);border:1.5px dashed var(--indigo)}
+  /* 選択肢・判定 */
+  .choices{display:grid;gap:9px;margin-top:12px}
+  .chbtn{text-align:left;background:var(--paper);border:1.5px solid var(--line2);border-radius:10px;padding:12px 14px;font-family:inherit;font-size:.97em;color:var(--ink);cursor:pointer;line-height:1.65}
+  .chbtn:hover:not(:disabled){border-color:var(--indigo)}
+  .chbtn.sel{border-color:var(--accent);background:var(--accent-bg);font-weight:700}
+  .chbtn:disabled{cursor:default;opacity:.85}
+  .chbtn.right{border-color:var(--green);background:var(--green-bg)}
+  .chbtn.wrong{border-color:var(--accent);background:var(--accent-bg)}
+  .kakutei{display:block;width:100%;margin-top:12px;background:var(--accent);color:#fff;border:none;border-radius:10px;padding:12px;font-family:inherit;font-weight:900;font-size:1em;cursor:pointer}
+  @media (prefers-color-scheme: dark){.kakutei{color:#171512}}
+  .kakutei:disabled{opacity:.4;cursor:not-allowed}
+  .judge{margin-top:14px;border-radius:12px;padding:16px;text-align:center;animation:fade .25s ease}
+  .judge.ok{background:var(--green-bg);border:1.5px solid var(--green)}
+  .judge.ng{background:var(--accent-bg);border:1.5px solid var(--accent)}
+  .judge .mark{font-size:44px;font-weight:900;line-height:1.1;font-family:"Noto Serif JP",serif}
+  .judge.ok .mark{color:var(--green)}
+  .judge.ng .mark{color:var(--accent)}
+  .judge .jt{font-weight:900;font-size:1.05em;margin-top:2px}
+  .judge .js{font-size:.9em;color:var(--ink2);margin-top:4px}
+  .retrybtn{margin-top:10px;background:var(--paper);border:1.5px solid var(--line2);border-radius:999px;padding:8px 18px;font-family:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+  .selfjudge{display:flex;gap:9px;margin-top:12px}
+  .selfjudge button{flex:1;border-radius:10px;padding:11px;font-family:inherit;font-weight:700;cursor:pointer;border:1.5px solid var(--line2);background:var(--paper);color:var(--ink)}
+  .selfjudge button.picked-ok{border-color:var(--green);background:var(--green-bg)}
+  .selfjudge button.picked-ng{border-color:var(--accent);background:var(--accent-bg)}
+  .answer-box{border:1.5px solid var(--green);background:var(--green-bg);border-radius:10px;padding:13px 15px;margin-top:12px;animation:fade .25s ease}
+  .answer-box .lb{font-size:11.5px;font-weight:900;letter-spacing:.14em;color:var(--green);margin-bottom:4px}
+  /* ステップ一覧 */
+  .steplist{display:none;background:var(--paper);border:1px solid var(--line2);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px 18px;margin-top:12px}
+  .steplist.open{display:block}
+  .steplist .sl-sec{font-size:12px;font-weight:900;letter-spacing:.14em;color:var(--indigo);margin:12px 0 4px}
+  .steplist .sl-sec:first-child{margin-top:0}
+  .sl-row{display:flex;gap:10px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);padding:9px 4px;cursor:pointer;color:var(--ink);font-family:inherit;font-size:.92em;align-items:center}
+  .sl-row:last-child{border-bottom:none}
+  .sl-row .n{flex:0 0 auto;width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;background:var(--paper)}
+  .sl-row.cur .n{background:var(--accent);border-color:var(--accent);color:#fff}
+  @media (prefers-color-scheme: dark){.sl-row.cur .n{color:#171512}}
+  .sl-row .ck{margin-left:auto;color:var(--green);font-weight:900;flex:0 0 auto}
+  .knav{display:flex;gap:10px;margin-top:16px}
+  .knav button{flex:1;border-radius:12px;padding:13px;font-family:inherit;font-weight:700;font-size:.95em;cursor:pointer;border:1px solid var(--line);background:var(--paper);color:var(--ink);box-shadow:var(--shadow)}
+  .knav button.nextb{background:var(--accent);color:#fff;border-color:var(--accent)}
+  @media (prefers-color-scheme: dark){.knav button.nextb{color:#171512}}
+  .knav button:disabled{opacity:.4;cursor:not-allowed;box-shadow:none}
+  .ktxt{font-size:.62em;color:var(--accent);font-weight:900;vertical-align:-.12em;margin:0 .05em}
+  .kanshi-line{font-family:"Noto Serif JP",serif;font-size:19px;font-weight:700;letter-spacing:.12em}
+  /* 古文の例文（横書き） */
+  .sen-box.yoko{text-align:left;padding:18px 20px}
+  .gsen{font-family:"Noto Serif JP","Hiragino Mincho ProN",serif;font-weight:700;font-size:1.32em;line-height:1.9}
 </style>
 </head>
 <body>
@@ -182,7 +272,7 @@
   <section class="view active" id="view-home">
     <div class="lead">
       <h1>科目を選んで、学習をはじめましょう。</h1>
-      <p>高校生のためのオンライン学習参考書です。現在は<strong>古文（文法）</strong>を公開しています。ほかの科目は準備が整い次第、順次公開します。</p>
+      <p>高校生のためのオンライン学習参考書です。現在は<strong>古文（文法）</strong>と<strong>漢文</strong>を公開しています。ほかの科目は準備が整い次第、順次公開します。</p>
     </div>
 
     <div class="sec-label">国語</div>
@@ -195,11 +285,11 @@
         <div class="desc">文法中心。現代語とのつながりから入り、用言の活用・助動詞・助詞・敬語・識別までを学習順に学びます。</div>
         <div class="go">古文を開く →</div>
       </button>
-      <button class="subj" disabled aria-disabled="true">
-        <span class="kana">カンブン</span> <span class="badge soon">リリース前</span>
+      <button class="subj" onclick="go('kanbun')">
+        <span class="kana">カンブン</span> <span class="badge now">公開中</span>
         <div class="name">漢文</div>
-        <div class="desc">句法・句形中心。返り点・送り仮名の読み方から、代表的な句形を学ぶ予定です。</div>
-        <div class="go">準備中</div>
+        <div class="desc">訓読・句法をスモールステップで学びます。導入の段差を極限まで低くし、返り点から句法・句形、書き下し総合まで14単元。重要漢字と漢詩のページもあります。</div>
+        <div class="go">漢文を開く →</div>
       </button>
     </div>
 
@@ -246,9 +336,9 @@
     <div class="howto">
       <h2>この参考書の使い方</h2>
       <ol>
-        <li>科目を選ぶ（現在は「古文」のみ公開中）</li>
-        <li>分野を選ぶ（古文は「文法」を公開中）</li>
-        <li>単元を上から順に読む。各単元は「概要 → 解説 → 実用例 → 注意点」の4部構成です</li>
+        <li>科目を選ぶ（現在は「古文」「漢文」を公開中）</li>
+        <li>分野を選ぶ（古文は「文法」、漢文は「訓読・句法」「重要漢字」「漢詩」）</li>
+        <li>古文・漢文の単元は、どちらも1画面1ステップのスモールステップ式です。各単元は「概要 → 解説 → 実用例 → 注意点」の4部で構成され、例文は層を1つずつ開きながら読み、ミニ確認で確かめます</li>
         <li>活用表のある単元では、表を見ながら例文で使い方を確認してください</li>
       </ol>
     </div>
@@ -276,7 +366,7 @@
       <button class="choice" onclick="go('bunpo')">
         <span class="badge now">公開中</span>
         <div class="name">文法</div>
-        <div class="desc">導入 → 用言の活用 → 助動詞 → 助詞 → 敬語 → 識別、という学習順に13単元を用意しています。すべての単元に最初からアクセスできます。</div>
+        <div class="desc">導入 → 用言の活用 → 助動詞 → 助詞 → 敬語 → 識別、という学習順に13単元を用意しています。各単元は「概要・解説・実用例・注意点」の4部を小節に分けたスモールステップ式で、助動詞は意味の近いもの同士で分類して学びます。すべての単元に最初からアクセスできます。</div>
         <div class="go">文法の単元一覧へ →</div>
       </button>
     </div>
@@ -295,7 +385,7 @@
     <button class="backbtn" onclick="go('kobun')">← 古文にもどる</button>
     <div class="lead">
       <h1>古典文法 ― 単元一覧</h1>
-      <p>学習順に並んでいます。初学者は上から順に進むのがおすすめですが、<strong>すべての単元に最初からアクセスできます</strong>。学校で習った範囲の復習や、つまずいた箇所だけの確認にも使ってください。</p>
+      <p>学習順に並んでいます。各単元は「概要 → 解説 → 実用例 → 注意点」の4部を小節に分けた<strong>スモールステップ式</strong>で、1画面ずつ進みます。例文は層を1つずつ開いて読み、ミニ確認（正誤判定つき）で確かめ、単元の最後に「思い出す形式」のまとめが置かれています。初学者は上から順に進むのがおすすめですが、<strong>すべての単元に最初からアクセスできます</strong>。</p>
     </div>
     <div id="unit-list"></div>
   </section>
@@ -306,6 +396,137 @@
     <div id="unit-body"></div>
   </section>
 
+  <!-- ══════════ ⑤ 漢文：分野選択 ══════════ -->
+  <section class="view" id="view-kanbun">
+    <button class="backbtn" onclick="go('home')">← 科目選択にもどる</button>
+    <div class="lead">
+      <h1>漢文</h1>
+      <p>漢文は、中国で書かれた文章を、日本語の語順に直して読む（<strong>訓読</strong>）科目です。いきなり原文に触れると拒否感を持ちやすいので、本書では<strong>導入の段差を極限まで低く</strong>し、「漢文と日本語の違いは語順が中心」という確認から始めます。分野は3つです。まずは「訓読・句法」の単元1から進んでください。</p>
+    </div>
+    <div class="choice-grid" style="grid-template-columns:1fr">
+      <button class="choice" onclick="go('kunpo')">
+        <span class="badge now">公開中</span>
+        <div class="name">訓読・句法</div>
+        <div class="desc">導入 → 訓読の基礎（返り点・置き字・再読文字）→ 句法・句形（意味の性質ごと：否定・疑問反語・受身・使役・比較・限定・仮定・禁止・命令・感嘆）→ 書き下し総合、の14単元。1単元は小節ごとに分かれ、各小節は「武器 → 体験 → 解説 → 例文 → ミニ確認」のスモールステップで進みます。単元の最後には、句形を見分けるステップと、思い出す形式のまとめが置かれています。</div>
+        <div class="go">単元一覧へ →</div>
+      </button>
+      <button class="choice" onclick="go('kanji')">
+        <span class="badge now">公開中</span>
+        <div class="name">重要漢字</div>
+        <div class="desc">句法と結びつく重要漢字を、働きのグループごとに整理しました。各字に音読み・訓読み・意味と、短い例文（書き下し・訳つき）を付けています。単元で出会った字の確認にも使えます。</div>
+        <div class="go">重要漢字を開く →</div>
+      </button>
+      <button class="choice" onclick="go('kanshi')">
+        <span class="badge now">公開中</span>
+        <div class="name">漢詩</div>
+        <div class="desc">漢詩の形式（五言・七言、絶句・律詩）、押韻・対句・起承転結のしくみを解説し、李白「静夜思」を全句、注釈つきで読みます。</div>
+        <div class="go">漢詩を開く →</div>
+      </button>
+    </div>
+    <div class="howto">
+      <h2>漢文の学び方</h2>
+      <ol>
+        <li>「訓読・句法」を単元1から順に進むのが基本です（全単元に最初からアクセスできます）</li>
+        <li>例文は、原文 → 注釈 → 読む順 → 書き下し → 訳 → 理由、の層を1タップずつ開いて読みます</li>
+        <li>まだ正式に習っていない読み方・送り仮名は、習うまで毎回併記します。現代では使わない読みの語には、読みと意味の両方を付けます</li>
+        <li>進捗のチェック（✓）は、このページを開いている間だけ保持されます</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ══════════ ⑥ 漢文：訓読・句法 単元一覧 ══════════ -->
+  <section class="view" id="view-kunpo">
+    <button class="backbtn" onclick="go('kanbun')">← 漢文にもどる</button>
+    <div class="lead">
+      <h1>訓読・句法 ― 単元一覧</h1>
+      <p>句法・句形の単元は、句形ごとではなく<strong>意味の性質ごと</strong>に立てています。同じ意味を表す句形が1か所に集まるので、単元の中で使い分けを比べられます。各単元は小節（句形ごと）に分かれ、小節ごとにスモールステップで学びます。</p>
+    </div>
+    <div id="kunit-list"></div>
+  </section>
+
+  <!-- ══════════ ⑦ 漢文：単元プレイヤー ══════════ -->
+  <section class="view" id="view-kunit">
+    <button class="backbtn" onclick="go('kunpo')">← 単元一覧にもどる</button>
+    <div id="kunit-body"></div>
+  </section>
+
+  <!-- ══════════ ⑧ 漢文：重要漢字 ══════════ -->
+  <section class="view" id="view-kanji">
+    <button class="backbtn" onclick="go('kanbun')">← 漢文にもどる</button>
+    <div class="lead">
+      <h1>重要漢字</h1>
+      <p>漢文の漢字は、1字が文法の働きを持つことが多いのが特徴です。ここでは訓読・句法の単元の順序に合わせて、<strong>働きのグループごと</strong>に整理しました。「訓読み」欄には書き下しで使う読みを、「例」には白文と書き下し・訳を付けています。現代では使わない読みの語には意味も添えています。</p>
+    </div>
+    <div id="kanji-body"></div>
+  </section>
+
+  <!-- ══════════ ⑨ 漢文：漢詩 ══════════ -->
+  <section class="view" id="view-kanshi">
+    <button class="backbtn" onclick="go('kanbun')">← 漢文にもどる</button>
+    <div class="lead">
+      <h1>漢詩</h1>
+      <p>漢詩は、決まった字数と音の約束の中で作られる中国の詩です。約束が決まっているからこそ、型を知れば初見の詩でも読み解けます。まず形式としくみを押さえ、最後に李白の「静夜思」を全句読みます。</p>
+    </div>
+
+    <div class="block">
+      <div class="block-head gaiyou"><span class="ic">形</span><h2>形式 ― 字数と句の数で決まる</h2></div>
+      <p>漢詩の形式は、<span class="key">1句の字数</span>と<span class="key">全体の句数</span>の組み合わせで決まります。1句は5字（五言）か7字（七言）が基本で、2句で1つのまとまり（聯）を作ります。</p>
+      <div class="tbl-wrap"><table class="katsuyo"><caption>漢詩の主な形式</caption><thead><tr><th>形式</th><th>句数</th><th>字数（五言／七言）</th><th>特徴</th></tr></thead><tbody>
+      <tr><th>絶句</th><td>4句</td><td>20字／28字</td><td>最も短い形式。起承転結の構成が基本</td></tr>
+      <tr><th>律詩</th><td>8句</td><td>40字／56字</td><td>中間の2聯（第2・第3聯）に対句が必須</td></tr>
+      <tr><th>排律</th><td>10句以上</td><td>―</td><td>律詩を長くした形式。試験では参考程度</td></tr>
+      <tr><th>古詩</th><td>制限なし</td><td>―</td><td>近体詩の約束に縛られない、古い形式の総称</td></tr>
+      </tbody></table></div>
+      <p>絶句と律詩を合わせて<strong>近体詩</strong>といいます。近体詩には、次に説明する押韻・対句・平仄（ひょうそく）の約束があります。</p>
+    </div>
+
+    <div class="block">
+      <div class="block-head kaisetsu"><span class="ic">韻</span><h2>しくみ ― 押韻・対句・平仄・起承転結</h2></div>
+      <h3>1. 押韻（おういん）</h3>
+      <p>決まった句の最後の字に、<strong>同じ響きの韻（いん）</strong>の字をそろえる約束です。絶句では第1句・第2句・第4句の句末で韻を踏むのが基本（第1句は踏まない場合もあります）で、第3句の句末は韻を踏みません。韻は中国語の発音での響きの一致なので、日本語の音読みでも響きが似る字が選ばれることが多いです。</p>
+      <h3>2. 対句（ついく）</h3>
+      <p>2句を1組にして、<strong>字数・品詞・意味の構成をそろえる</strong>技法です。たとえば「山」に対して「水」、「高い」に対して「深い」のように、対になる言葉を並べます。律詩では中間の2聯が対句でなければなりません。絶句でも対句が使われることがあります。</p>
+      <h3>3. 平仄（ひょうそく）</h3>
+      <p>漢字の音には、平らかな音（平声）と、上がったり詰まったりする音（仄声）があります。近体詩では句の中の字の平仄の並びに規則があり、これを<strong>平仄式</strong>といいます。細かい式の暗記までは不要ですが、「音の並びにも約束がある」ことと、平仄が合わない字をわざと置くことはできない、という原則を押さえてください。</p>
+      <h3>4. 起承転結（きしょうてんけつ）</h3>
+      <p>絶句4句の役割分担です。<strong>起句</strong>で場面を起こし、<strong>承句</strong>で受けて深め、<strong>転句</strong>で視点や場面を転じ、<strong>結句</strong>で気持ちに落として締めます。転句で何が「転じた」かを見つけることが、絶句を読む最大の手がかりです。</p>
+    </div>
+
+    <div class="block">
+      <div class="block-head jitsuyou"><span class="ic">詩</span><h2>実例 ― 李白「静夜思」</h2></div>
+      <p>唐の詩人・李白の五言絶句です。故郷を離れて旅の空にある人が、月を見て故郷を思う気持ちを詠みました。まず白文を縦書きで示します。</p>
+      <div class="sen-box"><span class="haku"><span class="kc">床</span><span class="kc">前</span><span class="kc">明</span><span class="kc">月</span><span class="kc">光</span><span class="kc punct">、</span><span class="kc">疑</span><span class="kc">是</span><span class="kc">地</span><span class="kc">上</span><span class="kc">霜</span><span class="kc punct">。</span><span class="kc">挙</span><span class="kc">頭</span><span class="kc">望</span><span class="kc">明</span><span class="kc">月</span><span class="kc punct">、</span><span class="kc">低</span><span class="kc">頭</span><span class="kc">思</span><span class="kc">故</span><span class="kc">郷</span><span class="kc punct">。</span></span><div class="src">李白「静夜思」― 五言絶句</div></div>
+      <h3>書き下し文</h3>
+      <p class="old" style="font-size:17px;line-height:2">床前（しやうぜん）明月の光、疑ふらくは是れ地上の霜かと。頭を挙げて明月を望み、頭を低（た）れて故郷を思ふ。</p>
+      <h3>現代語訳</h3>
+      <p>寝台の前に、明るい月の光が差している。まるで地面に降りた霜ではないかと思った。頭を上げて明るい月を眺め、頭をうつむけて故郷のことを思う。</p>
+      <h3>句ごとの注釈</h3>
+      <ul>
+        <li><strong>第1句「床前明月光」（起）</strong>：床は寝台。寝台の前に月の光が差している、という場面の提示です。</li>
+        <li><strong>第2句「疑是地上霜」（承）</strong>：疑ふらくは＝「〜ではないかと疑う」。月の光を霜に見まがえた、と受けて深めます。</li>
+        <li><strong>第3句「挙頭望明月」（転）</strong>：頭を上げて月を見る、と動作が転じます。光（地上）から月（空）へ視線が上がるのが転換点です。</li>
+        <li><strong>第4句「低頭思故郷」（結）</strong>：頭を低（た）れる＝うつむく。第3句の「挙頭」と「低頭」が対句になっていて、月を見上げた反動で故郷への思いに沈む締めです。</li>
+      </ul>
+      <h3>形式の確認</h3>
+      <ul>
+        <li><strong>押韻</strong>：第1句末「光」・第2句末「霜」・第4句末「郷」が、中国語では同じ「ang」の響きの韻を踏んでいます（音読みでも「コウ・ソウ・キョウ」と響きがそろいます）。第3句末「月」は韻を踏みません。</li>
+        <li><strong>対句</strong>：「挙頭」と「低頭」（上げる／下げる）、「望明月」と「思故郷」（見る／思う）が対になっています。</li>
+        <li><strong>起承転結</strong>：光を見る（起）→ 霜かと疑う（承）→ 月を見上げる（転）→ 故郷を思う（結）。</li>
+      </ul>
+    </div>
+
+    <div class="block">
+      <div class="block-head chuui"><span class="ic">読</span><h2>漢詩を読む手順</h2></div>
+      <ol>
+        <li><strong>形式を確認する</strong>：字数（五言／七言）と句数（絶句／律詩）を見る</li>
+        <li><strong>韻を踏む字を拾う</strong>：句末の字を見て、場面の区切りをつかむ</li>
+        <li><strong>起承転結で場面を追う</strong>：特に転句で何が変わったかを探す</li>
+        <li><strong>書き下して訳す</strong>：訓読・句法で学んだ返り点と句形の道具が、そのまま使えます</li>
+      </ol>
+      <p>漢詩は、訓読の学習の「仕上げの読み物」でもあります。句法の単元を終えたら、もう一度この詩を支えなしで読んでみてください。</p>
+    </div>
+  </section>
+
 </div>
 
 <script>
@@ -313,420 +534,873 @@
 var PHASES = [
   { no:"第1部", title:"導入", note:"現代語から古文へ" },
   { no:"第2部", title:"用言の活用", note:"動詞・形容詞・形容動詞" },
-  { no:"第3部", title:"助動詞", note:"接続 → 意味の順に" },
+  { no:"第3部", title:"助動詞", note:"意味の近いもの同士で学ぶ" },
   { no:"第4部", title:"助詞", note:"文の部品をつなぐ" },
   { no:"第5部", title:"敬語", note:"人間関係を読む" },
   { no:"第6部", title:"識別", note:"紛らわしい語を見分ける" }
 ];
 
-var UNITS = [
+/* 古文：文法 単元データ（漢文と同じステップ形式）
+   小節（sec）＝「概要／解説／実用例／注意点」の4部に対応させ、各小節をスモールステップで進める。
+   ステップの種類は漢文プレイヤーと共通: r=読む / ex=例文(層) / pred=予想(正誤なし) / quiz=ミニ確認(正誤判定) / recall / tbl
+   例文は gsen（横書きの古文）で示し、層は 文法の確認 → 現代語訳 → ポイント の順に開く。 */
+var BUNITS = [
 /* ────────── 0 導入 ────────── */
 {
   phase:0, title:"導入 ― 現代語と古語の関連性",
   sub:"古文は「外国語」ではありません。今の日本語が、時間をかけて姿を変えたものです。まずそのつながりを確認します。",
   tags:["歴史的仮名遣い","音の変化"],
-  overview:"<p>古文を初めて読むと、知らない言葉ばかりに見えます。しかし実際には、<span class='key'>現代語と古語は同じ日本語</span>です。語順は同じ、助詞の顔ぶれもほぼ同じで、単語の多くも形を変えながら今に残っています。違って見える大きな理由は、<strong>①発音の変化が仮名遣いに残っていること</strong>と、<strong>②語尾の変化（活用）の仕組みが現代語より細かいこと</strong>の2つです。この単元では①を、次の単元から②を扱います。まず「思ふ」が「思う」と読める、という感覚をつかんでください。</p>",
-  kaisetsu:"<h3>1. 音が変わると、仮名も変わる ― 歴史的仮名遣い</h3><p>古文の仮名遣いは<strong>歴史的仮名遣い</strong>といい、当時の発音を写しています。時代が下ると発音が変化したのに、書き方は昔のまま残りました。現代仮名遣いへの直し方には、決まった対応があります。</p>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>歴史的仮名遣い → 現代仮名遣い（主な対応）</caption><thead><tr><th>規則</th><th>古文の書き方</th><th>現代の読み</th><th>例</th></tr></thead><tbody>"
-  + "<tr><th>ハ行転呼音</th><td>語中の「は・ひ・ふ・へ・ほ」</td><td>ワ行の音で読む</td><td><span class='old'>思ふ</span>→おも<span class='accent'>う</span>／<span class='old'>言ふ</span>→い<span class='accent'>う</span>／<span class='old'>あはれ</span>→あ<span class='accent'>わ</span>れ</td></tr>"
-  + "<tr><th>拗音の直音化</th><td>「きやう」「てう」など</td><td>長音で読む</td><td><span class='old'>けふ</span>→き<span class='accent'>ょう</span>（今日）／<span class='old'>てふてふ</span>→ち<span class='accent'>ょう</span>ち<span class='accent'>ょう</span>（蝶々）</td></tr>"
-  + "<tr><th>「ゐ・ゑ・を」</th><td>ゐ＝イ、ゑ＝エ、を＝オ</td><td>現代仮名に直す</td><td><span class='old'>ゐる</span>→いる（居る）／<span class='old'>をとこ</span>→おとこ（男）</td></tr>"
-  + "<tr><th>「ぢ・づ」</th><td>ぢ＝ジ、づ＝ズ</td><td>現代仮名に直す</td><td><span class='old'>はなぢ</span>→はなじ（鼻血）／<span class='old'>つづく</span>→つづく（続く）</td></tr>"
-  + "</tbody></table></div><p class='tbl-note'>※ 語頭の「は行」は変わりません（例：<span class='old'>はな</span>→はな）。変わるのは語中・語尾だけです。</p>"
-  + "<h3>2. 単語も、形を変えて生き残っている</h3><p>よく出る古語の多くは、現代語の中に姿を変えて残っています。たとえば<span class='old'>「をかし」</span>は「おかしい（趣がある・面白い）」の元になった語、<span class='old'>「あはれ」</span>は「あわれ」の元です。また、<span class='old'>「いと」</span>（とても）、<span class='old'>「いみじ」</span>（たいそう）のような副詞は現代語に直接の対応がなくても、文の中で何度も出会ううちに覚えられます。<span class='key'>「知らない言語をゼロから覚える」のではなく、「知っている言葉の昔の姿を確認する」</span>――これが古文学習の正しい出発点です。</p>"
-  + "<h3>3. 文の組み立ても同じ</h3><p>古文も現代文も「主語―述語」の語順は同じで、「が・の・を・に・へ・と」といった助詞の顔ぶれもほぼ共通です。違うのは、主語がよく省略されることと、語尾の変化（活用）が細かいことくらいです。活用こそが古典文法の中心であり、本書の第2部以降で順に身につけていきます。</p>",
-  examples:[
-    {orig:"いとをかし。", trans:"<b>とても趣がある。</b>", pt:"「をかし」は現代語「おかしい」の元。ただし意味は「笑える」ではなく「趣がある・面白い」。「いと」は「とても」です。"},
-    {orig:"思ふことあり。", trans:"<b>思うことがある。</b>（読み：おもふ→おもう）", pt:"ハ行転呼音。語尾の「ふ」は「う」と読みます。「思う」は今も使う動詞そのものです。"},
-    {orig:"けふは、てふてふの多く飛び歩く日なり。", trans:"<b>今日は、蝶々がたくさん飛び回る日である。</b>", pt:"「けふ→きょう」「てふてふ→ちょうちょう」。音の対応を知れば、初見の文でも読み下せます。"}
+  secs:[
+    { t:"概要", steps:[
+      { k:"r", t:"古文は、知っている言葉の「昔の姿」", b:"<p>古文を初めて読むと、知らない言葉ばかりに見えます。しかし実際には、<span class='key'>現代語と古語は同じ日本語</span>です。語順は同じ、助詞の顔ぶれもほぼ同じで、単語の多くも形を変えながら今に残っています。</p><p>違って見える大きな理由は2つだけです。<strong>①発音の変化が仮名遣いに残っていること</strong>、<strong>②語尾の変化（活用）の仕組みが現代語より細かいこと</strong>。この単元では①を、次の単元から②を扱います。まず「思ふ」が「思う」と読める、という感覚をつかんでください。</p>", box:"「知らない言語をゼロから覚える」のではなく、「知っている言葉の昔の姿を確認する」――これが古文学習の正しい出発点です。" }
+    ]},
+    { t:"解説 ― 歴史的仮名遣い", steps:[
+      { k:"r", t:"音が変わると、仮名がずれる", b:"<p>古文の仮名遣いは<strong>歴史的仮名遣い</strong>といい、書かれた当時の発音を写しています。時代が下ると発音のほうが変化したのに、書き方は昔のまま残りました。だから、現代仮名遣いへの直し方には<strong>決まった対応</strong>があります。対応さえ知れば、初見の語でも読み下せます。</p>" },
+      { k:"tbl", t:"対応表 ― 歴史的仮名遣い → 現代仮名遣い", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>歴史的仮名遣い → 現代仮名遣い（主な対応）</caption><thead><tr><th>規則</th><th>古文の書き方</th><th>現代の読み</th><th>例</th></tr></thead><tbody>"
+        + "<tr><th>ハ行転呼音</th><td>語中の「は・ひ・ふ・へ・ほ」</td><td>ワ行の音で読む</td><td><span class='old'>思ふ</span>→おも<span class='accent'>う</span>／<span class='old'>言ふ</span>→い<span class='accent'>う</span>／<span class='old'>あはれ</span>→あ<span class='accent'>わ</span>れ</td></tr>"
+        + "<tr><th>拗音の直音化</th><td>「きやう」「てう」など</td><td>長音で読む</td><td><span class='old'>けふ</span>→き<span class='accent'>ょう</span>（今日）／<span class='old'>てふてふ</span>→ち<span class='accent'>ょう</span>ち<span class='accent'>ょう</span>（蝶々）</td></tr>"
+        + "<tr><th>「ゐ・ゑ・を」</th><td>ゐ＝イ、ゑ＝エ、を＝オ</td><td>現代仮名に直す</td><td><span class='old'>ゐる</span>→いる（居る）／<span class='old'>をとこ</span>→おとこ（男）</td></tr>"
+        + "<tr><th>「ぢ・づ」</th><td>ぢ＝ジ、づ＝ズ</td><td>現代仮名に直す</td><td><span class='old'>はなぢ</span>→はなじ（鼻血）／<span class='old'>つづく</span>→つづく（続く）</td></tr>"
+        + "</tbody></table></div><p class='tbl-note'>※ 語頭の「は行」は変わりません（例：<span class='old'>はな</span>→はな）。変わるのは語中・語尾だけです。</p>" },
+      { k:"ex", t:"例文 ― 対応を使って読む", lead:"「思ふ」を、対応表の知識だけで読んでみます。層を1つずつ開いてください。",
+        gsen:"思ふことあり。",
+        layers:[
+          ["読み方の確認","「思<strong>ふ</strong>」は語尾なので、ハ行転呼音で「う」と読みます → <span class='kk'>思う</span>ことあり。「思う」は今も使う動詞そのものです。"],
+          ["現代語訳","<b>思うことがある。</b>"],
+          ["ポイント","知らない単語ではありませんでした。「昔の書き方」を「今の音」に直すだけで読める――これが歴史的仮名遣いの正体です。"]
+        ]},
+      { k:"quiz", t:"ミニ確認 ― ハ行転呼音", q:"「言ふ」の現代語の読みとして正しいものはどれですか。",
+        choices:["げんふ","いう","ことふ"], ans:1,
+        why:["「言ふ」の「ふ」は<strong>語尾</strong>にあります。","ハ行転呼音は、語中・語尾の「ふ」を「う」と読む規則でした。","だから「言ふ」は「いう」と読みます。語頭の「は行」は変わらない、という点とセットで覚えてください。"] }
+    ]},
+    { t:"解説 ― 単語と文のつながり", steps:[
+      { k:"r", t:"単語も、形を変えて生き残っている", b:"<p>よく出る古語の多くは、現代語の中に姿を変えて残っています。たとえば<span class='old'>「をかし」</span>は「おかしい」の元になった語、<span class='old'>「あはれ」</span>は「あわれ」の元です。ただし注意点が1つあります。<strong>形が残っていても、意味がずれている</strong>ことがあるのです。「をかし」の中心の意味は「笑える」ではなく「趣がある・面白い」です。</p><p>また、<span class='old'>「いと」</span>（とても）、<span class='old'>「いみじ」</span>（たいそう）のような副詞は、文の中で何度も出会ううちに覚えられます。単語は文法のあとに回すのが本書の方針です。まず「型」を先に身につけます。</p>" },
+      { k:"r", t:"文の組み立ても同じ", b:"<p>古文も現代文も「主語―述語」の語順は同じで、「が・の・を・に・へ・と」といった助詞の顔ぶれもほぼ共通です。違うのは、<strong>主語がよく省略されること</strong>と、<strong>語尾の変化（活用）が細かいこと</strong>くらいです。</p><p>活用こそが古典文法の中心であり、本書の第2部以降で順に身につけていきます。次の単元から、いよいよ活用に入ります。</p>" }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― 知っている語の昔の姿", lead:"訳を考える前に、「知っている言葉の昔の姿」として読めるか試してください。",
+        gsen:"いとをかし。",
+        layers:[
+          ["文法の確認","「いと」は副詞（とても）、「をかし」は形容詞「をかし」の終止形です。文を言い切る形で終わっています。"],
+          ["現代語訳","<b>とても趣がある。</b>"],
+          ["ポイント","「をかし」は現代語「おかしい」の元ですが、意味は「趣がある・面白い」。意味のずれに気づけるかが、この文の読みの分かれ目です。"]
+        ]},
+      { k:"ex", t:"実用例② ― 対応を2つ重ねる", lead:"今度は支えを減らします。読み方の層はヒントとして開けます。",
+        gsen:"けふは、てふてふの多く飛び歩く日なり。",
+        layers:[
+          ["読み方の確認","「けふ」→きょう（今日）、「てふてふ」→ちょうちょう（蝶々）。どちらも拗音の直音化です。",1],
+          ["現代語訳","<b>今日は、蝶々がたくさん飛び回る日である。</b>"],
+          ["ポイント","文末の「なり」は「〜である」という断定を表す語です。詳しくは助動詞の単元で扱いますが、「文を言い切る働き」だけ先に感じ取ってください。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― 3つだけ先に", b:"<ul><li>ハ行転呼音が起きるのは<strong>語中・語尾だけ</strong>です。語頭の「は・ひ・ふ・へ・ほ」は現代と同じ読みです（例：<span class='old'>はしる</span>→はしる）。</li><li>「をかし」「あはれ」のように、現代語に残っていても<strong>意味がずれている語</strong>があります。知っているつもりで読むのが一番危険です。</li><li>歴史的仮名遣いは「読むとき」に直すものです。原文を扱うときは、原文の仮名遣いのままにします。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "ハ行転呼音が起きるのは<strong>語中・語尾だけ</strong>です。語頭の「は・ひ・ふ・へ・ほ」は現代と同じ読みです（例：<span class='old'>はしる</span>→はしる）。",
-    "「をかし」「あはれ」のように、現代語に残っていても<strong>意味がずれている語</strong>があります。知っているつもりで読むのが一番危険です。",
-    "歴史的仮名遣いは「読むとき」に直すものです。古文を書く・答えるときは、原文の仮名遣いのまま扱うのが原則です。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点</caption><thead><tr><th>項目</th><th>要点</th></tr></thead><tbody>"
+    + "<tr><th>古文の正体</th><td>現代語と同じ日本語。違いの中心は①仮名遣い（発音の変化）②活用の細かさ</td></tr>"
+    + "<tr><th>ハ行転呼音</th><td>語中・語尾の はひふへほ → ワ行の音（思ふ→思う）</td></tr>"
+    + "<tr><th>拗音の直音化</th><td>けふ→きょう、てふてふ→ちょうちょう</td></tr>"
+    + "<tr><th>意味のずれ</th><td>をかし＝趣がある・面白い（「笑える」ではない）</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"「思ふ」を現代仮名遣いで読むと何ですか。また、そう読む規則の名前は何ですか。", a:"「思う」。語中・語尾のハ行の仮名をワ行の音で読む<strong>ハ行転呼音</strong>です。" },
+      { q:"「けふ」「てふてふ」は現代語で何ですか。", a:"「けふ」＝今日（きょう）、「てふてふ」＝蝶々（ちょうちょう）。拗音が長音に変わった例です。" },
+      { q:"「をかし」の意味を、現代語の「おかしい」との違いに触れて答えてください。", a:"中心の意味は「趣がある・面白い」。現代語の「おかしい（笑える・変だ）」とは意味がずれています。" }
+    ]}
 },
 /* ────────── 1 用言の活用とは ────────── */
 {
   phase:1, title:"用言の活用とは ― 6つの活用形",
   sub:"すべての活用は、6つの「活用形」の理解から始まります。ここが古典文法全体の土台です。",
-  tags:["活用形","語幹と活用語尾", "表あり"],
-  overview:"<p><strong>活用</strong>とは、言葉があとに続く言葉（接続）によって<span class='key'>語尾の形を変える</span>ことです。活用する言葉を<strong>用言</strong>（動詞・形容詞・形容動詞）と助動詞といい、用言は文の述語の中心になります。活用の形は全部で6種類あり、これを<strong>活用形</strong>と呼びます。変わらない部分を<strong>語幹</strong>、変わる部分を<strong>活用語尾</strong>といいます。この6つの名前と働きを覚えることが、助動詞の学習への入口になります。</p>",
-  kaisetsu:"<h3>1. 6つの活用形とその働き</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>活用形の一覧 ― 動詞「書く（四段活用）」で確認する</caption><thead><tr><th>活用形</th><th>形（書く）</th><th>主な働き・接続</th><th>現代語での感覚</th></tr></thead><tbody>"
-  + "<tr><th>未然形</th><td>書<span class='accent'>か</span></td><td>打消「ず」、助動詞「む・る」などが続く。「〜ない・〜うとする」前の形</td><td>書か（ない）</td></tr>"
-  + "<tr><th>連用形</th><td>書<span class='accent'>き</span></td><td>用言や「て・つ・ぬ・たり」などが続く。文を途中でつなぐ形</td><td>書き（ます）</td></tr>"
-  + "<tr><th>終止形</th><td>書<span class='accent'>く</span></td><td>文を言い切って終わる形</td><td>書く</td></tr>"
-  + "<tr><th>連体形</th><td>書<span class='accent'>く</span></td><td>体言（名詞）にかかる形。「〜する（名詞）」</td><td>書く（本）</td></tr>"
-  + "<tr><th>已然形</th><td>書<span class='accent'>け</span></td><td>係助詞「こそ」を受ける（こそ…已然形）。「〜ので・〜けれど」の形</td><td>書け（ば）※現代語の仮定形に近い</td></tr>"
-  + "<tr><th>命令形</th><td>書<span class='accent'>け</span></td><td>命令を表して文を終える形</td><td>書け</td></tr>"
-  + "</tbody></table></div>"
-  + "<h3>2. 名前のおぼえ方 ― 「まだ・つなぐ・終わる・名詞・こそ・命令」</h3><ul><li><strong>未然形</strong>：「未だ然（しか）らず」＝まだ事が実現していない。だから打消や意志・推量の助動詞が続きます。</li><li><strong>連用形</strong>：用言に連なる（続く）形。文の途中で使います。</li><li><strong>終止形</strong>：文を終止する（終わらせる）形。</li><li><strong>連体形</strong>：体言に連なる形。名詞を修飾します。</li><li><strong>已然形</strong>：「已に然り」＝すでにそうなっている、の意味。確定した条件「〜ので・〜けれど」を表し、係助詞「こそ」の結びになります。</li><li><strong>命令形</strong>：命令で文を終える形。</li></ul>"
-  + "<div class='point-box'><b>最重要ポイント：</b>助動詞は「どの活用形に接続するか」が決まっています。だから活用形の判別は、そのまま助動詞の意味の判別につながります。第3部では常に「接続」を確認しながら進めてください。</div>",
-  examples:[
-    {orig:"花咲かず。", trans:"<b>花が咲かない。</b>", pt:"「咲か」は未然形。打消の助動詞「ず」は未然形に接続します。"},
-    {orig:"花咲き、鳥鳴く。", trans:"<b>花が咲き、鳥が鳴く。</b>", pt:"「咲き」は連用形で文をつなぎ、「鳴く」は終止形で文を言い切っています。"},
-    {orig:"いとおもしろき花かな。", trans:"<b>とても見事な花だなあ。</b>", pt:"「おもしろき」は形容詞「おもしろし」の連体形。体言「花」にかかっています。"}
+  tags:["活用形","語幹と活用語尾","表あり"],
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"「あはれ」の読みとして正しいものはどれですか。",
+        choices:["あはれ（そのまま）","あわれ","あぱれ"], ans:1,
+        why:["「は」は語の<strong>中</strong>にあります。","語中の「は」はハ行転呼音で「わ」と読みます。","だから「あはれ」は「あわれ」と読みます。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"活用とは何か", b:"<p><strong>活用</strong>とは、言葉があとに続く言葉（接続）によって<span class='key'>語尾の形を変える</span>ことです。活用する言葉を<strong>用言</strong>（動詞・形容詞・形容動詞）と助動詞といい、用言は文の述語の中心になります。</p><p>変わらない部分を<strong>語幹</strong>、変わる部分を<strong>活用語尾</strong>といいます。活用の形は全部で6種類あり、これを<strong>活用形</strong>と呼びます。この6つの名前と働きを覚えることが、助動詞の学習への入口になります。</p>" }
+    ]},
+    { t:"解説 ― 6つの活用形", steps:[
+      { k:"tbl", t:"活用形の一覧 ― 動詞「書く」で確認する", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>活用形の一覧 ― 動詞「書く（四段活用）」で確認する</caption><thead><tr><th>活用形</th><th>形（書く）</th><th>主な働き・接続</th><th>現代語での感覚</th></tr></thead><tbody>"
+        + "<tr><th>未然形</th><td>書<span class='accent'>か</span></td><td>打消「ず」、助動詞「む・る」などが続く。「〜ない・〜うとする」前の形</td><td>書か（ない）</td></tr>"
+        + "<tr><th>連用形</th><td>書<span class='accent'>き</span></td><td>用言や「て・つ・ぬ・たり」などが続く。文を途中でつなぐ形</td><td>書き（ます）</td></tr>"
+        + "<tr><th>終止形</th><td>書<span class='accent'>く</span></td><td>文を言い切って終わる形</td><td>書く</td></tr>"
+        + "<tr><th>連体形</th><td>書<span class='accent'>く</span></td><td>体言（名詞）にかかる形。「〜する（名詞）」</td><td>書く（本）</td></tr>"
+        + "<tr><th>已然形</th><td>書<span class='accent'>け</span></td><td>係助詞「こそ」を受ける（こそ…已然形）。「〜ので・〜けれど」の形</td><td>書け（ば）※現代語の仮定形に近い</td></tr>"
+        + "<tr><th>命令形</th><td>書<span class='accent'>け</span></td><td>命令を表して文を終える形</td><td>書け</td></tr>"
+        + "</tbody></table></div>" },
+      { k:"r", t:"名前のおぼえ方 ― 意味から覚える", b:"<ul><li><strong>未然形</strong>：「未だ然（しか）らず」＝まだ事が実現していない。だから打消や意志・推量の助動詞が続きます。</li><li><strong>連用形</strong>：用言に連なる（続く）形。文の途中で使います。</li><li><strong>終止形</strong>：文を終止する（終わらせる）形。</li><li><strong>連体形</strong>：体言に連なる形。名詞を修飾します。</li><li><strong>已然形</strong>：「已に然り」＝すでにそうなっている。確定した条件「〜ので・〜けれど」を表し、係助詞「こそ」の結びになります。</li><li><strong>命令形</strong>：命令で文を終える形。</li></ul>", box:"<b>最重要ポイント：</b>助動詞は「どの活用形に接続するか」が決まっています。だから活用形の判別は、そのまま助動詞の意味の判別につながります。助動詞の単元では常に「接続」を確認しながら進めます。" },
+      { k:"quiz", t:"ミニ確認 ― 活用形の働き", q:"係助詞「こそ」を受けて文を結ぶとき、結びの語はどの活用形になりますか。",
+        choices:["連体形","已然形","終止形"], ans:1,
+        why:["「こそ」の結びは、活用形の表で<strong>已然形</strong>の行に書かれていました。","已然形は「已に然り」＝すでにそうなっている、という確定の形です。","強調の「こそ」と確定の已然形が組になる、と覚えてください（例：花こそ咲け）。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― 未然形と連用形", lead:"同じ動詞「咲く」の、2つの活用形を見分けます。",
+        gsen:"花咲かず。花咲き、鳥鳴く。",
+        layers:[
+          ["文法の確認","「咲<strong>か</strong>」は未然形で、打消の助動詞「ず」が続いています。「咲<strong>き</strong>」は連用形で、文を途中でつないでいます。「鳴く」は終止形で文を言い切っています。"],
+          ["現代語訳","<b>花が咲かない。花が咲き、鳥が鳴く。</b>"],
+          ["ポイント","活用形の判別は「あとに何が続くか」で行います。ず が続けば未然形、文が続けば連用形、という具合です。"]
+        ]},
+      { k:"ex", t:"実用例② ― 連体形", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"いとおもしろき花かな。",
+        layers:[
+          ["文法の確認","「おもしろ<strong>き</strong>」は形容詞「おもしろし」の連体形。体言「花」にかかっています。",1],
+          ["現代語訳","<b>とても見事な花だなあ。</b>"],
+          ["ポイント","あとに名詞が続けば連体形。この「後ろを見る」習慣が、すべての判別の土台になります。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― 同じ形の見分け", b:"<ul><li>四段活用など多くの動詞では<strong>終止形と連体形が同じ形</strong>になります。あとに体言が続けば連体形、文が終われば終止形、と<strong>後ろの言葉で判断</strong>します。</li><li>已然形と命令形も同形になる動詞が多い（書け）。「こそ」を受けていれば已然形、文末で命令なら命令形です。</li><li>現代語の「仮定形（書けば）」と古文の已然形は役割が少し違います。已然形は「確定した条件」であり、「こそ」の結びになる点が最大の特徴です。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "四段活用など多くの動詞では<strong>終止形と連体形が同じ形</strong>になります。あとに体言が続けば連体形、文が終われば終止形、と<strong>後ろの言葉で判断</strong>します。",
-    "已然形と命令形も同形になる動詞が多い（書け）。「こそ」を受けていれば已然形、文末で命令なら命令形です。",
-    "現代語の「仮定形（書けば）」と古文の已然形は役割が少し違います。已然形は「確定した条件」であり、「こそ」の結びになる点が最大の特徴です。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点 ― 活用形の働き</caption><thead><tr><th>活用形</th><th>働きの合言葉</th></tr></thead><tbody>"
+    + "<tr><th>未然形</th><td>まだ実現していない → 打消・推量・意志が続く</td></tr>"
+    + "<tr><th>連用形</th><td>文の途中でつなぐ</td></tr>"
+    + "<tr><th>終止形</th><td>文を言い切る</td></tr>"
+    + "<tr><th>連体形</th><td>体言（名詞）にかかる</td></tr>"
+    + "<tr><th>已然形</th><td>確定した条件／「こそ」の結び</td></tr>"
+    + "<tr><th>命令形</th><td>命令で終える</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"活用形は全部でいくつありますか。名前をすべて言ってください。", a:"6つ。未然形・連用形・終止形・連体形・已然形・命令形です。" },
+      { q:"「書く」の未然形・連用形・已然形をそれぞれ言ってください。", a:"未然形「書か」、連用形「書き」、已然形「書け」です。" },
+      { q:"助動詞を学ぶとき、活用形の判別がなぜ大切なのですか。", a:"助動詞は「どの活用形に接続するか」が決まっているからです。活用形が判別できれば、付いている助動詞とその意味も絞り込めます。" }
+    ]}
 },
 /* ────────── 2 動詞 ────────── */
 {
   phase:1, title:"動詞の活用の種類 ― 9つの型",
   sub:"動詞の活用は9種類。種類ごとに活用表の形が決まっているので、表ごと体に覚え込ませます。",
-  tags:["四段","上一段","カ変・サ変", "表あり"],
-  overview:"<p>動詞の活用の種類は<strong>全部で9つ</strong>です。名前は「活用語尾が、五十音図のどの段に現れるか」で決まります。たとえば四段活用はア・イ・ウ・エの四段に、上一段活用はイ段だけに活用語尾が現れます。不規則なのはカ行変格（カ変）・サ行変格（サ変）・ナ行変格（ナ変）・ラ行変格（ラ変）の4つで、該当する動詞はごく少数です。まず<span class='key'>四段活用を基準に覚え、残りは「違い」として覚える</span>のが効率的です。</p>",
-  kaisetsu:"<h3>1. 動詞の活用表（全9種）</h3><p>各行の動詞は代表例です。太字部分が活用語尾です。</p>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>動詞の活用表 ― 9つの活用の種類</caption><thead><tr><th>活用の種類</th><th>例</th><th>未然形</th><th>連用形</th><th>終止形</th><th>連体形</th><th>已然形</th><th>命令形</th></tr></thead><tbody>"
-  + "<tr><th>四段活用</th><td><span class='old'>書く</span></td><td>書<span class='accent'>か</span></td><td>書<span class='accent'>き</span></td><td>書<span class='accent'>く</span></td><td>書<span class='accent'>く</span></td><td>書<span class='accent'>け</span></td><td>書<span class='accent'>け</span></td></tr>"
-  + "<tr><th>上一段活用</th><td><span class='old'>着る</span></td><td>着</td><td>着</td><td>着<span class='accent'>る</span></td><td>着<span class='accent'>る</span></td><td>着<span class='accent'>れ</span></td><td>着<span class='accent'>よ</span></td></tr>"
-  + "<tr><th>上二段活用</th><td><span class='old'>起く</span></td><td>起<span class='accent'>き</span></td><td>起<span class='accent'>き</span></td><td>起<span class='accent'>く</span></td><td>起<span class='accent'>くる</span></td><td>起<span class='accent'>くれ</span></td><td>起<span class='accent'>きよ</span></td></tr>"
-  + "<tr><th>下一段活用</th><td><span class='old'>蹴る</span></td><td>蹴</td><td>蹴</td><td>蹴<span class='accent'>る</span></td><td>蹴<span class='accent'>る</span></td><td>蹴<span class='accent'>れ</span></td><td>蹴<span class='accent'>よ</span></td></tr>"
-  + "<tr><th>下二段活用</th><td><span class='old'>受く</span></td><td>受<span class='accent'>け</span></td><td>受<span class='accent'>け</span></td><td>受<span class='accent'>く</span></td><td>受<span class='accent'>くる</span></td><td>受<span class='accent'>くれ</span></td><td>受<span class='accent'>けよ</span></td></tr>"
-  + "<tr><th>カ行変格活用</th><td><span class='old'>来</span>（く）</td><td><span class='accent'>こ</span></td><td><span class='accent'>き</span></td><td><span class='accent'>く</span></td><td><span class='accent'>くる</span></td><td><span class='accent'>くれ</span></td><td><span class='accent'>こ</span>／<span class='accent'>こよ</span></td></tr>"
-  + "<tr><th>サ行変格活用</th><td><span class='old'>す</span></td><td><span class='accent'>せ</span></td><td><span class='accent'>し</span></td><td><span class='accent'>す</span></td><td><span class='accent'>する</span></td><td><span class='accent'>すれ</span></td><td><span class='accent'>せよ</span></td></tr>"
-  + "<tr><th>ナ行変格活用</th><td><span class='old'>死ぬ</span></td><td>死<span class='accent'>な</span></td><td>死<span class='accent'>に</span></td><td>死<span class='accent'>ぬ</span></td><td>死<span class='accent'>ぬる</span></td><td>死<span class='accent'>ぬれ</span></td><td>死<span class='accent'>ね</span></td></tr>"
-  + "<tr><th>ラ行変格活用</th><td><span class='old'>あり</span></td><td>あ<span class='accent'>ら</span></td><td>あ<span class='accent'>り</span></td><td>あ<span class='accent'>り</span></td><td>あ<span class='accent'>る</span></td><td>あ<span class='accent'>れ</span></td><td>あ<span class='accent'>れ</span></td></tr>"
-  + "</tbody></table></div>"
-  + "<h3>2. 種類の見分け方 ― 3つの手順</h3><ol><li><strong>まず変格を疑う</strong>：「来・す（〜す）・死ぬ・往ぬ・あり・をり・はべり・いますがり」など変格は顔ぶれが決まっています。複合動詞「〜す」はサ変です。</li><li><strong>「ず」をつけてみる</strong>：未然形＋「ず」で音を確認します。「着ず（きず）」のように語尾が変わらなければ上一段／下一段、「起きず」なら上二段、「受けず」なら下二段、「書かず」なら四段です。</li><li><strong>上一段・下一段は暗記</strong>：上一段は「ひ・い・き・に・み・ゐ・る（非・射・着・似・干・見・居・る）」を含む11語ほど、下一段は「蹴る」1語だけです。</li></ol>"
-  + "<div class='point-box'><b>上一段の覚え方：</b>「<b>ひいきにみゐる</b>」＝干る・射る・着る・似る・干（ひ）る…ではなく、<span class='old'>着る・似る・干る・見（み）る・居（ゐ）る</span>など、イ段で終わる語幹を持つ動詞です。語幹そのものがイ段音で、活用語尾がつかないのが特徴です。</div>",
-  examples:[
-    {orig:"月出づ。", trans:"<b>月が出る。</b>", pt:"「出づ」は下二段活用。終止形は「づ」でも連体形は「づる」になります。現代語では一段化して「出る」になりました。"},
-    {orig:"人来て告ぐ。", trans:"<b>人が来て知らせる。</b>", pt:"「来て」の「き」はカ変の連用形。「来」は活用全体が不規則なので表ごと覚えます。"},
-    {orig:"心死なず。", trans:"<b>心は死なない。</b>", pt:"「死な」はナ変の未然形＋打消「ず」。ナ変は「死ぬ・往ぬ（去ぬ）」など、ごくわずかです。"}
+  tags:["四段","上一段","カ変・サ変","表あり"],
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"動詞「書く」で、体言（名詞）にかかる形はどれですか。",
+        choices:["書か","書き","書く"], ans:2,
+        why:["体言にかかるのは<strong>連体形</strong>の働きでした。","「書く」は終止形と同形ですが、名詞の前に置けば連体形です。","活用の種類の話に入る前に、「後ろの言葉で判断する」感覚を思い出しておきましょう。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"9つの型と、覚え方の戦略", b:"<p>動詞の活用の種類は<strong>全部で9つ</strong>です。名前は「活用語尾が、五十音図のどの段に現れるか」で決まります。たとえば四段活用はア・イ・ウ・エの四段に、上一段活用はイ段だけに活用語尾が現れます。</p><p>不規則なのはカ行変格（カ変）・サ行変格（サ変）・ナ行変格（ナ変）・ラ行変格（ラ変）の4つで、該当する動詞はごく少数です。まず<span class='key'>四段活用を基準に覚え、残りは「違い」として覚える</span>のが効率的です。</p>" }
+    ]},
+    { t:"解説 ― 活用表と見分け方", steps:[
+      { k:"tbl", t:"動詞の活用表 ― 9つの活用の種類", html:"<p>各行の動詞は代表例です。太字部分が活用語尾です。</p><div class='tbl-wrap'><table class='katsuyo'><caption>動詞の活用表 ― 9つの活用の種類</caption><thead><tr><th>活用の種類</th><th>例</th><th>未然形</th><th>連用形</th><th>終止形</th><th>連体形</th><th>已然形</th><th>命令形</th></tr></thead><tbody>"
+        + "<tr><th>四段活用</th><td><span class='old'>書く</span></td><td>書<span class='accent'>か</span></td><td>書<span class='accent'>き</span></td><td>書<span class='accent'>く</span></td><td>書<span class='accent'>く</span></td><td>書<span class='accent'>け</span></td><td>書<span class='accent'>け</span></td></tr>"
+        + "<tr><th>上一段活用</th><td><span class='old'>着る</span></td><td>着</td><td>着</td><td>着<span class='accent'>る</span></td><td>着<span class='accent'>る</span></td><td>着<span class='accent'>れ</span></td><td>着<span class='accent'>よ</span></td></tr>"
+        + "<tr><th>上二段活用</th><td><span class='old'>起く</span></td><td>起<span class='accent'>き</span></td><td>起<span class='accent'>き</span></td><td>起<span class='accent'>く</span></td><td>起<span class='accent'>くる</span></td><td>起<span class='accent'>くれ</span></td><td>起<span class='accent'>きよ</span></td></tr>"
+        + "<tr><th>下一段活用</th><td><span class='old'>蹴る</span></td><td>蹴</td><td>蹴</td><td>蹴<span class='accent'>る</span></td><td>蹴<span class='accent'>る</span></td><td>蹴<span class='accent'>れ</span></td><td>蹴<span class='accent'>よ</span></td></tr>"
+        + "<tr><th>下二段活用</th><td><span class='old'>受く</span></td><td>受<span class='accent'>け</span></td><td>受<span class='accent'>け</span></td><td>受<span class='accent'>く</span></td><td>受<span class='accent'>くる</span></td><td>受<span class='accent'>くれ</span></td><td>受<span class='accent'>けよ</span></td></tr>"
+        + "<tr><th>カ行変格活用</th><td><span class='old'>来</span>（く）</td><td><span class='accent'>こ</span></td><td><span class='accent'>き</span></td><td><span class='accent'>く</span></td><td><span class='accent'>くる</span></td><td><span class='accent'>くれ</span></td><td><span class='accent'>こ</span>／<span class='accent'>こよ</span></td></tr>"
+        + "<tr><th>サ行変格活用</th><td><span class='old'>す</span></td><td><span class='accent'>せ</span></td><td><span class='accent'>し</span></td><td><span class='accent'>す</span></td><td><span class='accent'>する</span></td><td><span class='accent'>すれ</span></td><td><span class='accent'>せよ</span></td></tr>"
+        + "<tr><th>ナ行変格活用</th><td><span class='old'>死ぬ</span></td><td>死<span class='accent'>な</span></td><td>死<span class='accent'>に</span></td><td>死<span class='accent'>ぬ</span></td><td>死<span class='accent'>ぬる</span></td><td>死<span class='accent'>ぬれ</span></td><td>死<span class='accent'>ね</span></td></tr>"
+        + "<tr><th>ラ行変格活用</th><td><span class='old'>あり</span></td><td>あ<span class='accent'>ら</span></td><td>あ<span class='accent'>り</span></td><td>あ<span class='accent'>り</span></td><td>あ<span class='accent'>る</span></td><td>あ<span class='accent'>れ</span></td><td>あ<span class='accent'>れ</span></td></tr>"
+        + "</tbody></table></div>" },
+      { k:"r", t:"種類の見分け方 ― 3つの手順", b:"<ol><li><strong>まず変格を疑う</strong>：「来・す（〜す）・死ぬ・往ぬ・あり・をり・はべり・いますがり」など、変格は顔ぶれが決まっています。複合動詞「〜す」はサ変です。</li><li><strong>「ず」をつけてみる</strong>：未然形＋「ず」で音を確認します。「着ず（きず）」のように語尾が変わらなければ上一段／下一段、「起きず」なら上二段、「受けず」なら下二段、「書かず」なら四段です。</li><li><strong>上一段・下一段は暗記</strong>：上一段は「ひいきにみゐる（干る・射る・着る・似る・干る・見る・居る）」を含む11語ほど、下一段は「蹴る」1語だけです。</li></ol>", box:"<b>上一段の特徴：</b>語幹そのものがイ段音で終わり、未然形・連用形に活用語尾がつきません（着・着・着る・着る…）。" },
+      { k:"quiz", t:"ミニ確認 ― 種類の判別", q:"動詞「起く」の活用の種類はどれですか。",
+        choices:["上一段活用","上二段活用","四段活用"], ans:1,
+        why:["「起く」に「ず」をつけると「起き<strong>ず</strong>」で、語尾は「き」のまま変わりませんが、連体形を見ると「起<strong>くる</strong>」となります。","上一段の「着る」は連体形も「着る」で、「る」が新しく付くことはありません。","連体形が「くる」になるのは<strong>上二段活用</strong>の印です。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― 下二段の連体形", lead:"終止形と連体形の違いに注目してください。",
+        gsen:"月出づ。出づる月は清し。",
+        layers:[
+          ["文法の確認","「出づ」は下二段活用の終止形。文末では「づ」で終わりますが、連体形では「出づ<strong>る</strong>」と「る」が付きます。"],
+          ["現代語訳","<b>月が出る。出る月は清らかだ。</b>"],
+          ["ポイント","下二段・上二段は「終止形は〜く／づ、連体形は〜くる／づる」。現代語では一段化して「出る」になりました。"]
+        ]},
+      { k:"ex", t:"実用例② ― カ変とナ変", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"人来て告ぐ。心死なず。",
+        layers:[
+          ["文法の確認","「来て」の「き」はカ変の連用形。「死な」はナ変の未然形で、打消「ず」が続いています。",1],
+          ["現代語訳","<b>人が来て知らせる。心は死なない。</b>"],
+          ["ポイント","変格は該当動詞が少ないぶん、出てきたら確実に判別できることが得点源になります。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― 混同しやすい組み合わせ", b:"<ul><li>上一段と上二段の混同が最多です。「起く」は上二段（起き・起き・起く・起くる…）、「着る」は上一段（着・着・着る・着る…）。<strong>連体形に「る」がつくかどうか</strong>で見分けます。</li><li>ラ変の「あり」は終止形が「あり」、連体形が「ある」です。現代語の「ある」と形が違う点に注意してください。</li><li>四段活用の動詞は現代語で五段活用になりました。行（ゆく・いく）だけは例外的に今も残る形がある、程度の理解で十分です。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "上一段と上二段の混同が最多です。「起く」は上二段（起き・起き・起く・起くる…）、「着る」は上一段（着・着・着る・着る…）。<strong>連体形に「る」がつくかどうか</strong>で見分けます。",
-    "ラ変の「あり」は終止形が「あり」、連体形が「ある」です。現代語の「ある」と形が違う点に注意してください。",
-    "四段活用の動詞は現代語で五段活用になりました。行（ゆく・いく）だけは例外的に今も残る形がある、程度の理解で十分です。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点 ― 種類の見分け</caption><thead><tr><th>種類</th><th>見分けの決め手</th></tr></thead><tbody>"
+    + "<tr><th>四段</th><td>語尾がア・イ・ウ・エの四段（書か・書き・書く・書け）</td></tr>"
+    + "<tr><th>上一段</th><td>語幹がイ段で終わり語尾なし（着・着・着る）。「ひいきにみゐる」</td></tr>"
+    + "<tr><th>上二段</th><td>イ段・ウ段（起き・起く・起くる）</td></tr>"
+    + "<tr><th>下一段</th><td>「蹴る」1語だけ</td></tr>"
+    + "<tr><th>下二段</th><td>エ段・ウ段（受け・受く・受くる）</td></tr>"
+    + "<tr><th>変格（カ・サ・ナ・ラ）</th><td>来／す／死ぬ・往ぬ／あり など、顔ぶれが決まっている</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"動詞の活用の種類は全部でいくつありますか。", a:"9つ。四段・上一段・上二段・下一段・下二段・カ変・サ変・ナ変・ラ変です。" },
+      { q:"「受く」の連体形と、「着る」の連体形をそれぞれ言ってください。", a:"「受く」（下二段）の連体形は「受くる」、「着る」（上一段）の連体形は「着る」です。" },
+      { q:"上一段活用の動詞を判別するときの決め手は何ですか。", a:"未然形・連用形に活用語尾がつかず、語幹そのものがイ段音で終わることです（着・着・着る・着る）。" }
+    ]}
 },
 /* ────────── 3 形容詞・形容動詞 ────────── */
 {
   phase:1, title:"形容詞・形容動詞の活用",
   sub:"形容詞にはク活用とシク活用、形容動詞にはナリ活用とタリ活用があります。「カリ活用」もあわせて押さえます。",
   tags:["ク活用・シク活用","ナリ・タリ活用","表あり"],
-  overview:"<p><strong>形容詞</strong>は性質・状態を表し、終止形が「し」で終わります。活用は<strong>ク活用</strong>と<strong>シク活用</strong>の2種で、違いは語尾に「し」が入るかどうかだけです。<strong>形容動詞</strong>は体言＋助動詞「なり／たり」からできた語で、<strong>ナリ活用・タリ活用</strong>の2種があります。どちらも本活用のほかに、助動詞などが続くときに使う<strong>補助活用（カリ活用）</strong>を持つ点が特徴です。</p>",
-  kaisetsu:"<h3>1. 形容詞の活用表</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>形容詞 ― ク活用「良し」とシク活用「美し」</caption><thead><tr><th>活用形</th><th>ク活用（良し）本活用</th><th>ク活用 補助活用</th><th>シク活用（美し）本活用</th><th>シク活用 補助活用</th></tr></thead><tbody>"
-  + "<tr><th>未然形</th><td>良<span class='accent'>から</span></td><td>良<span class='accent'>かろ</span></td><td>美<span class='accent'>しから</span></td><td>美<span class='accent'>しかろ</span></td></tr>"
-  + "<tr><th>連用形</th><td>良<span class='accent'>く</span></td><td>良<span class='accent'>かり</span></td><td>美<span class='accent'>しく</span></td><td>美<span class='accent'>しかり</span></td></tr>"
-  + "<tr><th>終止形</th><td>良<span class='accent'>し</span></td><td>―</td><td>美<span class='accent'>し</span></td><td>―</td></tr>"
-  + "<tr><th>連体形</th><td>良<span class='accent'>き</span></td><td>良<span class='accent'>かる</span></td><td>美<span class='accent'>しき</span></td><td>美<span class='accent'>しかる</span></td></tr>"
-  + "<tr><th>已然形</th><td>良<span class='accent'>けれ</span></td><td>良<span class='accent'>かれ</span></td><td>美<span class='accent'>しけれ</span></td><td>美<span class='accent'>しかれ</span></td></tr>"
-  + "<tr><th>命令形</th><td>―</td><td>良<span class='accent'>かれ</span></td><td>―</td><td>美<span class='accent'>しかれ</span></td></tr>"
-  + "</tbody></table></div><p class='tbl-note'>※ 補助活用は「〜かり＋助動詞（けり・たり・ず等）」の形で使います。例：良かりけり、美しかりけり。</p>"
-  + "<h3>2. 形容動詞の活用表</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>形容動詞 ― ナリ活用「静かなり」とタリ活用「堂々たり」</caption><thead><tr><th>活用形</th><th>ナリ活用（静かなり）</th><th>タリ活用（堂々たり）</th></tr></thead><tbody>"
-  + "<tr><th>未然形</th><td>静か<span class='accent'>なら</span></td><td>堂々<span class='accent'>たら</span></td></tr>"
-  + "<tr><th>連用形</th><td>静か<span class='accent'>なり</span>／静か<span class='accent'>に</span></td><td>堂々<span class='accent'>たり</span>／堂々<span class='accent'>と</span></td></tr>"
-  + "<tr><th>終止形</th><td>静か<span class='accent'>なり</span></td><td>堂々<span class='accent'>たり</span></td></tr>"
-  + "<tr><th>連体形</th><td>静か<span class='accent'>なる</span></td><td>堂々<span class='accent'>たる</span></td></tr>"
-  + "<tr><th>已然形</th><td>静か<span class='accent'>なれ</span></td><td>堂々<span class='accent'>たれ</span></td></tr>"
-  + "<tr><th>命令形</th><td>静か<span class='accent'>なれ</span></td><td>堂々<span class='accent'>たれ</span></td></tr>"
-  + "</tbody></table></div>"
-  + "<h3>3. ク活用とシク活用の見分け方</h3><p>終止形から「し」を取った残りが<strong>イ段やエ段で終わる語はシク活用</strong>になる傾向があります（美し・楽し・悲し・嬉し）。確実なのは連体形で確認する方法です。「美しき」のように<strong>「しき」となればシク活用</strong>、「良き」のように「き」だけならク活用です。</p>",
-  examples:[
-    {orig:"山高く、川清し。", trans:"<b>山は高く、川は清らかだ。</b>", pt:"「高く」はク活用の連用形、「清し」はシク活用「清し」の終止形です。"},
-    {orig:"いと静かなる夜なり。", trans:"<b>とても静かな夜である。</b>", pt:"「静かなる」はナリ活用の連体形。文末の「なり」は断定の助動詞です（第3部で学習）。"},
-    {orig:"昔は良かりけり。", trans:"<b>昔は良かったなあ。</b>", pt:"「良かり」は補助活用（カリ活用）の連用形＋助動詞「けり」。形容詞に助動詞がつくときはカリ活用を使います。"}
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"動詞「起く」（上二段活用）の連体形はどれですか。",
+        choices:["起く","起くる","起き"], ans:1,
+        why:["上二段活用は、未然・連用が「き」、終止が「く」、連体が「<strong>くる</strong>」でした。","終止形「起く」と連体形「起くる」の違いが、上二段と四段・上一段を見分ける決め手です。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"形容詞と形容動詞の全体像", b:"<p><strong>形容詞</strong>は性質・状態を表し、終止形が「し」で終わります。活用は<strong>ク活用</strong>と<strong>シク活用</strong>の2種で、違いは語尾に「し」が入るかどうかだけです。</p><p><strong>形容動詞</strong>は体言＋助動詞「なり／たり」からできた語で、<strong>ナリ活用・タリ活用</strong>の2種があります。どちらも本活用のほかに、助動詞などが続くときに使う<strong>補助活用（カリ活用）</strong>を持つ点が特徴です。</p>" }
+    ]},
+    { t:"解説 ― 活用表", steps:[
+      { k:"tbl", t:"形容詞の活用表 ― ク活用とシク活用", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>形容詞 ― ク活用「良し」とシク活用「美し」</caption><thead><tr><th>活用形</th><th>ク活用（良し）本活用</th><th>ク活用 補助活用</th><th>シク活用（美し）本活用</th><th>シク活用 補助活用</th></tr></thead><tbody>"
+        + "<tr><th>未然形</th><td>良<span class='accent'>から</span></td><td>良<span class='accent'>かろ</span></td><td>美<span class='accent'>しから</span></td><td>美<span class='accent'>しかろ</span></td></tr>"
+        + "<tr><th>連用形</th><td>良<span class='accent'>く</span></td><td>良<span class='accent'>かり</span></td><td>美<span class='accent'>しく</span></td><td>美<span class='accent'>しかり</span></td></tr>"
+        + "<tr><th>終止形</th><td>良<span class='accent'>し</span></td><td>―</td><td>美<span class='accent'>し</span></td><td>―</td></tr>"
+        + "<tr><th>連体形</th><td>良<span class='accent'>き</span></td><td>良<span class='accent'>かる</span></td><td>美<span class='accent'>しき</span></td><td>美<span class='accent'>しかる</span></td></tr>"
+        + "<tr><th>已然形</th><td>良<span class='accent'>けれ</span></td><td>良<span class='accent'>かれ</span></td><td>美<span class='accent'>しけれ</span></td><td>美<span class='accent'>しかれ</span></td></tr>"
+        + "<tr><th>命令形</th><td>―</td><td>良<span class='accent'>かれ</span></td><td>―</td><td>美<span class='accent'>しかれ</span></td></tr>"
+        + "</tbody></table></div><p class='tbl-note'>※ 補助活用は「〜かり＋助動詞（けり・たり・ず等）」の形で使います。例：良かりけり、美しかりけり。</p>" },
+      { k:"tbl", t:"形容動詞の活用表 ― ナリ活用とタリ活用", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>形容動詞 ― ナリ活用「静かなり」とタリ活用「堂々たり」</caption><thead><tr><th>活用形</th><th>ナリ活用（静かなり）</th><th>タリ活用（堂々たり）</th></tr></thead><tbody>"
+        + "<tr><th>未然形</th><td>静か<span class='accent'>なら</span></td><td>堂々<span class='accent'>たら</span></td></tr>"
+        + "<tr><th>連用形</th><td>静か<span class='accent'>なり</span>／静か<span class='accent'>に</span></td><td>堂々<span class='accent'>たり</span>／堂々<span class='accent'>と</span></td></tr>"
+        + "<tr><th>終止形</th><td>静か<span class='accent'>なり</span></td><td>堂々<span class='accent'>たり</span></td></tr>"
+        + "<tr><th>連体形</th><td>静か<span class='accent'>なる</span></td><td>堂々<span class='accent'>たる</span></td></tr>"
+        + "<tr><th>已然形</th><td>静か<span class='accent'>なれ</span></td><td>堂々<span class='accent'>たれ</span></td></tr>"
+        + "<tr><th>命令形</th><td>静か<span class='accent'>なれ</span></td><td>堂々<span class='accent'>たれ</span></td></tr>"
+        + "</tbody></table></div>" },
+      { k:"r", t:"ク活用とシク活用の見分け方", b:"<p>終止形から「し」を取った残りが<strong>イ段やエ段で終わる語はシク活用</strong>になる傾向があります（美し・楽し・悲し・嬉し）。確実なのは連体形で確認する方法です。「美しき」のように<strong>「しき」となればシク活用</strong>、「良き」のように「き」だけならク活用です。</p>" },
+      { k:"quiz", t:"ミニ確認 ― カリ活用", q:"「昔は良かりけり」の「良かり」は、どの活用の、どの活用形ですか。",
+        choices:["本活用の連用形","補助活用（カリ活用）の連用形","本活用の未然形"], ans:1,
+        why:["「良かり」のあとには助動詞「けり」が続いています。","形容詞に助動詞が続くときは、本活用ではなく<strong>補助活用（カリ活用）</strong>を使います。","「良かりけり」は、カリ活用の連用形＋けり、という組み立てです。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― ク活用とシク活用", lead:"2つの形容詞の種類を見分けてください。",
+        gsen:"山高く、川清し。",
+        layers:[
+          ["文法の確認","「高く」はク活用「高し」の連用形。「清し」はシク活用の終止形です（連体形は「清き」ではなく「清しき」になります）。"],
+          ["現代語訳","<b>山は高く、川は清らかだ。</b>"],
+          ["ポイント","シク活用かどうかの確認は連体形で。「しき」と言えればシク活用です。"]
+        ]},
+      { k:"ex", t:"実用例② ― 形容動詞と断定の「なり」", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"いと静かなる夜なり。",
+        layers:[
+          ["文法の確認","「静かなる」はナリ活用の連体形で、体言「夜」にかかります。文末の「なり」は断定の助動詞です（助動詞の単元で詳しく扱います）。",1],
+          ["現代語訳","<b>とても静かな夜である。</b>"],
+          ["ポイント","同じ「なる／なり」でも、名詞にかかる形は形容動詞の連体形、文を言い切る形は断定の助動詞。後ろを見る習慣がここでも効きます。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― 形容詞・形容動詞でつまずく所", b:"<ul><li>形容詞の連用形「〜く」は現代語と同じ感覚で使えますが、<strong>打消や助動詞が続くときは「〜かり」の形</strong>になる点が違います。</li><li>形容動詞の連用形には「なり／に」（ナリ）、「たり／と」（タリ）の2形があります。「静かに眠る」の「に」、「堂々と立つ」の「と」は現代語にも残っています。</li><li>シク活用は語幹末に「し」が含まれます。「美し」の語幹は「美（うつく）」で、活用語尾は「しく・し・しき…」です。語幹と語尾の切り分けを間違えないように。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "形容詞の連用形「〜く」は、現代語と同じ感覚で使えますが、<strong>打消や助動詞が続くときは「〜かり」の形</strong>になる点が違います。",
-    "形容動詞の連用形には「なり／に」（ナリ）、「たり／と」（タリ）の2形があります。「静かに眠る」の「に」、「堂々と立つ」の「と」は現代語にも残っています。",
-    "シク活用は語幹末に「し」が含まれます。「美し」の語幹は「美（うつく）」で、活用語尾は「しく・し・しき…」です。語幹と語尾の切り分けを間違えないように。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点</caption><thead><tr><th>種類</th><th>決め手</th></tr></thead><tbody>"
+    + "<tr><th>ク活用</th><td>連体形が「〜き」（良き・高き）</td></tr>"
+    + "<tr><th>シク活用</th><td>連体形が「〜しき」（美しき・清しき）</td></tr>"
+    + "<tr><th>カリ活用</th><td>助動詞が続くときの補助活用（良かりけり）</td></tr>"
+    + "<tr><th>ナリ活用</th><td>静かなる／静かに。連体形は「なる」</td></tr>"
+    + "<tr><th>タリ活用</th><td>堂々たる／堂々と。連体形は「たる」</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"「美し」はク活用・シク活用のどちらですか。判断の根拠も言ってください。", a:"シク活用です。連体形が「美しき」と「しき」になることが根拠です。" },
+      { q:"形容詞に助動詞「けり」が付くとき、「良し」はどの形になりますか。", a:"補助活用（カリ活用）の連用形「良かり」になり、「良かりけり」となります。" },
+      { q:"形容動詞ナリ活用の連用形には2つの形があります。何と何ですか。", a:"「なり」と「に」です（静かなり／静かに）。タリ活用では「たり」と「と」です。" }
+    ]}
 },
 /* ────────── 4 助動詞入門 ────────── */
 {
   phase:2, title:"助動詞入門 ― 接続と活用の型",
   sub:"助動詞は「何に接続するか」と「どう活用するか」の2点で整理できます。意味はそのあとです。",
   tags:["接続","活用の型","表あり"],
-  overview:"<p><strong>助動詞</strong>は、用言や体言に付いて意味を添える活用する付属語です。種類は30近くありますが、覚え方は共通しています。各助動詞について<span class='key'>①接続（どの活用形に付くか）②活用の型（何活用と同じ形か）③意味</span>の3点をセットで覚えます。この単元では①と②の全体地図を作り、次の単元から③の意味をグループごとに学びます。</p>",
-  kaisetsu:"<h3>1. 接続で分ける ― 4つのグループ</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>助動詞の接続による分類</caption><thead><tr><th>接続</th><th>助動詞</th><th>覚え方の目安</th></tr></thead><tbody>"
-  + "<tr><th>未然形接続</th><td>る・らる／す・さす・しむ／ず／む・むず／まし／まほし／じ・まじ</td><td>「まだ実現していない」もの：打消・推量・使役・受身など</td></tr>"
-  + "<tr><th>連用形接続</th><td>き・けり／つ・ぬ／たり・り／たし／けむ（※）／ます</td><td>過去・完了など「動作のあと」に付くものが多い</td></tr>"
-  + "<tr><th>終止形接続</th><td>らむ／べし／めり／らし／なり（伝聞・推定）／まじ（※）</td><td>文を言い切ったあとに「見立て」を添えるもの</td></tr>"
-  + "<tr><th>連体形接続</th><td>なり（断定）／たり（断定）／ごとし</td><td>体言・連体形に付いて断定・比況を表す</td></tr>"
-  + "</tbody></table></div><p class='tbl-note'>※ けむは連用形接続、まじは未然形・終止形の両説があります（本書では主な接続として扱います）。ラ変動詞には終止形でなく連体形に接続するなど、例外は各単元で示します。</p>"
-  + "<h3>2. 活用の型 ― 新しい活用は増えない</h3><p>助動詞の活用は、すでに学んだ動詞・形容詞の活用の「型」を借りています。たとえば完了の「つ」は下二段型、過去の「けり」はラ変型、推量の「べし」は形容詞型（ク・シクの折衷）です。<span class='key'>型が分かれば活用表は作れる</span>ので、丸暗記は最小限で済みます。例外的に独自の活用をするのは「き」「ず」「まし」など少数です。</p>"
-  + "<div class='point-box'><b>学習の進め方：</b>次の単元からは「過去・完了 → 推量・意志 → 打消 → 断定・伝聞推定 → 使役・受身」の順に、意味の近いもの同士を比べながら学びます。意味が似ている助動詞ほど、<b>接続と活用の違い</b>が見分けの決め手になります。</div>",
-  examples:[
-    {orig:"行かむ。／行きけり。／行くべし。", trans:"<b>行こう。／行ったなあ。／行くべきだ。</b>", pt:"同じ動詞「行く」でも、未然形＋む、連用形＋けり、終止形＋べし、と接続が違えば付く助動詞が変わります。"},
-    {orig:"咲ける花", trans:"<b>咲いている花</b>", pt:"「ける」は「けり」の連体形。けりはラ変型に活用するので、連体形は「ける」になります。"}
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"形容詞「楽し」の連体形はどれですか。",
+        choices:["楽しき","楽しかり","楽しく"], ans:0,
+        why:["「楽し」はシク活用の形容詞でした。","シク活用の連体形は「〜<strong>しき</strong>」です。","「楽しかり」はカリ活用の連用形、「楽しく」は本活用の連用形です。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"助動詞の覚え方は、3点セット", b:"<p><strong>助動詞</strong>は、用言や体言に付いて意味を添える、活用する付属語です。種類は30近くありますが、覚え方は共通しています。各助動詞について<span class='key'>①接続（どの活用形に付くか）②活用の型（何活用と同じ形か）③意味</span>の3点をセットで覚えます。</p><p>この単元では①と②の全体地図を作ります。次の単元からは③の意味を、<strong>意味の近いもの同士のグループ</strong>で学びます。</p>" }
+    ]},
+    { t:"解説 ― 接続と活用の型", steps:[
+      { k:"tbl", t:"接続で分ける ― 4つのグループ", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>助動詞の接続による分類</caption><thead><tr><th>接続</th><th>助動詞</th><th>覚え方の目安</th></tr></thead><tbody>"
+        + "<tr><th>未然形接続</th><td>る・らる／す・さす・しむ／ず／む・むず／まし／まほし／じ・まじ</td><td>「まだ実現していない」もの：打消・推量・使役・受身など</td></tr>"
+        + "<tr><th>連用形接続</th><td>き・けり／つ・ぬ／たり・り／たし／けむ（※）／ます</td><td>過去・完了など「動作のあと」に付くものが多い</td></tr>"
+        + "<tr><th>終止形接続</th><td>らむ／べし／めり／らし／なり（伝聞・推定）／まじ（※）</td><td>文を言い切ったあとに「見立て」を添えるもの</td></tr>"
+        + "<tr><th>連体形接続</th><td>なり（断定）／たり（断定）／ごとし</td><td>体言・連体形に付いて断定・比況を表す</td></tr>"
+        + "</tbody></table></div><p class='tbl-note'>※ けむは連用形接続、まじは未然形・終止形の両説があります（本書では主な接続として扱います）。ラ変動詞には終止形でなく連体形に接続するなど、例外は各単元で示します。</p>" },
+      { k:"r", t:"活用の型 ― 新しい活用は増えない", b:"<p>助動詞の活用は、すでに学んだ動詞・形容詞の活用の「型」を借りています。たとえば完了の「つ」は下二段型、過去の「けり」はラ変型、推量の「べし」は形容詞型です。<span class='key'>型が分かれば活用表は作れる</span>ので、丸暗記は最小限で済みます。例外的に独自の活用をするのは「き」「ず」「まし」など少数です。</p>", box:"<b>学習の進め方：</b>次の単元からは「過去・完了 → 推量・意志 → 打消 → 断定・伝聞推定 → 使役・受身」の順に、意味の近いもの同士を比べながら学びます。意味が似ている助動詞ほど、<b>接続と活用の違い</b>が見分けの決め手になります。" },
+      { k:"quiz", t:"ミニ確認 ― 接続の判別", q:"「行きけり」の「けり」は、動詞「行く」のどの活用形に接続していますか。",
+        choices:["未然形","連用形","終止形"], ans:1,
+        why:["「行き」はイ段の形、つまり<strong>連用形</strong>です。","過去の助動詞「けり」は連用形接続のグループに入っていました。","接続が分かれば、文中に現れた助動詞の候補を一気に絞れます。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― 接続が違えば助動詞が変わる", lead:"同じ動詞「行く」に、3つの助動詞が付いた文です。",
+        gsen:"行かむ。／行きけり。／行くべし。",
+        layers:[
+          ["文法の確認","未然形「行か」＋む（推量・意志）、連用形「行き」＋けり（過去）、終止形「行く」＋べし（当然・意志）。接続が違えば、付ける助動詞が変わります。"],
+          ["現代語訳","<b>行こう。／行ったなあ。／行くべきだ。</b>"],
+          ["ポイント","助動詞の判別は、まず「前の語の活用形」を言うことから始まります。これが第3部全体の型です。"]
+        ]},
+      { k:"ex", t:"実用例② ― 型から活用を復元する", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"咲ける花",
+        layers:[
+          ["文法の確認","「ける」は「けり」の連体形。けりはラ変型に活用するので、連体形は「ける」になります（あり→ある、と同じ変化です）。",1],
+          ["現代語訳","<b>咲いている花</b>（＝咲いた花）"],
+          ["ポイント","「型」が分かれば、初めて見る形でも活用表から復元できます。暗記量が減るのはこのためです。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― 助動詞学習の落とし穴", b:"<ul><li>助動詞の意味をいきなり暗記し始めないでください。まず<strong>接続を確認する癖</strong>が、判別のすべての土台です。</li><li>「なり」には連体形接続の断定と終止形接続の伝聞・推定があり、同形です。接続で見分ける代表例として、断定・伝聞推定の単元で扱います。</li><li>活用の型が同じ助動詞同士（例：つ＝下二段型、ぬ＝ナ変型）は、活用表の形まで似てきます。型を手がかりに表を復元できるようにしましょう。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "助動詞の意味をいきなり暗記し始めないでください。まず<strong>接続を確認する癖</strong>が、判別のすべての土台です。",
-    "「なり」には連体形接続の断定と終止形接続の伝聞・推定があり、同形です。接続で見分ける代表例として第3部で扱います。",
-    "活用の型が同じ助動詞同士（例：つ＝下二段型、ぬ＝ナ変型）は、活用表の形まで似てきます。型を手がかりに表を復元できるようにしましょう。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点 ― 助動詞の3点セット</caption><thead><tr><th>観点</th><th>要点</th></tr></thead><tbody>"
+    + "<tr><th>① 接続</th><td>未然形／連用形／終止形／連体形のどれに付くか</td></tr>"
+    + "<tr><th>② 活用の型</th><td>動詞・形容詞の活用の型を借りる。型が分かれば表は作れる</td></tr>"
+    + "<tr><th>③ 意味</th><td>意味の近いグループごとに、違いを比べながら覚える</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"助動詞を覚えるときの「3点セット」とは何ですか。", a:"①接続（どの活用形に付くか）②活用の型（何活用と同じ形か）③意味、の3点です。" },
+      { q:"過去の助動詞「けり」は何形接続で、活用は何型ですか。", a:"連用形接続で、活用はラ変型です（けり・けり・ける・けれ）。" },
+      { q:"「行かむ」と「行くらむ」で、助動詞の判別に使う情報は何ですか。", a:"接続です。「行か」は未然形なので「む」、「行く」は終止形なので「らむ」と判別します。" }
+    ]}
 },
 /* ────────── 5 過去・完了 ────────── */
 {
   phase:2, title:"助動詞① ― 過去・完了（き・けり・つ・ぬ・たり・り）",
   sub:"「した」ことを表す6つの助動詞。意味の違いと、つ・ぬの使い分けがポイントです。",
   tags:["過去","完了","表あり"],
-  overview:"<p>過去・完了を表す助動詞は6つあります。まず意味の軸を押さえます。<strong>き・けり</strong>は「過去」を表し、<strong>つ・ぬ・たり・り</strong>は「完了」（動作が終わって結果が残る）を表します。過去の2つは「直接体験したか」、完了の<strong>つ・ぬ</strong>は「意志的・自然的」の違いで使い分けます。すべて<span class='key'>連用形接続</span>です。</p>",
-  kaisetsu:"<h3>1. 過去・完了の助動詞一覧</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>過去・完了の助動詞 ― 接続・活用・意味</caption><thead><tr><th>助動詞</th><th>接続</th><th>活用の型</th><th>主な意味</th><th>識別の要点</th></tr></thead><tbody>"
-  + "<tr><th>き</th><td>連用形</td><td>特殊型</td><td>過去</td><td>自分が直接体験した過去。一人称的</td></tr>"
-  + "<tr><th>けり</th><td>連用形</td><td>ラ変型</td><td>過去・詠嘆</td><td>伝聞した過去、物語の語り。詠嘆「〜だったなあ」も多い</td></tr>"
-  + "<tr><th>つ</th><td>連用形</td><td>下二段型</td><td>完了・強意</td><td>意志的な動作に使う（他動詞・意志動詞）</td></tr>"
-  + "<tr><th>ぬ</th><td>連用形</td><td>ナ変型</td><td>完了・強意</td><td>自然的な変化に使う（自動詞・無意志動詞）</td></tr>"
-  + "<tr><th>たり</th><td>連用形</td><td>ラ変型</td><td>完了・存続</td><td>「〜てしまった」「〜ている（存続）」の両方</td></tr>"
-  + "<tr><th>り</th><td>連用形（サ変の未然形・四段の已然形）</td><td>ラ変型</td><td>完了・存続</td><td>接続が特殊。存続「〜ている」が中心</td></tr>"
-  + "</tbody></table></div>"
-  + "<h3>2. き と けり ― 体験したか、聞いた話か</h3><p><strong>き</strong>は話し手自身が直接経験した過去に使います。日記や手紙の一人称の文に多く現れます。<strong>けり</strong>は人から聞いた話・昔話の語りに使われ、「昔ありけり」のように物語の定番です。また文末で詠嘆（「〜だったなあ」）を表すこともあります。</p>"
-  + "<h3>3. つ と ぬ ― 意志か、自然か</h3><p>どちらも完了ですが、<strong>つ</strong>は「投ぐ→投げつ（投げた）」のように人の意志による動作、<strong>ぬ</strong>は「風吹く→吹きぬ（吹いた）」のように自然に起こる変化・自動詞に使います。また「つ」は強意（確かに〜した）、「ぬ」にも強意の用法があります。</p>"
-  + "<h3>4. たり と り ― 結果が残る「存続」</h3><p><strong>たり</strong>は完了のあと「〜ている」という存続を表します。<strong>り</strong>は「たり」のもとになった形で、接続が特殊です。サ変には未然形（せ＋り→せり）、四段活用には已然形（咲け＋り→咲けり）に付きます。例：「花咲けり」＝花が咲いている。</p>",
-  examples:[
-    {orig:"去年、都へ上りにき。", trans:"<b>去年、都へ上った（私自身の体験）。</b>", pt:"「に」は完了「ぬ」の連用形、「き」は過去。直接体験なので「き」です。"},
-    {orig:"昔、男ありけり。", trans:"<b>昔、男がいたそうだ。</b>", pt:"物語の書き出しの定型。伝聞・過去の「けり」。伊勢物語などに見られる形です。"},
-    {orig:"笛吹きつつ、月を待ちぬ。", trans:"<b>笛を吹きながら、月（が出るの）を待った。</b>", pt:"「吹きつつ」の「つつ」は接続助詞。「待ちぬ」の「ぬ」は完了。月が出るのは自然現象の側として「ぬ」が選ばれています。"},
-    {orig:"桜の花、咲き満ちたり。", trans:"<b>桜の花が、咲き満ちている。</b>", pt:"「たり」の存続。咲き終わった結果が今も続いている状態を表します。"}
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"助動詞「けり」の接続と活用の型の組み合わせとして正しいものはどれですか。",
+        choices:["未然形接続・下二段型","連用形接続・ラ変型","終止形接続・四段型"], ans:1,
+        why:["「けり」は過去の助動詞で、<strong>連用形</strong>に接続します。","活用は<strong>ラ変型</strong>（けり・けり・ける・けれ）でした。","この単元では、けりを含む「過去・完了」の6語を意味で比べます。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"「過去」と「完了」は別の軸", b:"<p>過去・完了を表す助動詞は6つあります。まず意味の軸を押さえます。<strong>き・けり</strong>は「過去」を表し、<strong>つ・ぬ・たり・り</strong>は「完了」（動作が終わって結果が残る）を表します。</p><p>過去の2つは「直接体験したか」で、完了の<strong>つ・ぬ</strong>は「意志的か・自然的か」の違いで使い分けます。すべて<span class='key'>連用形接続</span>です。</p>" }
+    ]},
+    { t:"解説 ― 6語の違い", steps:[
+      { k:"tbl", t:"過去・完了の助動詞一覧", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>過去・完了の助動詞 ― 接続・活用・意味</caption><thead><tr><th>助動詞</th><th>接続</th><th>活用の型</th><th>主な意味</th><th>識別の要点</th></tr></thead><tbody>"
+        + "<tr><th>き</th><td>連用形</td><td>特殊型</td><td>過去</td><td>自分が直接体験した過去。一人称的</td></tr>"
+        + "<tr><th>けり</th><td>連用形</td><td>ラ変型</td><td>過去・詠嘆</td><td>伝聞した過去、物語の語り。詠嘆「〜だったなあ」も多い</td></tr>"
+        + "<tr><th>つ</th><td>連用形</td><td>下二段型</td><td>完了・強意</td><td>意志的な動作に使う（他動詞・意志動詞）</td></tr>"
+        + "<tr><th>ぬ</th><td>連用形</td><td>ナ変型</td><td>完了・強意</td><td>自然的な変化に使う（自動詞・無意志動詞）</td></tr>"
+        + "<tr><th>たり</th><td>連用形</td><td>ラ変型</td><td>完了・存続</td><td>「〜てしまった」「〜ている（存続）」の両方</td></tr>"
+        + "<tr><th>り</th><td>連用形（サ変の未然形・四段の已然形）</td><td>ラ変型</td><td>完了・存続</td><td>接続が特殊。存続「〜ている」が中心</td></tr>"
+        + "</tbody></table></div>" },
+      { k:"r", t:"き と けり ― 体験したか、聞いた話か", b:"<p><strong>き</strong>は話し手自身が直接経験した過去に使います。日記や手紙の一人称の文に多く現れます。<strong>けり</strong>は人から聞いた話・昔話の語りに使われ、「昔ありけり」のように物語の定番です。また文末で詠嘆（「〜だったなあ」）を表すこともあります。</p>" },
+      { k:"r", t:"つ と ぬ ― 意志か、自然か", b:"<p>どちらも完了ですが、<strong>つ</strong>は「投ぐ→投げつ（投げた）」のように人の意志による動作、<strong>ぬ</strong>は「風吹く→吹きぬ（吹いた）」のように自然に起こる変化・自動詞に使います。また「つ」には強意（確かに〜した）、「ぬ」にも強意の用法があります。</p><p><strong>たり</strong>は完了のあと「〜ている」という存続を表します。<strong>り</strong>は「たり」のもとになった形で、接続が特殊です。サ変には未然形（せ＋り→せり）、四段活用には已然形（咲け＋り→咲けり）に付きます。例：「花咲けり」＝花が咲いている。</p>" },
+      { k:"quiz", t:"ミニ確認 ― つ・ぬの使い分け", q:"「風吹き＿」の空欄に入る完了の助動詞として自然なものはどれですか。",
+        choices:["つ","ぬ"], ans:1,
+        why:["風が吹くのは、人の意志による動作ではありません。","自然に起こる変化・自動詞には<strong>ぬ</strong>を使います。","意志的な動作（投げる・開ける等）なら「つ」、自然現象・自動詞なら「ぬ」、が使い分けの軸です。"] },
+      { k:"quiz", t:"ミニ確認 ― き・けりの使い分け", q:"昔話の語り出し「昔、男あり＿」の空欄に入るものはどれですか。",
+        choices:["き","けり"], ans:1,
+        why:["昔話は、語り手自身の体験ではなく、伝え聞いた話です。","直接体験の過去は「き」、伝聞・物語の過去は「<strong>けり</strong>」でした。","「昔、男ありけり」は物語の定型として覚えてください。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― 完了と過去の重なり", lead:"2つの助動詞が重なった文です。1つずつ確かめます。",
+        gsen:"去年、都へ上りにき。",
+        layers:[
+          ["文法の確認","「上り」は連用形。「に」は完了「ぬ」の連用形、「き」は過去の助動詞です。完了＋過去の順に重なっています。"],
+          ["現代語訳","<b>去年、都へ上った（私自身の体験）。</b>"],
+          ["ポイント","自分の体験なので過去は「き」。助動詞が重なるときは、付いた順に意味を重ねます。"]
+        ]},
+      { k:"ex", t:"実用例② ― たりの存続", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"桜の花、咲き満ちたり。",
+        layers:[
+          ["文法の確認","「満ち」は連用形＋完了・存続の「たり」。咲き終わった結果が、今も続いている状態を表します。",1],
+          ["現代語訳","<b>桜の花が、咲き満ちている。</b>"],
+          ["ポイント","「たり」は「〜てしまった（完了）」と「〜ている（存続）」の両方に訳せます。文脈が現在の状態を描くなら存続です。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― 同形の別物", b:"<ul><li>「ぬ」は完了の助動詞ですが、打消「ず」の連用形「ぬ」と同形です。あとに続く言葉と文脈で判断します（第6部の識別で詳しく扱います）。</li><li>「たり」には断定の助動詞「たり」（連体形接続）もあります。前が連用形かどうかで見分けます。</li><li>「けり」を単なる過去と訳すと、詠嘆の文で意味がずれます。文末の「けり」は「〜だなあ」と訳して合うか試してください。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "「ぬ」は完了の助動詞ですが、打消「ず」の連用形「ぬ」と同形です。あとに続く言葉と文脈で判断します（第6部の識別で詳しく扱います）。",
-    "「たり」には断定の助動詞「たり」（連体形接続）もあります。「〜たり」で文が続くか、接続が連用形かを見ます。",
-    "「けり」を単なる過去と訳すと、詠嘆の文で意味がずれます。文末の「けり」は「〜だなあ」と訳して合うか試してください。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点 ― 過去・完了の6語</caption><thead><tr><th>助動詞</th><th>意味の軸</th></tr></thead><tbody>"
+    + "<tr><th>き</th><td>過去 ― 自分が直接体験したこと</td></tr>"
+    + "<tr><th>けり</th><td>過去・詠嘆 ― 伝聞・物語の語り</td></tr>"
+    + "<tr><th>つ</th><td>完了 ― 意志的な動作</td></tr>"
+    + "<tr><th>ぬ</th><td>完了 ― 自然な変化・自動詞</td></tr>"
+    + "<tr><th>たり</th><td>完了・存続 ― 結果が残っている</td></tr>"
+    + "<tr><th>り</th><td>完了・存続 ― 接続が特殊（サ変未然形・四段已然形）</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"「き」と「けり」は、どちらが直接体験の過去ですか。", a:"「き」です。「けり」は伝聞・物語の過去や詠嘆に使います。" },
+      { q:"完了の「つ」と「ぬ」の使い分けの軸は何ですか。", a:"意志的かどうかです。人の意志による動作には「つ」、自然な変化・自動詞には「ぬ」を使います。" },
+      { q:"「花咲けり」を訳してください。また「り」の接続の特徴を言ってください。", a:"「花が咲いている」。「り」は四段活用には已然形（咲け）に、サ変には未然形に接続する、特殊な接続の助動詞です。" }
+    ]}
 },
-/* ────────── 6 推量 ────────── */
+/* ────────── 6 推量・意志 ────────── */
 {
   phase:2, title:"助動詞② ― 推量・意志（む・むず・べし・まし・らむ・けむ）",
   sub:"「〜だろう」「〜しよう」「〜すべきだ」。話し手の気持ちの込め方が違う6語を比べます。",
   tags:["推量","意志","べし","表あり"],
-  overview:"<p>推量・意志の助動詞は、事実ではなく<span class='key'>話し手の見込みや気持ち</span>を表します。中心は未然形接続の<strong>む</strong>で、推量・意志・勧誘・仮定など多くの意味を持ちます。<strong>べし</strong>は意味が6つもある最重要助動詞、<strong>らむ</strong>は「今ごろ〜ているだろう」という現在の推量、<strong>けむ</strong>は過去の推量です。接続の違い（む＝未然形、らむ・べし＝終止形）が見分けの鍵です。</p>",
-  kaisetsu:"<h3>1. 推量・意志の助動詞一覧</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>推量・意志の助動詞 ― 接続・活用・意味</caption><thead><tr><th>助動詞</th><th>接続</th><th>活用の型</th><th>主な意味</th></tr></thead><tbody>"
-  + "<tr><th>む</th><td>未然形</td><td>特殊型（四段型）</td><td>推量・意志・勧誘・適当・仮定・婉曲</td></tr>"
-  + "<tr><th>むず</th><td>未然形</td><td>サ変型</td><td>む と同じ（む の音便的な形）</td></tr>"
-  + "<tr><th>べし</th><td>終止形（ラ変には連体形）</td><td>形容詞型</td><td>推量・意志・可能・当然・命令・適当</td></tr>"
-  + "<tr><th>まし</th><td>未然形</td><td>特殊型</td><td>反実仮想（〜だったら…なのに）・ためらいの推量</td></tr>"
-  + "<tr><th>らむ</th><td>終止形（ラ変には連体形）</td><td>四段型</td><td>現在の推量・原因推量</td></tr>"
-  + "<tr><th>けむ</th><td>連用形</td><td>四段型</td><td>過去の推量・過去の原因推量・過去の伝聞</td></tr>"
-  + "</tbody></table></div>"
-  + "<h3>2. べし の6つの意味 ― 主語の人称で決まる</h3><ul><li><strong>一人称が主語</strong> → 意志「〜しよう」／推量「〜だろう」</li><li><strong>二人称が主語</strong> → 命令「〜せよ」</li><li><strong>三人称が主語</strong> → 当然「〜すべきだ」／可能「〜できる」／適当「〜するのがよい」</li></ul><p>文脈と主語を確認すれば、6つの意味は機械的に絞り込めます。</p>"
-  + "<h3>3. む・らむ・けむ の時間の違い</h3><p><strong>む</strong>は未来のことへの推量・意志（これから〜だろう／〜しよう）。<strong>らむ</strong>は目の前にない現在のことへの推量（今ごろ〜ているだろう）。だから「らむ」の文には、理由を尋ねる「なぜ〜なのだろう（原因推量）」の用法もあります。<strong>けむ</strong>はその過去版（〜ただろう）。</p>"
-  + "<h3>4. まし ― 実現しなかった想像</h3><p><strong>まし</strong>は「反実仮想」専用に近い助動詞です。「〜ましかば、〜まし」の形で、「もし〜だったら、…だったろうに（実際は違う）」と訳します。文末の「まし」はためらいながらの推量になることもあります。</p>",
-  examples:[
-    {orig:"明日は晴れむ。", trans:"<b>明日は晴れるだろう。</b>", pt:"未然形「晴れ」＋む。未来への推量です。"},
-    {orig:"我も行くべし。", trans:"<b>私も行くべきだ／行こう。</b>", pt:"主語は一人称「我」。意志または当然と解釈できます。主語の確認が第一歩です。"},
-    {orig:"今ごろ、都では花盛りならむ。", trans:"<b>今ごろ、都では花盛りだろう。</b>", pt:"「ならむ」は断定「なり」の連体形＋らむ。現在の推量の典型です。"},
-    {orig:"逢はましかば、かくは思はざらまし。", trans:"<b>もし逢っていたら、こんなに思うことはなかっただろうに。</b>", pt:"「ましかば…まし」の反実仮想の型。実際には逢っていない、という含みがあります。"}
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"「笛吹きつつ、月を待ちぬ」の「ぬ」は、完了の助動詞として正しい選択ですか。理由とともに考えてください。",
+        choices:["正しい（月が出るのは自然現象の側だから）","正しくない（「つ」を使うべき）"], ans:0,
+        why:["「待つ」動作そのものは意志的ですが、この文で完了の対象として捉えられているのは「月が出る」という自然現象の側です。","前の単元の軸は「意志的なら つ、自然的なら ぬ」でした。","文全体の捉え方で選ぶ、というのが実践的な判断です。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"事実ではなく「見込み」を表すグループ", b:"<p>推量・意志の助動詞は、事実ではなく<span class='key'>話し手の見込みや気持ち</span>を表します。中心は未然形接続の<strong>む</strong>で、推量・意志・勧誘・仮定など多くの意味を持ちます。</p><p><strong>べし</strong>は意味が6つもある最重要助動詞、<strong>らむ</strong>は「今ごろ〜ているだろう」という現在の推量、<strong>けむ</strong>は過去の推量です。接続の違い（む＝未然形、らむ・べし＝終止形）が見分けの鍵です。</p>" }
+    ]},
+    { t:"解説 ― 6語の違い", steps:[
+      { k:"tbl", t:"推量・意志の助動詞一覧", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>推量・意志の助動詞 ― 接続・活用・意味</caption><thead><tr><th>助動詞</th><th>接続</th><th>活用の型</th><th>主な意味</th></tr></thead><tbody>"
+        + "<tr><th>む</th><td>未然形</td><td>特殊型（四段型）</td><td>推量・意志・勧誘・適当・仮定・婉曲</td></tr>"
+        + "<tr><th>むず</th><td>未然形</td><td>サ変型</td><td>む と同じ（む の音便的な形）</td></tr>"
+        + "<tr><th>べし</th><td>終止形（ラ変には連体形）</td><td>形容詞型</td><td>推量・意志・可能・当然・命令・適当</td></tr>"
+        + "<tr><th>まし</th><td>未然形</td><td>特殊型</td><td>反実仮想（〜だったら…なのに）・ためらいの推量</td></tr>"
+        + "<tr><th>らむ</th><td>終止形（ラ変には連体形）</td><td>四段型</td><td>現在の推量・原因推量</td></tr>"
+        + "<tr><th>けむ</th><td>連用形</td><td>四段型</td><td>過去の推量・過去の原因推量・過去の伝聞</td></tr>"
+        + "</tbody></table></div>" },
+      { k:"r", t:"べし の6つの意味 ― 主語の人称で決まる", b:"<ul><li><strong>一人称が主語</strong> → 意志「〜しよう」／推量「〜だろう」</li><li><strong>二人称が主語</strong> → 命令「〜せよ」</li><li><strong>三人称が主語</strong> → 当然「〜すべきだ」／可能「〜できる」／適当「〜するのがよい」</li></ul><p>文脈と主語を確認すれば、6つの意味は機械的に絞り込めます。</p>" },
+      { k:"r", t:"む・らむ・けむ の時間の違い／まし", b:"<p><strong>む</strong>は未来のことへの推量・意志（これから〜だろう／〜しよう）。<strong>らむ</strong>は目の前にない現在のことへの推量（今ごろ〜ているだろう）。だから「らむ」の文には、理由を尋ねる「なぜ〜なのだろう（原因推量）」の用法もあります。<strong>けむ</strong>はその過去版（〜ただろう）。</p><p><strong>まし</strong>は「反実仮想」専用に近い助動詞です。「〜ましかば、〜まし」の形で、「もし〜だったら、…だったろうに（実際は違う）」と訳します。</p>" },
+      { k:"quiz", t:"ミニ確認 ― べしの意味", q:"「我も行くべし」の「べし」の意味として最も自然なものはどれですか。",
+        choices:["命令（行け）","意志・当然（行こう／行くべきだ）","不可能（行けない）"], ans:1,
+        why:["主語は一人称の「我（私）」です。","「べし」は主語が一人称なら意志または当然と絞れました。","命令になるのは主語が二人称のときだけです。主語の確認が第一歩です。"] },
+      { k:"quiz", t:"ミニ確認 ― らむの推量", q:"「今ごろ、都では花盛りならむ」の「らむ」は何を表していますか。",
+        choices:["過去の推量","現在の推量","未来への意志"], ans:1,
+        why:["文には「今ごろ」とあります。対象は<strong>現在</strong>のことです。","「らむ」は目の前にない現在のことへの推量でした。","過去のことなら「けむ」、未来の意志なら「む」になります。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― むの推量", lead:"接続から確認してください。",
+        gsen:"明日は晴れむ。",
+        layers:[
+          ["文法の確認","「晴れ」は未然形で、推量の「む」が続いています。対象は明日のこと、つまり未来です。"],
+          ["現代語訳","<b>明日は晴れるだろう。</b>"],
+          ["ポイント","「む」は未然形接続。終止形接続の「らむ」と、接続で区別します。"]
+        ]},
+      { k:"ex", t:"実用例② ― ましの反実仮想", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"逢はましかば、かくは思はざらまし。",
+        layers:[
+          ["文法の確認","「ましかば…まし」は反実仮想の型。「ざら」は打消「ず」の未然形です。",1],
+          ["現代語訳","<b>もし逢っていたら、こんなに思うことはなかっただろうに。</b>"],
+          ["ポイント","反実仮想には「実際は違う」という含みがあります。実際には逢っていない、と読み取るのが要点です。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― 推量グループの落とし穴", b:"<ul><li>「む」の意味は6つありますが、試験では<strong>推量・意志・勧誘</strong>が中心です。主語が一人称なら意志、二人称への働きかけなら勧誘、と絞ります。</li><li>「べし」の活用は形容詞型で、連体形は「べき」、已然形は「べけれ」です。「べく」「べし」と混同しないように。</li><li>「らむ」は終止形接続です。未然形接続の「む」と接続で区別してください（行かむ＝む、行くらむ＝らむ）。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "「む」の意味は6つありますが、試験では<strong>推量・意志・勧誘</strong>が中心です。主語が一人称なら意志、二人称への働きかけなら勧誘、と絞ります。",
-    "「べし」の活用は形容詞型で、連体形は「べき」、已然形は「べけれ」です。「べく」「べし」と混同しないように。",
-    "「らむ」は終止形接続です。未然形接続の「む」と接続で区別してください（行かむ＝む、行くらむ＝らむ）。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点 ― 時間と人称で見分ける</caption><thead><tr><th>助動詞</th><th>見分けの軸</th></tr></thead><tbody>"
+    + "<tr><th>む</th><td>未然形接続。未来への推量・意志</td></tr>"
+    + "<tr><th>らむ</th><td>終止形接続。現在の推量（今ごろ〜だろう）</td></tr>"
+    + "<tr><th>けむ</th><td>連用形接続。過去の推量</td></tr>"
+    + "<tr><th>べし</th><td>意味は主語の人称で決まる（一人称＝意志、二人称＝命令、三人称＝当然・可能・適当）</td></tr>"
+    + "<tr><th>まし</th><td>反実仮想「〜ましかば、〜まし」</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"「む」「らむ」「けむ」は、それぞれどの時間のことを推量しますか。", a:"「む」は未来、「らむ」は現在、「けむ」は過去です。" },
+      { q:"「べし」の意味を決める最大の手がかりは何ですか。", a:"主語の人称です。一人称なら意志・推量、二人称なら命令、三人称なら当然・可能・適当と絞り込みます。" },
+      { q:"「〜ましかば、〜まし」とあれば、何という用法で、どう訳しますか。", a:"反実仮想です。「もし〜だったら、…だったろうに（実際は違う）」と訳します。" }
+    ]}
 },
 /* ────────── 7 打消 ────────── */
 {
   phase:2, title:"助動詞③ ― 打消（ず・まじ・じ）",
   sub:"「〜ない」を表す3語。ず の特殊な活用と、まじ・じ の「推量＋打消」がポイントです。",
   tags:["打消","ず の活用","表あり"],
-  overview:"<p>打消の中心は<strong>ず</strong>です。未然形に接続し、「〜ない」という単純な否定を表します。活用が特殊で、現代語の「ない」のように後ろの言葉によって形を変えます。<strong>まじ・じ</strong>は「打消」に「推量」が重なった助動詞で、「〜ないだろう／〜てはいけない／〜できそうにない」など、単なる否定以上の意味を持ちます。</p>",
-  kaisetsu:"<h3>1. 打消の助動詞一覧</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>打消の助動詞 ― 接続・活用・意味</caption><thead><tr><th>助動詞</th><th>接続</th><th>活用の型</th><th>主な意味</th></tr></thead><tbody>"
-  + "<tr><th>ず</th><td>未然形</td><td>特殊型</td><td>打消（〜ない）</td></tr>"
-  + "<tr><th>まじ</th><td>終止形（ラ変には連体形）・未然形</td><td>形容詞型（シク活用）</td><td>打消推量・打消意志・不可能・禁止</td></tr>"
-  + "<tr><th>じ</th><td>未然形</td><td>無活用</td><td>打消推量・打消意志</td></tr>"
-  + "</tbody></table></div>"
-  + "<h3>2. ず の活用 ― 形を全部押さえる</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>助動詞「ず」の活用</caption><thead><tr><th>活用形</th><th>形</th><th>使い方の例</th></tr></thead><tbody>"
-  + "<tr><th>未然形</th><td><span class='accent'>ざら</span></td><td>知らざらむ（知らないだろう）</td></tr>"
-  + "<tr><th>連用形</th><td><span class='accent'>ず</span>／<span class='accent'>ざり</span>／<span class='accent'>ぬ</span></td><td>知らず（知らないで）／知らざりけり／知らぬ人</td></tr>"
-  + "<tr><th>終止形</th><td><span class='accent'>ず</span></td><td>知らず（知らない）※文末</td></tr>"
-  + "<tr><th>連体形</th><td><span class='accent'>ぬ</span>／<span class='accent'>ざる</span></td><td>知らぬこと／知らざること</td></tr>"
-  + "<tr><th>已然形</th><td><span class='accent'>ね</span>／<span class='accent'>ざれ</span></td><td>知らねども／知らざれども</td></tr>"
-  + "<tr><th>命令形</th><td>―</td><td>―</td></tr>"
-  + "</tbody></table></div><p>特に連体形「ぬ」は、完了の助動詞「ぬ」と同形です。「知らぬ人」＝知らない人（打消）、「散りぬる花」＝散ってしまった花（完了）、と後ろの形（ぬ／ぬる）でも区別できます。</p>"
-  + "<h3>3. まじ・じ は「否定＋気持ち」</h3><p><strong>まじ</strong>は主語の人称で意味が変わります。一人称なら打消意志「〜まい」、二人称なら禁止「〜てはならない」、三人称なら打消推量「〜ないだろう」・不可能「〜できそうにない」です。<strong>じ</strong>は「まじ」の軽い形で、打消推量・打消意志を表します。</p>",
-  examples:[
-    {orig:"知らぬ人こそ、言ひやすけれ。", trans:"<b>知らない人こそ、言いやすい。</b>", pt:"「知らぬ」は打消「ず」の連体形。体言「人」にかかっています。"},
-    {orig:"行くまじき道なり。", trans:"<b>行ってはいけない道である。</b>", pt:"「まじき」は「まじ」の連体形。禁止の意味です。"},
-    {orig:"忘れじと 思ふ心は ありながら", trans:"<b>忘れまいと思う心はあるけれど。</b>", pt:"「じ」は打消意志「〜まい」。和歌によく現れる形です。"}
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"「行くらむ」の「らむ」は終止形接続でした。では「行かむ」の「む」は何形に接続していますか。",
+        choices:["未然形","連用形","終止形"], ans:0,
+        why:["「行か」はア段の形、つまり<strong>未然形</strong>です。","「む」は未然形接続、「らむ」は終止形接続。接続がそのまま判別になります。","この単元の「ず」も未然形接続です。同じグループとして意識してください。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"単純な否定と、「否定＋気持ち」", b:"<p>打消の中心は<strong>ず</strong>です。未然形に接続し、「〜ない」という単純な否定を表します。活用が特殊で、現代語の「ない」のように後ろの言葉によって形を変えます。</p><p><strong>まじ・じ</strong>は「打消」に「推量」が重なった助動詞で、「〜ないだろう／〜てはいけない／〜できそうにない」など、単なる否定以上の意味を持ちます。</p>" }
+    ]},
+    { t:"解説 ― ず の活用と、まじ・じ", steps:[
+      { k:"tbl", t:"打消の助動詞一覧", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>打消の助動詞 ― 接続・活用・意味</caption><thead><tr><th>助動詞</th><th>接続</th><th>活用の型</th><th>主な意味</th></tr></thead><tbody>"
+        + "<tr><th>ず</th><td>未然形</td><td>特殊型</td><td>打消（〜ない）</td></tr>"
+        + "<tr><th>まじ</th><td>終止形（ラ変には連体形）・未然形</td><td>形容詞型（シク活用）</td><td>打消推量・打消意志・不可能・禁止</td></tr>"
+        + "<tr><th>じ</th><td>未然形</td><td>無活用</td><td>打消推量・打消意志</td></tr>"
+        + "</tbody></table></div>" },
+      { k:"tbl", t:"ず の活用 ― 形を全部押さえる", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>助動詞「ず」の活用</caption><thead><tr><th>活用形</th><th>形</th><th>使い方の例</th></tr></thead><tbody>"
+        + "<tr><th>未然形</th><td><span class='accent'>ざら</span></td><td>知らざらむ（知らないだろう）</td></tr>"
+        + "<tr><th>連用形</th><td><span class='accent'>ず</span>／<span class='accent'>ざり</span>／<span class='accent'>ぬ</span></td><td>知らず（知らないで）／知らざりけり／知らぬ人</td></tr>"
+        + "<tr><th>終止形</th><td><span class='accent'>ず</span></td><td>知らず（知らない）※文末</td></tr>"
+        + "<tr><th>連体形</th><td><span class='accent'>ぬ</span>／<span class='accent'>ざる</span></td><td>知らぬこと／知らざること</td></tr>"
+        + "<tr><th>已然形</th><td><span class='accent'>ね</span>／<span class='accent'>ざれ</span></td><td>知らねども／知らざれども</td></tr>"
+        + "<tr><th>命令形</th><td>―</td><td>―</td></tr>"
+        + "</tbody></table></div><p>特に連体形「ぬ」は、完了の助動詞「ぬ」と同形です。「知らぬ人」＝知らない人（打消）、「散りぬる花」＝散ってしまった花（完了）、と後ろの形（ぬ／ぬる）でも区別できます。</p>" },
+      { k:"r", t:"まじ・じ は「否定＋気持ち」", b:"<p><strong>まじ</strong>は主語の人称で意味が変わります。一人称なら打消意志「〜まい」、二人称なら禁止「〜てはならない」、三人称なら打消推量「〜ないだろう」・不可能「〜できそうにない」です。「べし」と同じく、主語の確認が決め手です。</p><p><strong>じ</strong>は「まじ」の軽い形で、打消推量・打消意志を表します。</p>" },
+      { k:"quiz", t:"ミニ確認 ― ずの連体形", q:"「知らぬ人」の「ぬ」は何ですか。",
+        choices:["完了の助動詞「ぬ」","打消「ず」の連体形","過去の助動詞"], ans:1,
+        why:["「知ら」は未然形です。完了の「ぬ」は連用形に接続するはずです。","未然形に続く「ぬ」は、打消「ず」の連体形です（知らない人）。","完了なら連体形は「ぬる」になる、という形の違いも決め手になります。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― こそ…已然形と打消", lead:"係り結びと打消が重なった文です。",
+        gsen:"知らぬ人こそ、言ひやすけれ。",
+        layers:[
+          ["文法の確認","「知らぬ」は打消「ず」の連体形。係助詞「こそ」を受けて、結びは已然形「やすけれ」（形容詞「やすし」の已然形）になっています。"],
+          ["現代語訳","<b>知らない人こそ、言いやすい。</b>"],
+          ["ポイント","「こそ…已然形」の係り結びは、助詞の単元で本格的に扱います。ここでは形の組だけ先に確認してください。"]
+        ]},
+      { k:"ex", t:"実用例② ― まじの禁止", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"行くまじき道なり。",
+        layers:[
+          ["文法の確認","「まじき」は「まじ」の連体形（形容詞型）。道を行く相手への禁止の意味です。",1],
+          ["現代語訳","<b>行ってはいけない道である。</b>"],
+          ["ポイント","「まじ」は「ず」と違い、禁止・推量など「気持ち」を含みます。訳に「〜ない」以上の言葉が必要なら「まじ」を疑います。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― ず の形でつまずく所", b:"<ul><li>「ず」の連用形は3つ（ず・ざり・ぬ）あります。「〜ざりけり」のように助動詞が続けば「ざり」、体言が続けば連体形「ぬ」と使い分けます。</li><li>文末の「ず」と連用形の「ず」は同形です。「知らず。」で終われば終止形、「知らず、帰る」なら連用形（中止法）です。</li><li>「まじ」の接続は終止形が基本です。ラ変動詞（あり等）の場合は連体形「あるまじき」になる点に注意してください。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "「ず」の連用形は3つ（ず・ざり・ぬ）あります。「〜ざりけり」のように助動詞が続けば「ざり」、体言が続けば連体形「ぬ」と使い分けます。",
-    "文末の「ず」と連用形の「ず」は同形です。「知らず。」で終われば終止形、「知らず、帰る」なら連用形（中止法）です。",
-    "「まじ」の接続は終止形が基本です。ラ変動詞（あり等）の場合は連体形「あるまじき」になる点に注意してください。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点</caption><thead><tr><th>助動詞</th><th>要点</th></tr></thead><tbody>"
+    + "<tr><th>ず</th><td>未然形接続・特殊型。連体形「ぬ」は完了「ぬ」と同形（前が未然形か連用形かで判別）</td></tr>"
+    + "<tr><th>まじ</th><td>打消＋推量。意味は主語の人称で決まる（一人称＝打消意志、二人称＝禁止、三人称＝打消推量・不可能）</td></tr>"
+    + "<tr><th>じ</th><td>未然形接続・無活用。打消推量・打消意志</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"打消「ず」の連体形を2つ言ってください。", a:"「ぬ」と「ざる」です（知らぬこと／知らざること）。" },
+      { q:"「散りぬる花」と「知らぬ人」で、「ぬ／ぬる」の違いは何を表しますか。", a:"「ぬる」は完了の助動詞の連体形（散ってしまった花）、「ぬ」は打消「ず」の連体形（知らない人）です。" },
+      { q:"「まじ」の意味が主語二人称のとき、何を表しますか。", a:"禁止（〜てはならない）を表します。" }
+    ]}
 },
-/* ────────── 8 断定・伝聞 ────────── */
+/* ────────── 8 断定・伝聞推定 ────────── */
 {
   phase:2, title:"助動詞④ ― 断定・比況・伝聞推定（なり・たり・ごとし・めり・らし）",
   sub:"「〜である」「〜のようだ」「〜らしい」。同じ「なり」に2つの顔があることが最大のテーマです。",
   tags:["断定","伝聞・推定","なり の識別","表あり"],
-  overview:"<p>このグループは、文に「判断」を添える助動詞です。<strong>なり（断定）・たり（断定）・ごとし</strong>は連体形・体言に接続し、<strong>なり（伝聞・推定）・めり・らし</strong>は終止形に接続します。最大の注意点は、断定の「なり」と伝聞の「なり」が<span class='key'>まったく同形で、接続だけが違う</span>ことです。ここを押さえれば、このグループは制覇できます。</p>",
-  kaisetsu:"<h3>1. 断定・比況・伝聞推定の助動詞一覧</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>断定・比況・伝聞推定の助動詞 ― 接続・活用・意味</caption><thead><tr><th>助動詞</th><th>接続</th><th>活用の型</th><th>主な意味</th></tr></thead><tbody>"
-  + "<tr><th>なり（断定）</th><td>体言・連体形</td><td>形容動詞ナリ型</td><td>断定（〜である）・存在（〜にある）</td></tr>"
-  + "<tr><th>たり（断定）</th><td>体言</td><td>形容動詞タリ型</td><td>断定（〜である）※漢文訓読調・硬い文体</td></tr>"
-  + "<tr><th>ごとし</th><td>体言＋の・連体形</td><td>形容詞ク活用型</td><td>比況（〜のようだ）・例示（〜など）</td></tr>"
-  + "<tr><th>なり（伝聞・推定）</th><td>終止形（ラ変には連体形）</td><td>四段型</td><td>伝聞（〜そうだ）・推定（〜ようだ）</td></tr>"
-  + "<tr><th>めり</th><td>終止形（ラ変には連体形）</td><td>ラ変型</td><td>推定（〜ようだ）・婉曲</td></tr>"
-  + "<tr><th>らし</th><td>終止形（ラ変には連体形）</td><td>無活用</td><td>推定（〜らしい）※根拠のある推定</td></tr>"
-  + "</tbody></table></div>"
-  + "<h3>2. 2つの「なり」の見分け方</h3><ol><li><strong>接続を見る</strong>：前が体言・連体形なら断定、前が終止形なら伝聞・推定。</li><li><strong>訳して確かめる</strong>：「〜である」で通れば断定、「〜そうだ・〜ようだ」で通れば伝聞・推定。</li><li><strong>活用を見る</strong>：連体形が「なる」なら断定、「なる」でなく「なり」のまま体言にかかる場合は伝聞側の用法を疑います。断定の連体形は「なる」、伝聞の「なり」は連体形も「なり」です。</li></ol>"
-  + "<div class='point-box'><b>例で確認：</b>「これは水<span class='accent'>なり</span>」＝体言「水」＋なり → 断定「水である」。「雨の降る<span class='accent'>なり</span>」＝終止形「降る」＋なり → 伝聞「雨が降るそうだ（音がする）」。</div>"
-  + "<h3>3. めり・らし のニュアンス</h3><p><strong>めり</strong>は話し手が自分の目で見て判断する推定で、断定を避ける婉曲の働きもあります（女房言葉の雰囲気）。<strong>らし</strong>は客観的な根拠に基づく推定「〜らしい」です。現代語の「らしい」に近いのは「らし」のほうです。</p>",
-  examples:[
-    {orig:"これは、名高き人の家なり。", trans:"<b>これは、名高い人の家である。</b>", pt:"体言「家」＋なり＝断定。接続が体言なので、伝聞の「なり」ではありません。"},
-    {orig:"外に人の来るなり。", trans:"<b>外に人が来るようだ（気配・音がする）。</b>", pt:"終止形「来る」＋なり＝伝聞。音や気配で判断する場面で使われます。"},
-    {orig:"月はいと明かなるめり。", trans:"<b>月はとても明るいようだ。</b>", pt:"「めり」は推定の助動詞。形容動詞には連体形「明かなる」に接続します（動詞なら終止形に接続）。"}
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"「行くまじき道」の「まじ」が表す意味はどれですか。",
+        choices:["単純な打消（行かない道）","禁止（行ってはいけない道）","過去（行った道）"], ans:1,
+        why:["「まじ」は単なる否定ではなく、気持ちを含む助動詞でした。","道を行く相手に向けた文脈では<strong>禁止</strong>になります。","この単元の「なり」も、同形の別物を接続で見分けるのがテーマです。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"文に「判断」を添えるグループ", b:"<p>このグループは、文に「判断」を添える助動詞です。<strong>なり（断定）・たり（断定）・ごとし</strong>は連体形・体言に接続し、<strong>なり（伝聞・推定）・めり・らし</strong>は終止形に接続します。</p><p>最大の注意点は、断定の「なり」と伝聞の「なり」が<span class='key'>まったく同形で、接続だけが違う</span>ことです。ここを押さえれば、このグループは制覇できます。</p>" }
+    ]},
+    { t:"解説 ― 2つの「なり」", steps:[
+      { k:"tbl", t:"断定・比況・伝聞推定の助動詞一覧", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>断定・比況・伝聞推定の助動詞 ― 接続・活用・意味</caption><thead><tr><th>助動詞</th><th>接続</th><th>活用の型</th><th>主な意味</th></tr></thead><tbody>"
+        + "<tr><th>なり（断定）</th><td>体言・連体形</td><td>形容動詞ナリ型</td><td>断定（〜である）・存在（〜にある）</td></tr>"
+        + "<tr><th>たり（断定）</th><td>体言</td><td>形容動詞タリ型</td><td>断定（〜である）※漢文訓読調・硬い文体</td></tr>"
+        + "<tr><th>ごとし</th><td>体言＋の・連体形</td><td>形容詞ク活用型</td><td>比況（〜のようだ）・例示（〜など）</td></tr>"
+        + "<tr><th>なり（伝聞・推定）</th><td>終止形（ラ変には連体形）</td><td>四段型</td><td>伝聞（〜そうだ）・推定（〜ようだ）</td></tr>"
+        + "<tr><th>めり</th><td>終止形（ラ変には連体形）</td><td>ラ変型</td><td>推定（〜ようだ）・婉曲</td></tr>"
+        + "<tr><th>らし</th><td>終止形（ラ変には連体形）</td><td>無活用</td><td>推定（〜らしい）※根拠のある推定</td></tr>"
+        + "</tbody></table></div>" },
+      { k:"r", t:"2つの「なり」の見分け方", b:"<ol><li><strong>接続を見る</strong>：前が体言・連体形なら断定、前が終止形なら伝聞・推定。</li><li><strong>訳して確かめる</strong>：「〜である」で通れば断定、「〜そうだ・〜ようだ」で通れば伝聞・推定。</li><li><strong>活用を見る</strong>：連体形が「なる」なら断定。伝聞の「なり」は連体形も「なり」のままです。</li></ol>", box:"<b>例で確認：</b>「これは水<span class='accent'>なり</span>」＝体言「水」＋なり → 断定「水である」。「雨の降る<span class='accent'>なり</span>」＝終止形「降る」＋なり → 伝聞「雨が降るそうだ（音がする）」。" },
+      { k:"r", t:"めり・らし のニュアンス", b:"<p><strong>めり</strong>は話し手が自分の目で見て判断する推定で、断定を避ける婉曲の働きもあります。<strong>らし</strong>は客観的な根拠に基づく推定「〜らしい」です。現代語の「らしい」に近いのは「らし」のほうです。</p>" },
+      { k:"quiz", t:"ミニ確認 ― なりの判別", q:"「外に人の来るなり」の「なり」はどちらですか。",
+        choices:["断定（〜である）","伝聞（〜そうだ）"], ans:1,
+        why:["「なり」の前は「来る」で、用言の<strong>終止形</strong>です。","終止形に接続する「なり」は伝聞・推定でした。","音や気配で「人が来るようだ」と判断する場面です。体言に付いていれば断定でした。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― 断定のなり", lead:"接続から確認してください。",
+        gsen:"これは、名高き人の家なり。",
+        layers:[
+          ["文法の確認","「なり」の前は体言「家」。体言に接続する「なり」は断定です。"],
+          ["現代語訳","<b>これは、名高い人の家である。</b>"],
+          ["ポイント","判別の手順は常に「前の語を見る」が先。訳はその後の確認です。"]
+        ]},
+      { k:"ex", t:"実用例② ― めりの推定", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"月はいと明かなるめり。",
+        layers:[
+          ["文法の確認","「めり」は推定の助動詞。形容動詞には連体形「明かなる」に接続します（動詞なら終止形に接続）。",1],
+          ["現代語訳","<b>月はとても明るいようだ。</b>"],
+          ["ポイント","「めり」は目で見て判断する推定。断定を避ける、やわらかい言い方です。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― このグループの落とし穴", b:"<ul><li>断定「たり」は体言にしか付きません。「〜たり」と見たら、完了「たり」（連用形接続）か断定「たり」か、前が体言かどうかで判断します。</li><li>「ごとし」の連用形は「ごとく」です。「花のごとく散る」の形で覚えてください。</li><li>「らし」の前は終止形です。「人らし」ではなく「来るらし」のように、用言の終止形に付くのが原則です。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "断定「たり」は体言にしか付きません。「〜たり」と見たら、完了「たり」（連用形接続）か断定「たり」か、前が体言かどうかで判断します。",
-    "「ごとし」の連用形は「ごとく」です。「花のごとく散る」の形で覚えてください。",
-    "「らし」の前は終止形です。「人らし」ではなく「来るらし」のように用言の終止形に付くのが原則です（体言に付く場合は「〜らし」とはならず別の形になります）。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点 ― 接続で見分ける</caption><thead><tr><th>助動詞</th><th>接続と意味</th></tr></thead><tbody>"
+    + "<tr><th>なり（断定）</th><td>体言・連体形接続。「〜である」。連体形は「なる」</td></tr>"
+    + "<tr><th>なり（伝聞・推定）</th><td>終止形接続。「〜そうだ・〜ようだ」</td></tr>"
+    + "<tr><th>たり（断定）</th><td>体言接続。硬い文体の断定</td></tr>"
+    + "<tr><th>ごとし</th><td>比況「〜のようだ」。連用形は「ごとく」</td></tr>"
+    + "<tr><th>めり／らし</th><td>終止形接続の推定。めり＝目で見た推定、らし＝根拠のある推定</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"断定の「なり」と伝聞の「なり」は、何で見分けますか。", a:"接続です。前が体言・連体形なら断定、前が終止形なら伝聞・推定です。" },
+      { q:"「雨の降るなり」はどちらの「なり」で、どう訳しますか。", a:"終止形「降る」に接続しているので伝聞です。「雨が降るそうだ（音がする）」と訳します。" },
+      { q:"「ごとし」の連用形は何ですか。", a:"「ごとく」です（花のごとく散る）。" }
+    ]}
 },
 /* ────────── 9 使役・受身 ────────── */
 {
   phase:2, title:"助動詞⑤ ― 使役・受身（す・さす・しむ／る・らる）",
   sub:"「〜させる」と「〜れる・られる」。らる の4つの意味の判別が山場です。",
   tags:["使役","受身・可能・自発・尊敬","表あり"],
-  overview:"<p><strong>使役</strong>の助動詞は<strong>す・さす・しむ</strong>、<strong>受身</strong>の助動詞は<strong>る・らる</strong>です。どちらも未然形接続です。「る・らる」は受身のほかに<span class='key'>可能・自発・尊敬</span>の意味も持ち、合わせて4つの意味の判別が重要になります。使役と受身が重なると「〜させられる」の形も作れます。</p>",
-  kaisetsu:"<h3>1. 使役・受身の助動詞一覧</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>使役・受身の助動詞 ― 接続・活用・意味</caption><thead><tr><th>助動詞</th><th>接続</th><th>活用の型</th><th>主な意味</th></tr></thead><tbody>"
-  + "<tr><th>す</th><td>四段・ナ変・ラ変の未然形</td><td>下二段型</td><td>使役・尊敬</td></tr>"
-  + "<tr><th>さす</th><td>四段・ナ変・ラ変以外の未然形</td><td>下二段型</td><td>使役・尊敬</td></tr>"
-  + "<tr><th>しむ</th><td>未然形（すべて）</td><td>下二段型</td><td>使役（硬い表現・漢文訓読調）</td></tr>"
-  + "<tr><th>る</th><td>四段・ナ変・ラ変の未然形</td><td>下二段型</td><td>受身・可能・自発・尊敬</td></tr>"
-  + "<tr><th>らる</th><td>四段・ナ変・ラ変以外の未然形</td><td>下二段型</td><td>受身・可能・自発・尊敬</td></tr>"
-  + "</tbody></table></div><p class='tbl-note'>※ 「す／る」は四段・ナ変・ラ変に、「さす／らる」はそれ以外に付く、という接続の分担があります。</p>"
-  + "<h3>2. る・らる の4つの意味の判別</h3><ul><li><strong>受身</strong>：「〜に…れる」と、動作をする人（〜に）が示される。「人に笑はる」</li><li><strong>可能</strong>：打消や反語と結びつくことが多い。「寝られず（寝ることができない）」</li><li><strong>自発</strong>：感情・感覚の動詞（思ふ・見ゆ・聞こゆ・しのぶ等）に付き、「自然と〜される」と訳す。「故郷の思ひ出さる」</li><li><strong>尊敬</strong>：主語が身分の高い人で、動作の相手がいない。「帝、御覧ぜらる」※「す・さす」も尊敬を表します</li></ul>"
-  + "<h3>3. 使役の訳し方</h3><p>使役は「Aが Bに 〜させる」の形です。誰が誰にさせるのか、主語と「に」の相手を必ず確認します。また「す・さす」は尊敬語としても使われ、身分の高い人の動作に付いた場合は「〜なさる」と訳します。</p>",
-  examples:[
-    {orig:"母、子に薬を飲ませす。", trans:"<b>母が、子に薬を飲ませる。</b>", pt:"「飲ま」は四段の未然形＋使役「す」。「子に」が動作をさせられる相手です。"},
-    {orig:"人に笑はれて、恥づかし。", trans:"<b>人に笑われて、恥ずかしい。</b>", pt:"「笑はる」は受身。「人に」という動作主が示されているのが受身の目印です。"},
-    {orig:"古里の、しぐれの雨の思ひ出さるる。", trans:"<b>故郷の、時雨の雨が自然と思い出される。</b>", pt:"感情の動詞「思ひ出（づ）」＋らる＝自発。「自然と〜」と訳します。"}
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"「これは水なり」の「なり」はどちらですか。",
+        choices:["断定","伝聞"], ans:0,
+        why:["「なり」の前は体言「水」です。","体言に接続する「なり」は<strong>断定</strong>でした。","この単元も未然形接続のグループです。接続の確認から入る型は変わりません。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"2つのグループ、1つの山場", b:"<p><strong>使役</strong>の助動詞は<strong>す・さす・しむ</strong>、<strong>受身</strong>の助動詞は<strong>る・らる</strong>です。どちらも未然形接続です。</p><p>「る・らる」は受身のほかに<span class='key'>可能・自発・尊敬</span>の意味も持ち、合わせて4つの意味の判別が重要になります。使役と受身が重なると「〜させられる」の形も作れます。</p>" }
+    ]},
+    { t:"解説 ― 4つの意味の判別", steps:[
+      { k:"tbl", t:"使役・受身の助動詞一覧", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>使役・受身の助動詞 ― 接続・活用・意味</caption><thead><tr><th>助動詞</th><th>接続</th><th>活用の型</th><th>主な意味</th></tr></thead><tbody>"
+        + "<tr><th>す</th><td>四段・ナ変・ラ変の未然形</td><td>下二段型</td><td>使役・尊敬</td></tr>"
+        + "<tr><th>さす</th><td>四段・ナ変・ラ変以外の未然形</td><td>下二段型</td><td>使役・尊敬</td></tr>"
+        + "<tr><th>しむ</th><td>未然形（すべて）</td><td>下二段型</td><td>使役（硬い表現・漢文訓読調）</td></tr>"
+        + "<tr><th>る</th><td>四段・ナ変・ラ変の未然形</td><td>下二段型</td><td>受身・可能・自発・尊敬</td></tr>"
+        + "<tr><th>らる</th><td>四段・ナ変・ラ変以外の未然形</td><td>下二段型</td><td>受身・可能・自発・尊敬</td></tr>"
+        + "</tbody></table></div><p class='tbl-note'>※ 「す／る」は四段・ナ変・ラ変に、「さす／らる」はそれ以外に付く、という接続の分担があります。</p>" },
+      { k:"r", t:"る・らる の4つの意味の判別", b:"<ul><li><strong>受身</strong>：「〜に…れる」と、動作をする人（〜に）が示される。「人に笑はる」</li><li><strong>可能</strong>：打消や反語と結びつくことが多い。「寝られず（寝ることができない）」</li><li><strong>自発</strong>：感情・感覚の動詞（思ふ・見ゆ・聞こゆ・しのぶ等）に付き、「自然と〜される」と訳す。「故郷の思ひ出さる」</li><li><strong>尊敬</strong>：主語が身分の高い人で、動作の相手がいない。「帝、御覧ぜらる」※「す・さす」も尊敬を表します</li></ul><p>使役は「Aが Bに 〜させる」の形です。誰が誰にさせるのか、主語と「に」の相手を必ず確認します。</p>" },
+      { k:"quiz", t:"ミニ確認 ― らるの判別（受身）", q:"「人に笑はれて、恥づかし」の「笑はる」はどの意味ですか。",
+        choices:["可能","受身","自発"], ans:1,
+        why:["文には「人に」という、動作をする人が示されています。","動作主「〜に」があるのは<strong>受身</strong>の目印でした。","判別の順序は、①動作主「〜に」があるか ②動詞が感情系か ③主語が高貴か、です。"] },
+      { k:"quiz", t:"ミニ確認 ― らるの判別（自発）", q:"「古里の、しぐれの雨の思ひ出さるる」の「らる」はどの意味ですか。",
+        choices:["受身","自発","尊敬"], ans:1,
+        why:["動詞「思ひ出（づ）」は感情の動詞です。","感情・感覚の動詞＋らる は<strong>自発</strong>で、「自然と思い出される」と訳しました。","動作主「〜に」もなく、主語が高貴な人でもないので、受身・尊敬は外れます。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― 使役", lead:"「誰が・誰に・何をさせるか」を確認してください。",
+        gsen:"母、子に薬を飲ませす。",
+        layers:[
+          ["文法の確認","「飲ま」は四段活用「飲む」の未然形＋使役の「す」。「子に」が、動作をさせられる相手です。"],
+          ["現代語訳","<b>母が、子に薬を飲ませる。</b>"],
+          ["ポイント","使役の文は「Aが Bに 〜させる」の骨格で読みます。主語と「に」の相手を取り違えないことが大切です。"]
+        ]},
+      { k:"ex", t:"実用例② ― 自発", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"故郷の山の、思ひ出さるる。",
+        layers:[
+          ["文法の確認","感情の動詞「思ひ出（づ）」の未然形＋「らる」は自発です。",1],
+          ["現代語訳","<b>故郷の山が、自然と思い出される。</b>"],
+          ["ポイント","「自然と〜」と訳して自然なら自発。4つの意味は、訳の言葉で確かめられます。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― 使役・受身の落とし穴", b:"<ul><li>「る・らる」の意味判別は、<strong>①動作主「〜に」があるか ②動詞が感情系か ③主語が高貴か</strong>の順に確認すると迷いません。</li><li>使役＋受身の重なり「読ませらる（読まされる）」では、助動詞が2つ続いていることを見落とさないでください。</li><li>尊敬の「す・さす・る・らる」は、敬語の単元（第5部）でも再登場します。敬語表現の一部として整理し直します。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "「る・らる」の意味判別は、<strong>①動作主「〜に」があるか ②動詞が感情系か ③主語が高貴か</strong>の順に確認すると迷いません。",
-    "使役＋受身の重なり「読ませらる（読まされる）」では、助動詞が2つ続いていることを見落とさないでください。",
-    "尊敬の「す・さす・る・らる」は、敬語の単元（第5部）でも再登場します。敬語表現の一部として整理し直します。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点 ― らる の4つの意味</caption><thead><tr><th>意味</th><th>見分けの目印</th></tr></thead><tbody>"
+    + "<tr><th>受身</th><td>動作主「〜に」が示される</td></tr>"
+    + "<tr><th>可能</th><td>打消・反語と結びつくことが多い</td></tr>"
+    + "<tr><th>自発</th><td>感情・感覚の動詞に付く。「自然と〜」と訳す</td></tr>"
+    + "<tr><th>尊敬</th><td>主語が高貴な人で、動作の相手がいない</td></tr>"
+    + "<tr><th>使役（す・さす・しむ）</th><td>「Aが Bに 〜させる」。す・さすは尊敬にもなる</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"「る・らる」の4つの意味をすべて言ってください。", a:"受身・可能・自発・尊敬です。" },
+      { q:"受身と自発を見分ける目印の違いは何ですか。", a:"受身は動作主「〜に」が示されること、自発は動詞が感情・感覚系で「自然と〜」と訳せることです。" },
+      { q:"「す」と「さす」は、動詞の種類でどう使い分けますか。", a:"四段・ナ変・ラ変の未然形には「す」、それ以外の未然形には「さす」が付きます。" }
+    ]}
 },
 /* ────────── 10 助詞 ────────── */
 {
   phase:3, title:"助詞 ― 文の部品をつなぐ言葉",
   sub:"格助詞・接続助詞・副助詞・終助詞・係助詞。特に係助詞の「結びの呼応」は文法問題の頻出事項です。",
   tags:["格助詞","係助詞","結びの呼応","表あり"],
-  overview:"<p><strong>助詞</strong>は活用しない付属語で、言葉と言葉の関係を示します。種類は主に5つです。中でも係助詞は、文末の活用形を決める<span class='key'>「結びの呼応」</span>という決まりを持ち、文法の要所になります。助詞は現代語と顔ぶれがほぼ同じなので、違いの大きいものから重点的に学びます。</p>",
-  kaisetsu:"<h3>1. 格助詞 ― 現代語との違いに注目</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>主な格助詞</caption><thead><tr><th>助詞</th><th>主な働き</th><th>注意点</th></tr></thead><tbody>"
-  + "<tr><th>が・の</th><td>主語・連体修飾</td><td>「の」も主語になる（我の行く）。連体修飾では「が」と「の」が入れ替わることがある</td></tr>"
-  + "<tr><th>を</th><td>目的語・経過する場所・出発点</td><td>省略されることも多い（花見に＝花を見に）</td></tr>"
-  + "<tr><th>に</th><td>場所・時・目的・対象・原因</td><td>意味が広い。識別の対象になりやすい</td></tr>"
-  + "<tr><th>へ</th><td>方向・到着点</td><td>現代語の「へ」とほぼ同じ</td></tr>"
-  + "<tr><th>と</th><td>同格・引用・共同の相手</td><td>引用「と」は発言・思考の内容を受ける</td></tr>"
-  + "<tr><th>より</th><td>出発点・経過点・比較の基準</td><td>比較は「〜より（も）」の形</td></tr>"
-  + "<tr><th>から</th><td>出発点・理由</td><td>古文では使用が少なく、「より」が中心</td></tr>"
-  + "<tr><th>まで</th><td>到達点・限度</td><td>現代語とほぼ同じ</td></tr>"
-  + "</tbody></table></div>"
-  + "<h3>2. 係助詞と結びの呼応 ― 最重要</h3><p>係助詞が文の途中に現れると、文末（結び）の活用形が決まります。これを<strong>係り結び</strong>といいます。</p>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>係助詞と結びの活用形</caption><thead><tr><th>係助詞</th><th>意味</th><th>結びの活用形</th></tr></thead><tbody>"
-  + "<tr><th>は・も</th><td>主題・提示／同類</td><td>終止形（通常どおり）</td></tr>"
-  + "<tr><th>ぞ・なむ・や・か</th><td>強調／疑問・反語</td><td><span class='accent'>連体形</span></td></tr>"
-  + "<tr><th>こそ</th><td>強い強調</td><td><span class='accent'>已然形</span></td></tr>"
-  + "</tbody></table></div>"
-  + "<h3>3. その他の助詞</h3><ul><li><strong>接続助詞</strong>：ば（已然形＝確定条件「〜ので」、未然形＝仮定条件「〜たら」）／ど・ども（逆接）／が・に（順接・逆接、文末では願望・詠嘆）／て・つつ・ながら など</li><li><strong>副助詞</strong>：ばかり（程度・限定）／まで／のみ／だに（最小限の例示「〜さえ」）／さへ（添加「〜までも」）など</li><li><strong>終助詞</strong>：かし（念押し）／な（禁止・自分の行為への願望）／ね（自分の行為への願望）／そ（禁止・軽い命令）／かな・もがな（詠嘆・願望）など</li></ul>"
-  + "<div class='point-box'><b>「ば」の見分け：</b>前が<b>已然形なら確定条件</b>「〜ので・〜すると」、前が<b>未然形なら仮定条件</b>「〜たら・〜なら」。活用形の判別がそのまま意味の判別になります。</div>",
-  examples:[
-    {orig:"花こそ咲きにけれ。", trans:"<b>花こそ咲いたなあ。</b>", pt:"係助詞「こそ」→結びは已然形「けれ（けり の已然形）」。係り結びの代表例です。"},
-    {orig:"何ぞ深く思ふらむ。", trans:"<b>なぜ深く思っているのだろうか。</b>", pt:"「ぞ」→結びは連体形。「らむ」の連体形は「らむ」のままですが、形の上では連体形として結んでいます。"},
-    {orig:"雨の降れば、道悪し。", trans:"<b>雨が降るので、道が悪い。</b>", pt:"「降れ」は已然形＋ば＝確定条件。実際に降っていることが前提です。"}
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"「寝られず」の「らる」が表す意味はどれですか。",
+        choices:["受身","可能","尊敬"], ans:1,
+        why:["「寝られず」は「寝ることができない」という意味です。","打消と結びつく「らる」は<strong>可能</strong>の目印でした。","この単元は助詞です。文末の形を決める「係り結び」が中心になります。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"助詞の種類と、学習の重点", b:"<p><strong>助詞</strong>は活用しない付属語で、言葉と言葉の関係を示します。種類は主に5つです。中でも係助詞は、文末の活用形を決める<span class='key'>「結びの呼応」</span>という決まりを持ち、文法の要所になります。</p><p>助詞は現代語と顔ぶれがほぼ同じなので、違いの大きいものから重点的に学びます。</p>" }
+    ]},
+    { t:"解説 ― 格助詞と係り結び", steps:[
+      { k:"tbl", t:"主な格助詞 ― 現代語との違いに注目", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>主な格助詞</caption><thead><tr><th>助詞</th><th>主な働き</th><th>注意点</th></tr></thead><tbody>"
+        + "<tr><th>が・の</th><td>主語・連体修飾</td><td>「の」も主語になる（我の行く）。連体修飾では「が」と「の」が入れ替わることがある</td></tr>"
+        + "<tr><th>を</th><td>目的語・経過する場所・出発点</td><td>省略されることも多い（花見に＝花を見に）</td></tr>"
+        + "<tr><th>に</th><td>場所・時・目的・対象・原因</td><td>意味が広い。識別の対象になりやすい</td></tr>"
+        + "<tr><th>へ</th><td>方向・到着点</td><td>現代語の「へ」とほぼ同じ</td></tr>"
+        + "<tr><th>と</th><td>同格・引用・共同の相手</td><td>引用「と」は発言・思考の内容を受ける</td></tr>"
+        + "<tr><th>より</th><td>出発点・経過点・比較の基準</td><td>比較は「〜より（も）」の形</td></tr>"
+        + "<tr><th>から</th><td>出発点・理由</td><td>古文では使用が少なく、「より」が中心</td></tr>"
+        + "<tr><th>まで</th><td>到達点・限度</td><td>現代語とほぼ同じ</td></tr>"
+        + "</tbody></table></div>" },
+      { k:"tbl", t:"係助詞と結びの呼応 ― 最重要", html:"<p>係助詞が文の途中に現れると、文末（結び）の活用形が決まります。これを<strong>係り結び</strong>といいます。</p><div class='tbl-wrap'><table class='katsuyo'><caption>係助詞と結びの活用形</caption><thead><tr><th>係助詞</th><th>意味</th><th>結びの活用形</th></tr></thead><tbody>"
+        + "<tr><th>は・も</th><td>主題・提示／同類</td><td>終止形（通常どおり）</td></tr>"
+        + "<tr><th>ぞ・なむ・や・か</th><td>強調／疑問・反語</td><td><span class='accent'>連体形</span></td></tr>"
+        + "<tr><th>こそ</th><td>強い強調</td><td><span class='accent'>已然形</span></td></tr>"
+        + "</tbody></table></div>" },
+      { k:"r", t:"その他の助詞と、「ば」の見分け", b:"<ul><li><strong>接続助詞</strong>：ば（已然形＝確定条件「〜ので」、未然形＝仮定条件「〜たら」）／ど・ども（逆接）／が・に（順接・逆接、文末では願望・詠嘆）／て・つつ・ながら など</li><li><strong>副助詞</strong>：ばかり（程度・限定）／まで／のみ／だに（最小限の例示「〜さえ」）／さへ（添加「〜までも」）など</li><li><strong>終助詞</strong>：かし（念押し）／な（禁止・自分の行為への願望）／ね（自分の行為への願望）／そ（禁止・軽い命令）／かな・もがな（詠嘆・願望）など</li></ul>", box:"<b>「ば」の見分け：</b>前が<b>已然形なら確定条件</b>「〜ので・〜すると」、前が<b>未然形なら仮定条件</b>「〜たら・〜なら」。活用形の判別がそのまま意味の判別になります。" },
+      { k:"quiz", t:"ミニ確認 ― 係り結び", q:"「花こそ咲きにけれ」の文末「けれ」が已然形になっている理由はどれですか。",
+        choices:["係助詞「こそ」を受けているから","過去の文だから","命令の文だから"], ans:0,
+        why:["文中に係助詞「<strong>こそ</strong>」があります。","「こそ」の結びは已然形、という係り結びの決まりでした。","係助詞を見つけたら、文末の活用形を予測してから読む、という読み方が身につくと速くなります。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― ぞ…連体形", lead:"結びの形に注目してください。",
+        gsen:"何ぞ深く思ふらむ。",
+        layers:[
+          ["文法の確認","係助詞「ぞ」があるので、結びは連体形になります。「らむ」の連体形は「らむ」のままですが、形の上では連体形として結んでいます。"],
+          ["現代語訳","<b>なぜ深く思っているのだろうか。</b>"],
+          ["ポイント","「ぞ・なむ・や・か → 連体形」「こそ → 已然形」。係助詞と結びはセットで覚えます。"]
+        ]},
+      { k:"ex", t:"実用例② ― ばの確定条件", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"雨の降れば、道悪し。",
+        layers:[
+          ["文法の確認","「降れ」は已然形。已然形＋ば は確定条件です。",1],
+          ["現代語訳","<b>雨が降るので、道が悪い。</b>"],
+          ["ポイント","未然形＋ば なら仮定条件「〜たら」。「ば」の前を見ることが、そのまま意味の判別です。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― 係り結びの周辺", b:"<ul><li>係り結びは<strong>文の途中で文が終わる（結びの省略）</strong>こともあります。「こそ」は意味が強いため、結びまで読む意識を持ってください。</li><li>「や」は係助詞（疑問）のほかに、間投助詞・格助詞（並列）としても使われます。前後の文脈で判断します。</li><li>終助詞「な」は禁止（〜するな）、「な〜そ」は「〜しないでほしい」という禁止の定型です。現代語の「なあ」と混同しないように。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "係り結びは<strong>文の途中で文が終わる（結びの省略）</strong>こともあります。「こそ」は意味が強いため、結びまで読む意識を持ってください。",
-    "「や」は係助詞（疑問）のほかに、間投助詞・格助詞（並列）としても使われます。前後の文脈で判断します。",
-    "終助詞「な」は禁止（〜するな）、「な〜そ」は「〜しないでほしい」という禁止の定型です。現代語の「なあ」と混同しないように。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点 ― 係り結び</caption><thead><tr><th>係助詞</th><th>結び</th></tr></thead><tbody>"
+    + "<tr><th>は・も</th><td>終止形</td></tr>"
+    + "<tr><th>ぞ・なむ・や・か</th><td>連体形</td></tr>"
+    + "<tr><th>こそ</th><td>已然形</td></tr>"
+    + "<tr><th>ば（接続助詞）</th><td>前が已然形＝確定条件、前が未然形＝仮定条件</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"係助詞「こそ」が文中にあれば、結びはどの活用形になりますか。", a:"已然形です。" },
+      { q:"「ぞ・なむ・や・か」の結びの活用形は何ですか。", a:"連体形です。" },
+      { q:"接続助詞「ば」は、前が未然形のとき何を表しますか。", a:"仮定条件（〜たら・〜なら）を表します。前が已然形なら確定条件です。" }
+    ]}
 },
 /* ────────── 11 敬語 ────────── */
 {
   phase:4, title:"敬語 ― 尊敬語・謙譲語・丁寧語",
   sub:"敬語は「誰が・誰に・誰のことを」が読めるかどうか。古文読解の人間関係はここで決まります。",
   tags:["尊敬語","謙譲語","二方面敬語","表あり"],
-  overview:"<p>古文の敬語は、現代語より体系がはっきりしています。<strong>尊敬語</strong>は動作する人を高め、<strong>謙譲語</strong>は動作を受ける人を高め（＝自分を低める）、<strong>丁寧語</strong>は聞き手に対して丁寧に述べます。古文では主語が省略されることが多いため、<span class='key'>敬語が主語を特定する手がかり</span>になります。敬語表現を読むことは、そのまま人間関係を読むことです。</p>",
-  kaisetsu:"<h3>1. 代表的な敬語一覧</h3>"
-  + "<div class='tbl-wrap'><table class='katsuyo'><caption>主な敬語動詞（普通の動詞 → 敬語）</caption><thead><tr><th>元の動詞</th><th>尊敬語</th><th>謙譲語</th></tr></thead><tbody>"
-  + "<tr><th>言ふ</th><td>のたまふ／仰す</td><td>申す／奏す（天皇へ）／啓す</td></tr>"
-  + "<tr><th>行く・来</th><td>おはす／おはします／いでます</td><td>参る／まかづ／まかる</td></tr>"
-  + "<tr><th>あり・居る</th><td>おはす／おはします／います</td><td>はべり（丁寧語としても）／候ふ（丁寧語）</td></tr>"
-  + "<tr><th>見る</th><td>御覧ず</td><td>見ゆ（自発としても）／拝す（※拝見の意）</td></tr>"
-  + "<tr><th>聞く</th><td>聞こし召す</td><td>承る／伺ふ（聞く・訪ねる）</td></tr>"
-  + "<tr><th>食ふ・飲む</th><td>召す／聞こし召す</td><td>参る</td></tr>"
-  + "<tr><th>寝る</th><td>大殿籠る（おほとのごもる）</td><td>―</td></tr>"
-  + "<tr><th>知る</th><td>知ろし召す／御覧ず</td><td>承る</td></tr>"
-  + "<tr><th>思ふ</th><td>思す／思し召す／御覧ず（考える）</td><td>思う（存ずる意の「思ふ」）／推量す</td></tr>"
-  + "<tr><th>死ぬ</th><td>隠る／崩ず（天皇）／薨ず（皇族・高位）</td><td>―</td></tr>"
-  + "</tbody></table></div>"
-  + "<h3>2. 敬語の仕組み ― 3つの種類と2つの特殊な形</h3><ul><li><strong>尊敬語</strong>：給ふ（四段型＝一般の尊敬、下二段型＝最高敬語として命令など）・おはす・召す・助動詞「す・さす・る・らる」など。主語＝高める相手。</li><li><strong>謙譲語</strong>：申す・参る・奉る・聞こゆ など。動作の<strong>受け手</strong>を高めます。</li><li><strong>丁寧語</strong>：はべり・候ふ・侍り。聞き手・読み手への丁寧さで、主語は自分側です。</li><li><strong>二方面敬語</strong>：1語で与える側と受ける側の両方に敬意を示すもの。「申す（給ふ）」の組み合わせ等。</li><li><strong>絶対敬語</strong>：天皇・皇族だけに使う語。奏す・啓す・申す（天皇へは「奏す」）・大殿籠る など。</li></ul>"
-  + "<h3>3. 敬語から主語を読む</h3><p>たとえば「大臣、申させ給ふ」とあれば、「申す（謙譲）」の主語は発言者、「給ふ（尊敬）」でその発言者は高位の人、そして発言の相手はさらに高位（帝など）と分かります。<span class='key'>敬語の重なり（敬語の二重・三重使用）ほど、相手との身分差が大きい</span>と読みます。</p>",
-  examples:[
-    {orig:"帝、御覧じて、のたまふ。", trans:"<b>帝が、ご覧になって、おっしゃる。</b>", pt:"「御覧ず」「のたまふ」は尊敬語。主語は帝です。尊敬語が続けば主語は高位の人と確定できます。"},
-    {orig:"かしこまりて、申しはべり。", trans:"<b>かしこまって、申し上げます。</b>", pt:"「申す」は謙譲語、「はべり」は丁寧語。話し手がへりくだって目上に述べる場面です。"},
-    {orig:"大臣、参り給ひて奏す。", trans:"<b>大臣が、（宮中に）参上なさって（帝に）申し上げる。</b>", pt:"「参る」は謙譲語、「給ふ」は尊敬語、「奏す」は天皇への絶対敬語。主語は大臣、相手は帝と読み取れます。"}
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"「何ぞ深く思ふらむ」のように「ぞ」がある文の結びは、どの活用形になりますか。",
+        choices:["終止形","連体形","已然形"], ans:1,
+        why:["「ぞ」は係助詞で、結びは<strong>連体形</strong>でした。","已然形になるのは「こそ」の結びです。","この単元は敬語です。文の形ではなく、人と人の関係を読む単元になります。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"敬語は人間関係を読む道具", b:"<p>古文の敬語は、現代語より体系がはっきりしています。<strong>尊敬語</strong>は動作する人を高め、<strong>謙譲語</strong>は動作を受ける人を高め（＝自分を低める）、<strong>丁寧語</strong>は聞き手に対して丁寧に述べます。</p><p>古文では主語が省略されることが多いため、<span class='key'>敬語が主語を特定する手がかり</span>になります。敬語表現を読むことは、そのまま人間関係を読むことです。</p>" }
+    ]},
+    { t:"解説 ― 敬語の仕組み", steps:[
+      { k:"tbl", t:"代表的な敬語一覧", html:"<div class='tbl-wrap'><table class='katsuyo'><caption>主な敬語動詞（普通の動詞 → 敬語）</caption><thead><tr><th>元の動詞</th><th>尊敬語</th><th>謙譲語</th></tr></thead><tbody>"
+        + "<tr><th>言ふ</th><td>のたまふ／仰す</td><td>申す／奏す（天皇へ）／啓す</td></tr>"
+        + "<tr><th>行く・来</th><td>おはす／おはします／いでます</td><td>参る／まかづ／まかる</td></tr>"
+        + "<tr><th>あり・居る</th><td>おはす／おはします／います</td><td>はべり（丁寧語としても）／候ふ（丁寧語）</td></tr>"
+        + "<tr><th>見る</th><td>御覧ず</td><td>見ゆ（自発としても）／拝す</td></tr>"
+        + "<tr><th>聞く</th><td>聞こし召す</td><td>承る／伺ふ（聞く・訪ねる）</td></tr>"
+        + "<tr><th>食ふ・飲む</th><td>召す／聞こし召す</td><td>参る</td></tr>"
+        + "<tr><th>寝る</th><td>大殿籠る（おほとのごもる）</td><td>―</td></tr>"
+        + "<tr><th>知る</th><td>知ろし召す／御覧ず</td><td>承る</td></tr>"
+        + "<tr><th>思ふ</th><td>思す／思し召す</td><td>推量す</td></tr>"
+        + "<tr><th>死ぬ</th><td>隠る／崩ず（天皇）／薨ず（皇族・高位）</td><td>―</td></tr>"
+        + "</tbody></table></div>" },
+      { k:"r", t:"敬語の仕組み ― 3つの種類と2つの特殊な形", b:"<ul><li><strong>尊敬語</strong>：給ふ・おはす・召す・助動詞「す・さす・る・らる」など。主語＝高める相手。</li><li><strong>謙譲語</strong>：申す・参る・奉る・聞こゆ など。動作の<strong>受け手</strong>を高めます。</li><li><strong>丁寧語</strong>：はべり・候ふ・侍り。聞き手・読み手への丁寧さで、主語は自分側です。</li><li><strong>二方面敬語</strong>：1語で与える側と受ける側の両方に敬意を示すもの。</li><li><strong>絶対敬語</strong>：天皇・皇族だけに使う語。奏す・啓す・大殿籠る など。</li></ul>" },
+      { k:"r", t:"敬語から主語を読む", b:"<p>たとえば「大臣、申させ給ふ」とあれば、「申す（謙譲）」の主語は発言者、「給ふ（尊敬）」でその発言者は高位の人、そして発言の相手はさらに高位（帝など）と分かります。<span class='key'>敬語の重なり（敬語の二重・三重使用）ほど、相手との身分差が大きい</span>と読みます。</p>" },
+      { k:"quiz", t:"ミニ確認 ― 敬語の種類", q:"「申す」はどの種類の敬語ですか。",
+        choices:["尊敬語","謙譲語","丁寧語"], ans:1,
+        why:["「申す」は「言ふ」の敬語形で、動作の受け手（言われる相手）を高めます。","受け手を高めるのは<strong>謙譲語</strong>でした。","天皇に対しては「申す」ではなく絶対敬語の「奏す」を使う、という点もセットで覚えてください。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― 尊敬語から主語を読む", lead:"主語が書かれていない文ではありませんが、敬語の働きを確認します。",
+        gsen:"帝、御覧じて、のたまふ。",
+        layers:[
+          ["文法の確認","「御覧ず」「のたまふ」は尊敬語です。主語は帝で、尊敬語が続けば主語は高位の人と確定できます。"],
+          ["現代語訳","<b>帝が、ご覧になって、おっしゃる。</b>"],
+          ["ポイント","主語が省略された文でも、尊敬語があれば「高位の人の動作」と読めます。これが敬語を読む実利です。"]
+        ]},
+      { k:"ex", t:"実用例② ― 敬語の重なり", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"大臣、参り給ひて奏す。",
+        layers:[
+          ["文法の確認","「参る」は謙譲語、「給ふ」は尊敬語、「奏す」は天皇への絶対敬語です。",1],
+          ["現代語訳","<b>大臣が、（宮中に）参上なさって（帝に）申し上げる。</b>"],
+          ["ポイント","主語は大臣、相手は帝。敬語の種類と重なりから、主語と相手の両方が読み取れます。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― 敬語の落とし穴", b:"<ul><li>「給ふ」には四段活用（尊敬・一般）と下二段活用（最高の尊敬）があり、<strong>活用の種類で敬意の度合いが変わります</strong>。終止形はどちらも「給ふ」なので、連体形（給ふ／給ふる）で見分けます。</li><li>「聞こゆ」は謙譲語（申し上げる）のほかに、自動詞「聞こえる」としても使われます。文脈で判断してください。</li><li>敬語がない文＝敬意が不要な相手（身分の低い人・動物・物）への文、という読み方も重要です。敬語の「有無」自体が情報です。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "「給ふ」には四段活用（尊敬・一般）と下二段活用（最高の尊敬）があり、<strong>活用の種類で敬意の度合いが変わります</strong>。終止形はどちらも「給ふ」なので、連体形（給ふ／給ふる）で見分けます。",
-    "「聞こゆ」は謙譲語（申し上げる）のほかに、自動詞「聞こえる」としても使われます。文脈で判断してください。",
-    "敬語がない文＝敬意が不要な相手（身分の低い人・動物・物）への文、という読み方も重要です。敬語の「有無」自体が情報です。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点 ― 敬語の3種類</caption><thead><tr><th>種類</th><th>高める対象</th><th>代表例</th></tr></thead><tbody>"
+    + "<tr><th>尊敬語</th><td>動作する人</td><td>のたまふ・おはす・御覧ず・給ふ</td></tr>"
+    + "<tr><th>謙譲語</th><td>動作を受ける人</td><td>申す・参る・奉る・聞こゆ</td></tr>"
+    + "<tr><th>丁寧語</th><td>聞き手</td><td>はべり・候ふ</td></tr>"
+    + "<tr><th>絶対敬語</th><td>天皇・皇族専用</td><td>奏す・啓す・大殿籠る</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"尊敬語・謙譲語・丁寧語は、それぞれ誰を高めますか（丁寧語は誰への配慮ですか）。", a:"尊敬語は動作する人、謙譲語は動作を受ける人、丁寧語は聞き手への丁寧さです。" },
+      { q:"「奏す」はどんなときに使う語ですか。", a:"天皇に対して「申し上げる」ときに使う絶対敬語です。" },
+      { q:"敬語が主語の特定に役立つのはなぜですか。", a:"古文では主語が省略されることが多い一方、敬語の種類と有無から、動作する人の身分や相手との関係が読み取れるからです。" }
+    ]}
 },
 /* ────────── 12 識別 ────────── */
 {
   phase:5, title:"識別 ― 紛らわしい語の見分け方",
   sub:"同じ形をした別の言葉を見分ける総仕上げ。「に」「なり」「なむ」「ぬ・ね」を中心に手順で判別します。",
   tags:["識別","なり・に・ぬ","判別の手順"],
-  overview:"<p><strong>識別</strong>とは、同じ形をしていても品詞や意味が違う語を見分けることです。古文では1音・2音の短い語が多く、同形の別語が頻出します。識別は暗記ではなく<span class='key'>手順</span>です。「①前後の言葉の活用形を見る ②接続を確認する ③訳して確かめる」という順序を守れば、初見の文でも判別できます。この単元は総仕上げとして、代表的な識別を手順化してまとめます。</p>",
-  kaisetsu:"<h3>1. 「なり」の識別</h3><ol><li>前が<strong>体言・連体形</strong> → 断定の助動詞「〜である」</li><li>前が<strong>終止形</strong> → 伝聞・推定の助動詞「〜そうだ・〜ようだ」</li><li>文頭や連用修飾で「〜になって」と訳せる → 動詞「なる」の連用形など、本動詞の可能性も確認</li></ol>"
-  + "<h3>2. 「に」の識別</h3><ol><li><strong>格助詞「に」</strong>：体言のあとに付く（都に）</li><li><strong>断定「なり」の連用形「に」</strong>：体言・連体形のあとで、用言にかかる（静かに眠る ※形容動詞の連用形も同形）</li><li><strong>完了「ぬ」の連用形「に」</strong>：用言の連用形のあとに付く（咲きにけり＝咲いてしまった）</li><li><strong>打消「ず」の連用形の一部</strong>：文脈により（〜ずに の形）</li></ol><p>決め手は<strong>「に」の前が何か</strong>です。体言なら格助詞か断定、用言の連用形なら完了です。</p>"
-  + "<h3>3. 「ぬ・ね」の識別（完了 vs 打消）</h3><ul><li>前が<strong>連用形</strong> → 完了「ぬ」（咲きぬ）</li><li>前が<strong>未然形</strong> → 打消「ず」の連体形「ぬ」・已然形「ね」（咲かぬ・咲かね）</li><li>連体形で比べる：完了は「ぬる」、打消は「ぬ」。後ろに体言が来たときの形が違います（散りぬる花＝完了／知らぬ人＝打消）</li></ul>"
-  + "<h3>4. 「なむ」の識別</h3><ul><li><strong>係助詞「なむ」</strong>：体言・連体形などに付き、結びは連体形（花なむ咲ける）</li><li><strong>完了「ぬ」＋推量「む」</strong>：用言の連用形のあと（咲きなむ＝咲いてしまうだろう）</li><li><strong>強意「な」＋推量「む」</strong>：未然形のあとに付く場合（必ず〜だろう）</li><li><strong>終助詞「なむ」</strong>：文末で願望（〜してほしい）</li></ul>"
-  + "<div class='point-box'><b>識別の共通手順：</b>①問題の語の<b>直前の語の活用形</b>を言う → ②その語が<b>何に接続するか</b>を思い出す → ③候補を訳し分けて文意が通る方を選ぶ。この3手順は、ここに挙げていない語にもそのまま使えます。</div>",
-  examples:[
-    {orig:"花咲きにけり。", trans:"<b>花が咲いてしまったなあ。</b>", pt:"「に」は連用形「咲き」のあと → 完了「ぬ」の連用形。「けり」は過去・詠嘆です。"},
-    {orig:"知らぬ人の、言ふこと。", trans:"<b>知らない人が、言うこと。</b>", pt:"「知ら」は未然形 → 打消「ず」の連体形「ぬ」。完了なら「ぬる」になるはずです。"},
-    {orig:"都に行きなむ。", trans:"<b>都へ行ってしまうだろう。</b>", pt:"「行き」は連用形 → 「なむ」は完了「ぬ」＋推量「む」。係助詞なら前は体言・連体形のはずです。"}
+  secs:[
+    { t:"復習", steps:[
+      { k:"quiz", t:"混合復習 ― 前の単元から", q:"「のたまふ」はどの種類の敬語ですか。",
+        choices:["尊敬語","謙譲語","丁寧語"], ans:0,
+        why:["「のたまふ」は「言ふ」の敬語形で、動作する人を高めます。","動作する人を高めるのは<strong>尊敬語</strong>でした。","この単元は総仕上げの「識別」です。これまでの「接続を見る」型を、手順としてまとめ直します。"] }
+    ]},
+    { t:"概要", steps:[
+      { k:"r", t:"識別は暗記ではなく「手順」", b:"<p><strong>識別</strong>とは、同じ形をしていても品詞や意味が違う語を見分けることです。古文では1音・2音の短い語が多く、同形の別語が頻出します。</p><p>識別は暗記ではなく<span class='key'>手順</span>です。「①前後の言葉の活用形を見る ②接続を確認する ③訳して確かめる」という順序を守れば、初見の文でも判別できます。この単元は総仕上げとして、代表的な識別を手順化してまとめます。</p>" }
+    ]},
+    { t:"解説 ― 代表的な識別", steps:[
+      { k:"r", t:"「なり」と「に」の識別", b:"<h3 style='margin-top:0'>「なり」の識別</h3><ol><li>前が<strong>体言・連体形</strong> → 断定の助動詞「〜である」</li><li>前が<strong>終止形</strong> → 伝聞・推定の助動詞「〜そうだ・〜ようだ」</li><li>文頭や連用修飾で「〜になって」と訳せる → 動詞「なる」の可能性も確認</li></ol><h3>「に」の識別</h3><ol><li><strong>格助詞「に」</strong>：体言のあとに付く（都に）</li><li><strong>断定「なり」の連用形「に」</strong>：体言・連体形のあとで、用言にかかる（形容動詞の連用形も同形）</li><li><strong>完了「ぬ」の連用形「に」</strong>：用言の連用形のあとに付く（咲きにけり＝咲いてしまった）</li></ol><p>決め手は<strong>「に」の前が何か</strong>です。体言なら格助詞か断定、用言の連用形なら完了です。</p>" },
+      { k:"r", t:"「ぬ・ね」と「なむ」の識別", b:"<h3 style='margin-top:0'>「ぬ・ね」の識別（完了 vs 打消）</h3><ul><li>前が<strong>連用形</strong> → 完了「ぬ」（咲きぬ）</li><li>前が<strong>未然形</strong> → 打消「ず」の連体形「ぬ」・已然形「ね」（咲かぬ・咲かね）</li><li>連体形で比べる：完了は「ぬる」、打消は「ぬ」。後ろに体言が来たときの形が違います（散りぬる花＝完了／知らぬ人＝打消）</li></ul><h3>「なむ」の識別</h3><ul><li><strong>係助詞「なむ」</strong>：体言・連体形などに付き、結びは連体形（花なむ咲ける）</li><li><strong>完了「ぬ」＋推量「む」</strong>：用言の連用形のあと（咲きなむ＝咲いてしまうだろう）</li><li><strong>終助詞「なむ」</strong>：文末で願望（〜してほしい）</li></ul>", box:"<b>識別の共通手順：</b>①問題の語の<b>直前の語の活用形</b>を言う → ②その語が<b>何に接続するか</b>を思い出す → ③候補を訳し分けて文意が通る方を選ぶ。この3手順は、ここに挙げていない語にもそのまま使えます。" },
+      { k:"quiz", t:"ミニ確認 ― 「なむ」の識別", q:"「都に行きなむ」の「なむ」はどれですか。",
+        choices:["係助詞「なむ」","完了「ぬ」＋推量「む」","終助詞「なむ」"], ans:1,
+        why:["「なむ」の前は「行き」で、用言の<strong>連用形</strong>です。","連用形のあとの「なむ」は、完了「ぬ」＋推量「む」の組み合わせでした。","係助詞なら前は体言・連体形のはずです。直前の活用形が決め手になります。"] }
+    ]},
+    { t:"実用例", steps:[
+      { k:"ex", t:"実用例① ― 「に」の識別", lead:"手順通りに、直前の活用形から判別してください。",
+        gsen:"花咲きにけり。",
+        layers:[
+          ["文法の確認","「に」の前は連用形「咲き」。用言の連用形のあとの「に」は、完了「ぬ」の連用形です。「けり」は過去・詠嘆。"],
+          ["現代語訳","<b>花が咲いてしまったなあ。</b>"],
+          ["ポイント","「に」の識別は前を見るだけ。体言の後なら格助詞か断定、連用形の後なら完了、と機械的に決まります。"]
+        ]},
+      { k:"ex", t:"実用例② ― 「ぬ」の識別", lead:"支えを減らします。文法の確認はヒントとして開けます。",
+        gsen:"知らぬ人の、言ふこと。",
+        layers:[
+          ["文法の確認","「知ら」は未然形。未然形のあとの「ぬ」は打消「ず」の連体形です。完了なら「ぬる」になるはずです。",1],
+          ["現代語訳","<b>知らない人が、言うこと。</b>"],
+          ["ポイント","判別の根拠は2つ：前の活用形（未然形）と、連体形の形（ぬ／ぬる）。根拠を言えることが、識別の完成です。"]
+        ]}
+    ]},
+    { t:"注意点", steps:[
+      { k:"r", t:"注意点 ― 識別問題の受け方", b:"<ul><li>識別問題では、形だけを見て即答しないことが大切です。必ず<strong>直前の活用形</strong>を根拠にしてから答えてください。</li><li>「な〜そ」「な〜ね」など、終助詞の組み合わせは識別ではなく慣用表現として覚えるほうが早いものもあります。</li><li>和歌では係り結びの結びが省略されたり、語順が入れ替わったりします。散文で手順を固めてから和歌に進んでください。</li></ul>" }
+    ]}
   ],
-  cautions:[
-    "識別問題では、形だけを見て即答しないことが大切です。必ず<strong>直前の活用形</strong>を根拠にしてから答えてください。",
-    "「な〜そ」「な〜ね」など、終助詞の組み合わせは識別ではなく慣用表現として覚えるほうが早いものもあります。",
-    "和歌では係り結びの結びが省略されたり、語順が入れ替わったりします。散文で手順を固めてから和歌に進んでください。"
-  ]
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>この単元の要点 ― 識別の共通手順</caption><thead><tr><th>手順</th><th>内容</th></tr></thead><tbody>"
+    + "<tr><th>① 直前を見る</th><td>問題の語の直前の語の活用形を言う</td></tr>"
+    + "<tr><th>② 接続で絞る</th><td>その語が何に接続するかを思い出す</td></tr>"
+    + "<tr><th>③ 訳して確かめる</th><td>候補を訳し分け、文意が通る方を選ぶ</td></tr>"
+    + "<tr><th>代表例</th><td>なり（体言・連体形→断定／終止形→伝聞）、ぬ（連用形→完了／未然形→打消）、なむ（連用形の後→ぬ＋む）</td></tr>"
+    + "</tbody></table></div>",
+    recalls:[
+      { q:"識別の共通手順を、3つの段階で言ってください。", a:"①直前の語の活用形を言う ②接続で候補を絞る ③訳し分けて文意が通る方を選ぶ、です。" },
+      { q:"「咲きぬ」と「咲かぬ」で、「ぬ」の正体はどう違いますか。", a:"「咲きぬ」は連用形＋完了の「ぬ」、「咲かぬ」は未然形＋打消「ず」の連体形「ぬ」です。" },
+      { q:"「花なむ咲ける」の「なむ」は何ですか。根拠も言ってください。", a:"係助詞「なむ」です。前が体言「花」で、結びが連体形「咲ける」になっていることが根拠です。" }
+    ]}
 }
 ];
 
 /* ═══════════ 画面遷移 ═══════════ */
-var currentUnit = -1;
 function go(view, unitIdx){
-  var ids = {home:"view-home", kobun:"view-kobun", bunpo:"view-bunpo", unit:"view-unit"};
+  var ids = {home:"view-home", kobun:"view-kobun", bunpo:"view-bunpo", bunit:"view-unit", kanbun:"view-kanbun", kunpo:"view-kunpo", kunit:"view-kunit", kanji:"view-kanji", kanshi:"view-kanshi"};
   for (var k in ids) document.getElementById(ids[k]).classList.remove("active");
-  if (view === "unit" && typeof unitIdx === "number"){ currentUnit = unitIdx; renderUnit(unitIdx); }
+  if (view === "bunit" && typeof unitIdx === "number"){ openBUnit(unitIdx); }
+  if (view === "kunit" && typeof unitIdx === "number"){ openKUnit(unitIdx); }
   document.getElementById(ids[view]).classList.add("active");
   var crumbs = document.getElementById("crumbs");
   if (view === "home") crumbs.innerHTML = "科目選択";
   else if (view === "kobun") crumbs.innerHTML = "科目選択 ＞ <b>古文</b>";
   else if (view === "bunpo") crumbs.innerHTML = "古文 ＞ <b>文法・単元一覧</b>";
-  else if (view === "unit") crumbs.innerHTML = "古文 ＞ 文法 ＞ <b>単元" + (currentUnit+1) + "</b>";
+  else if (view === "bunit") crumbs.innerHTML = "古文 ＞ 文法 ＞ <b>単元" + (kState.unit+1) + "</b>";
+  else if (view === "kanbun") crumbs.innerHTML = "科目選択 ＞ <b>漢文</b>";
+  else if (view === "kunpo") crumbs.innerHTML = "漢文 ＞ <b>訓読・句法</b>";
+  else if (view === "kunit") crumbs.innerHTML = "漢文 ＞ 訓読・句法 ＞ <b>単元" + (kState.unit+1) + "</b>";
+  else if (view === "kanji") crumbs.innerHTML = "漢文 ＞ <b>重要漢字</b>";
+  else if (view === "kanshi") crumbs.innerHTML = "漢文 ＞ <b>漢詩</b>";
   window.scrollTo(0,0);
 }
 
-/* ═══════════ 単元一覧の描画 ═══════════ */
-(function buildList(){
+/* ═══════════ 古文：文法 単元一覧の描画 ═══════════ */
+function bStepCount(u){
+  var n = 0;
+  u.secs.forEach(function(s){ n += s.steps.length; });
+  if (u.mix) n += 1;
+  if (u.sum) n += 1 + u.sum.recalls.length;
+  return n;
+}
+(function buildBList(){
   var html = "";
   PHASES.forEach(function(ph, pi){
-    var unitsInPhase = UNITS.map(function(u,i){ return {u:u,i:i}; }).filter(function(x){ return x.u.phase === pi; });
+    var unitsInPhase = BUNITS.map(function(u,i){ return {u:u,i:i}; }).filter(function(x){ return x.u.phase === pi; });
     if (!unitsInPhase.length) return;
     html += "<div class='phase'><div class='phase-head'><span class='ph-no'>" + ph.no + "</span><h3>" + ph.title + "</h3><p>" + ph.note + "</p></div>";
     unitsInPhase.forEach(function(x){
@@ -734,37 +1408,1211 @@ function go(view, unitIdx){
         var cls = (t.indexOf("表あり") >= 0) ? "tag tbl" : "tag";
         return "<span class='" + cls + "'>" + t + "</span>";
       }).join("");
-      html += "<button class='unit-row' onclick='go(\"unit\"," + x.i + ")'><span class='no'>" + (x.i+1) + "</span><span class='tt'><span class='t'>" + x.u.title + "</span><span class='s' style='display:block'>" + x.u.sub + "</span><span class='tags'>" + tags + "</span></span><span class='arr'>›</span></button>";
+      tags += "<span class='tag'>全" + bStepCount(x.u) + "ステップ</span>";
+      html += "<button class='unit-row' onclick='go(\"bunit\"," + x.i + ")'><span class='no'>" + (x.i+1) + "</span><span class='tt'><span class='t'>" + x.u.title + "</span><span class='s' style='display:block'>" + x.u.sub + "</span><span class='tags'>" + tags + "</span></span><span class='arr'>›</span></button>";
     });
     html += "</div>";
   });
   document.getElementById("unit-list").innerHTML = html;
 })();
+/* ═══════════ 漢文：訓読・句法 単元データ ═══════════ */
+var KPHASES = [
+  { no:"第1部", title:"導入", note:"漢文との出会い" },
+  { no:"第2部", title:"訓読の基礎", note:"返り点・置き字・再読文字" },
+  { no:"第3部", title:"句法・句形", note:"意味の性質ごとに学ぶ" },
+  { no:"第4部", title:"仕上げ", note:"支えなしで読む" }
+];
 
-/* ═══════════ 単元ページの描画 ═══════════ */
-function renderUnit(i){
-  var u = UNITS[i];
-  var exHtml = u.examples.map(function(e){
-    return "<div class='ex'><div class='orig'>" + e.orig + "</div><div class='trans'>" + e.trans + "</div><div class='pt'>" + e.pt + "</div></div>";
-  }).join("");
-  var caHtml = u.cautions.map(function(c){ return "<li>" + c + "</li>"; }).join("");
-  var prev = i > 0 ? UNITS[i-1] : null;
-  var next = i < UNITS.length - 1 ? UNITS[i+1] : null;
-  var html =
-    "<div class='unit-hero'><div class='uno'>単元 " + (i+1) + " / " + UNITS.length + "　―　" + PHASES[u.phase].no + "「" + PHASES[u.phase].title + "」</div>"
-    + "<h1>" + u.title + "</h1><p class='sub'>" + u.sub + "</p></div>"
-    + "<div class='block'><div class='block-head gaiyou'><span class='ic'>概</span><h2>文法の概要</h2></div>" + u.overview + "</div>"
-    + "<div class='block'><div class='block-head kaisetsu'><span class='ic'>解</span><h2>解説</h2></div>" + u.kaisetsu + "</div>"
-    + "<div class='block'><div class='block-head jitsuyou'><span class='ic'>例</span><h2>実用例</h2></div>" + exHtml + "</div>"
-    + "<div class='block'><div class='block-head chuui'><span class='ic'>注</span><h2>注意点</h2></div><ul class='caution-list'>" + caHtml + "</ul></div>"
-    + "<div class='pager'>"
-    + (prev ? "<button onclick='go(\"unit\"," + (i-1) + ")'><span class='dir'>← 前の単元</span><div class='pt-t'>" + prev.title + "</div></button>"
-            : "<button disabled><span class='dir'>← 前の単元</span><div class='pt-t'>最初の単元です</div></button>")
-    + (next ? "<button class='next' onclick='go(\"unit\"," + (i+1) + ")'><span class='dir'>次の単元 →</span><div class='pt-t'>" + next.title + "</div></button>"
-            : "<button class='next' disabled><span class='dir'>次の単元 →</span><div class='pt-t'>最後の単元です</div></button>")
-    + "</div>"
-    + "<button class='to-list' onclick='go(\"bunpo\")'>単元一覧にもどる</button>";
-  document.getElementById("unit-body").innerHTML = html;
+/* ステップの種類: r=読む / ex=例文(層) / pred=予想(正誤なし) / quiz=ミニ確認(正誤判定) / recall=思い出す確認 / tbl=表
+   ex の sen は「字(ルビ)返り点」を | で区切った白文。layers は [見出し, 本文, ヒントなら1] */
+var KUNITS = [
+/* ────────── 0 導入 ────────── */
+{
+  phase:0, title:"導入 ― 漢文は「語順」だけが違う",
+  sub:"漢文は外国の文章ですが、読み方（訓読）を知れば日本語として読めます。壁は語順の違いだけです。",
+  secs:[
+    { t:"漢文という読み物", steps:[
+      { k:"r", t:"漢文とは何か", b:"<p>漢文は、昔の中国で書かれた文章です。日本では千年以上にわたって、この文章を<strong>日本語として読む方法</strong>が受け継がれてきました。それが<strong>訓読（くんどく）</strong>です。</p><p>漢文が難しく見える理由は、知らない漢字が多いからではありません。最大の理由は<span class='key'>語順の違い</span>です。逆に言えば、違いの中心は語順なので、語順の直し方さえ身につければ、知っている漢字の文はそのまま読めるようになります。この単元では、その確認だけをします。</p>" },
+      { k:"ex", t:"体験 ― まず返り点なしで読める文", lead:"次の文を見てください。返り点は何も付いていません。それでも読めるはずです。層を1つずつ開いて確かめましょう。",
+        sen:"我|読|書",
+        layers:[
+          ["注釈","<span class='kk'>我</span>＝わたし、<span class='kk'>読</span>＝読む、<span class='kk'>書</span>＝本。中国語の文は「動詞のあとに目的語」が来ます。"],
+          ["読む順","我 → 読 → 書（書かれた順のまま）"],
+          ["書き下し","我、書を読む"],
+          ["訳","私は本を読む"],
+          ["理由","この文は、主語（我）と動詞（読）の順が日本語と同じでした。だから返り点なしで読めました。問題になるのは、動詞と目的語の順です。次の小節で見ます。"]
+        ]},
+      { k:"r", t:"この参考書の約束 ― 読みは毎回併記します", b:"<p>漢文の学習でつまずく大きな原因は、<strong>まだ習っていない読み方や送り仮名が、断りなく出てくること</strong>です。そこで本書では、次の約束を守ります。</p><ul><li>正式に単元で習うまでは、その読み方・送り仮名を<strong>毎回</strong>併記します（1回だけでは済ませません）</li><li>「能ふ（あたふ）＝できる」のように、現代では使わない読みの語には、<strong>読みと意味の両方</strong>を付けます</li><li>現代語と同じ感覚で読める読みには、ふりがなを付けません（画面がうるさくなるためです）</li></ul>", box:"読みの併記は「支え」です。支えは、正式に習った時点で初めて外れます。" }
+    ]},
+    { t:"語順の違いを見抜く", steps:[
+      { k:"pred", t:"予想 ― 並べ替えが要るのはどこか", q:"「人食魚」（人が魚を食べる、という文です）を日本語の順に並べ替えます。食（食べる）と魚の順は、どうなるでしょう。予想を選んでください（正誤は出ません）。",
+        choices:["書かれた順のまま「食 → 魚」で読める","目的語の「魚」を先に読む「魚 → 食」になる"],
+        after:"予想を立てました。次のステップで確かめましょう。" },
+      { k:"ex", t:"確かめる ― 動詞と目的語は逆になる", lead:"予想は当たりましたか。層を開いて確かめてください。",
+        sen:"人|食(く)|魚",
+        layers:[
+          ["注釈","<span class='kk'>食</span>＝食べる（動詞）、<span class='kk'>魚</span>＝魚（目的語）。中国語は「動詞 → 目的語」、日本語は「目的語 → 動詞」の順です。"],
+          ["読む順","人 → 魚 → 食（目的語を先に読む）"],
+          ["書き下し","人、魚を食ふ"],
+          ["訳","人が魚を食べる"],
+          ["理由","予想の通り、並べ替えが要るのは動詞と目的語の間でした。この並べ替えを文の中で示す印が<strong>返り点</strong>で、次の単元で学びます。"]
+        ],
+        gobi:"<b>古い語の意味：</b>食ふ（くふ）＝食べる。「食う」のもとの形です。" },
+      { k:"quiz", t:"ミニ確認", q:"「我愛月」（私は月を愛する、という文）の書き下しとして正しいものはどれでしょう。",
+        choices:["我、月を愛す","我、愛を月す","月、我を愛す"], ans:0,
+        why:["愛は動詞、月はその目的語です。","中国語の「愛 → 月」の順を、日本語の「月を → 愛す」に直します。主語の我は先頭のままです。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― 並べ替えが要る文はどれか", q:"次の3つの文のうち、読むときに並べ替え（返り点）が必要な文はどれでしょう。",
+    choices:["日出づ（日が出る）","我見月（私は月を見る）","鳥鳴く（鳥が鳴く）"], ans:1,
+    why:["「日出づ」「鳥鳴く」は主語→動詞の順で、日本語と同じです。","「我見月」は動詞「見」のあとに目的語「月」が続くので、「月を見る」と並べ替えます。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>漢文と日本語の語順</caption><thead><tr><th>組み合わせ</th><th>中国語（漢文）</th><th>日本語</th><th>並べ替え</th></tr></thead><tbody><tr><th>主語と動詞</th><td>主語 → 動詞</td><td>主語 → 動詞</td><td>不要</td></tr><tr><th>動詞と目的語</th><td>動詞 → 目的語</td><td>目的語 → 動詞</td><td><span class='accent'>必要（返り点）</span></td></tr></tbody></table></div>",
+    recalls:[
+      { q:"漢文と日本語で語順が違うのは、どんな組み合わせでしたか。", a:"動詞と目的語です。中国語は「動詞 → 目的語」、日本語は「目的語 → 動詞」の順になります。" },
+      { q:"訓読とは、どんな読み方でしたか。", a:"返り点と送り仮名を使って、漢文を日本語の語順・文法に直して読む方法です。" }
+    ]}
+},
+/* ────────── 1 返り点 ────────── */
+{
+  phase:1, title:"返り点 ― 並べ替えの印",
+  sub:"返り点は、漢文を日本語の語順に並べ替えるための印です。レ点・一二点・上下点・甲乙点と、重なったときの優先順位を学びます。",
+  secs:[
+    { t:"レ点 ― 1字だけ戻る", steps:[
+      { k:"r", t:"武器 ― レ点の働きだけ先に渡します", b:"<p>漢文と日本語では、動詞と目的語の順が逆でした。この並べ替えを示す印が<strong>返り点</strong>です。まず一番小さい返り点、<strong>レ点</strong>から始めます。</p><p>レ点の働きは1つだけです。<span class='key'>レ点の付いた字は、すぐ下の字を先に読んでから、戻って読む</span>。用語の由来などは後回しにして、まず次のステップで体験してください。</p>" },
+      { k:"ex", t:"体験 ― 「読書」を読む", lead:"「読」の左下に、小さくレ点が付いています。層を1つずつ開いて、読む順を追ってください。",
+        sen:"読レ|書",
+        layers:[
+          ["注釈","レ点は「読」の左下に付く小さな印です。「下の字を先に読め」という合図になります。"],
+          ["読む順","書 → 読"],
+          ["書き下し","書を読む"],
+          ["訳","本を読む"],
+          ["理由","「読書」は中国語の順（読む → 本）でした。レ点1つで、下の「書」を先に読むことで日本語の順（本を → 読む）に直せました。"]
+        ]},
+      { k:"r", t:"用語の整理 ― レ点", b:"<p>体験した印が<strong>レ点</strong>です。形がカタカナの「レ」に似ているので、この名前があります。</p><p>ただしレ点には限界があります。<span class='key'>レ点が戻れるのは、すぐ下の1字だけ</span>です。2字以上先の字へ戻りたいときは、別の返り点が要ります。それが次の小節の一二点です。</p>" }
+    ]},
+    { t:"一二点 ― 飛ばして、戻る", steps:[
+      { k:"pred", t:"予想 ― どの順に読むか", q:"「訪<span class='ktxt'>二</span>山中師<span class='ktxt'>一</span>」（山の中の先生を訪ねる、という文です）を読む順を予想してください。正誤は出ません。次のステップで、なぜ間違いやすいかから確かめます。",
+        sen:"訪(たづ)二|山|中|師一",
+        choices:["書かれた順に 訪 → 山 → 中 → 師","山 → 中 → 師 → 訪","訪 → 師 → 山 → 中"],
+        after:"予想を立てました。次のステップで確かめましょう。" },
+      { k:"ex", t:"確かめる ― 二は「戻る場所」、一が引き金", lead:"間違いやすい読みと正しい読みを、層を開いて比べてください。",
+        sen:"訪(たづ)二|山|中|師一",
+        layers:[
+          ["注釈","<span class='kk'>二</span>の付いた字（訪）は<strong>飛ばして</strong>おきます。<span class='kk'>一</span>の付いた字（師）まで読み進めたら、二へ戻ります。"],
+          ["読む順","山 → 中 → 師（一）→ 訪（二）"],
+          ["書き下し","山中の師を訪ぬ"],
+          ["訳","山の中の先生を訪ねる"],
+          ["理由","間違いやすいのは「訪 → 師」と読む順です。一と二は隣り合う順番ではなく、<strong>二＝あとで戻ってくる場所の目印、一＝戻れという引き金</strong>です。だから最初に訪を読んでしまうと、戻る場所がなくなります。"]
+        ],
+        gobi:"<b>古い語の意味：</b>訪ぬ（たづぬ）＝訪ねる。「尋ねる」と同じ語源の古い形です。" },
+      { k:"quiz", t:"ミニ確認", q:"「登<span class='ktxt'>二</span>山<span class='ktxt'>一</span>」の書き下しとして正しいものはどれでしょう。",
+        sen:"登二|山一",
+        choices:["山に登る","登る山","山を登らせる"], ans:0,
+        why:["二の付いた「登」を飛ばし、一の付いた「山」を読みます。","次に二へ戻って「登」を読むので、「山に登る」となります。「に」は到着点を表します。"] }
+    ]},
+    { t:"上下点 ― 長い範囲と入れ子", steps:[
+      { k:"r", t:"武器 ― 上下点は一二点の拡大版", b:"<p>飛ぶ距離が長いとき、または一二点の中に一二点が入る（<strong>入れ子</strong>になる）ときは、<strong>上下点</strong>を使います。</p><p>仕組みは一二点とまったく同じです。<span class='key'>「下」の付いた字を飛ばし、「上」の付いた字を読んだら、「下」へ戻る</span>。一が上に、二が下に対応すると考えてください。次の例文は『史記』からの一文で、一二点が上下点の中に入れ子になっています。</p>" },
+      { k:"ex", t:"例文 ― 『史記』の一文を読む", lead:"孟嘗君のもとに集まった客（食客）についての文です。内側の一二点から片づけるのがコツです。",
+        sen:"客|有下|能(よ)|為二|狗|盗一|者上",
+        layers:[
+          ["注釈","有＝<strong>下</strong>、者＝<strong>上</strong>が組です。その間に、為＝<strong>二</strong>、盗＝<strong>一</strong>の一二点が入れ子になっています。能は「能く（よく）」と、その場で読みます。"],
+          ["読む順","客 → 能 → 狗 → 盗（一）→ 為（二）→ 者（上）→ 有（下）"],
+          ["書き下し","客に能く狗盗を為す者有り"],
+          ["訳","客の中に、犬のまねをして盗むのが上手な者がいた"],
+          ["理由","先に内側の一二点を片づけます（狗 → 盗 → 為）。次に外側の上下点を閉じます（者 → 有）。<strong>小さい返りから処理する</strong>と、入れ子でも崩れません。"]
+        ],
+        gobi:"<b>古い語の意味：</b>能く（よく）＝うまく・じょうずに（転じて「〜できる」）。狗盗（くとう）＝犬のように忍び込んで盗むこと。",
+        src:"『史記』孟嘗君列伝" },
+      { k:"quiz", t:"ミニ確認", q:"上下点で、最後に戻って読む字はどれでしょう。",
+        choices:["「上」の付いた字","「下」の付いた字","間の字のうち最初の字"], ans:1,
+        why:["上下点は「下を飛ばし、上を読んだら下へ戻る」仕組みです。","だから最後に読むのは、最初に飛ばした「下」の字です。一二点で「二」が最後になるのと同じです。"] }
+    ]},
+    { t:"甲乙点 ― 一二点の代役", steps:[
+      { k:"r", t:"武器 ― 甲が一、乙が二", b:"<p><strong>甲乙点</strong>は、一二点の<strong>代役</strong>です。対応は、<span class='key'>甲＝一、乙＝二</span>。仕組みは一二点とまったく同じで、印の種類が違うだけです。</p><p>使うのは、一二点がすでに文の中で使われていて、もう1組の返りが必要なときです。次の例文では、内側の「富士を過ぎる」に一二点、外側に甲乙点を使っています。</p>" },
+      { k:"ex", t:"例文 ― 甲乙点と一二点の共演", lead:"現代の地名で作った練習文です。印の種類が違っても、読み方は同じことを確かめてください。",
+        sen:"発乙|東|京甲|過二|富|士一|着乙|大|阪甲",
+        layers:[
+          ["注釈","発・着に付いた<strong>乙</strong>は「二」の代役、京・阪に付いた<strong>甲</strong>は「一」の代役です。過・士の一二点は内側の組です。"],
+          ["読む順","東京 → 発（乙へ戻る）→ 富士 → 過（二へ戻る）→ 大阪 → 着（乙へ戻る）"],
+          ["書き下し","東京を発ち、富士を過ぎ、大阪に着く"],
+          ["訳","東京を出発し、富士山を通り過ぎ、大阪に到着する"],
+          ["理由","甲乙点も「飛ばして、引き金で戻る」という一二点の仕組みそのままです。印が2種類あるのは、組を取り違えないためです。"]
+        ]},
+      { k:"quiz", t:"ミニ確認", q:"甲乙点で、一二点の「一」に対応する印はどれでしょう。",
+        choices:["甲","乙"], ans:0,
+        why:["対応は「甲＝一、乙＝二」です。","一は「戻れという引き金」でした。甲の付いた字を読んだら、乙の付いた字へ戻ります。"] }
+    ]},
+    { t:"優先順位 ― 重なったときの処理順", steps:[
+      { k:"r", t:"規則 ― 小さい返りから片づける", b:"<p>1つの文に返り点が重なったときは、処理する順番が決まっています。</p><ol><li><strong>レ点</strong>（1字だけの返り）</li><li><strong>一二点・甲乙点</strong></li><li><strong>上下点</strong>（一番外側の返り）</li></ol><p>理由は単純で、<span class='key'>大きい返りを先に閉じると、内側の字の対応が崩れてしまう</span>からです。内側・小さいものから順に閉じていけば、どんな入れ子でも読み解けます。</p>" },
+      { k:"ex", t:"例文 ― レ点と一二点の重なり", lead:"否定の「不」にレ点、動詞と目的語に一二点が付いた文です。",
+        sen:"不レ|読二|書一",
+        layers:[
+          ["注釈","不にはレ点、読と書には一二点が付いています。優先順位では一二点（読・書）を先に片づけます。"],
+          ["読む順","書（一）→ 読（二）→ 不"],
+          ["書き下し","書を読まず"],
+          ["訳","本を読まない"],
+          ["理由","まず一二点で「書 → 読」を作ります。最後にレ点で「不」を読の後ろへ回すと、「読まず（読まない）」になります。不は動詞の後ろで「〜ない」を表す字です。"]
+        ]},
+      { k:"quiz", t:"ミニ確認", q:"『史記』の例文（客有<span class='ktxt'>下</span>能為<span class='ktxt'>二</span>狗盗<span class='ktxt'>一</span>者<span class='ktxt'>上</span>）で、先に片づける返りはどれでしょう。",
+        choices:["上下点","一二点"], ans:1,
+        why:["優先順位は、レ点 → 一二点・甲乙点 → 上下点の順です。","一二点は上下点の内側にあるので、先に片づけてから上下点を閉じます。"] }
+    ]},
+    { t:"総合 ― 支えを減らして読む", steps:[
+      { k:"ex", t:"総合 ― 『論語』の文に挑戦", lead:"有名な一文です。今度は注釈をヒント扱いにしました。まず自分で読む順を考えてから、確かめてください。",
+        sen:"有二|朋一|自二|遠|方一|来",
+        layers:[
+          ["注釈","一二点が2組あります。朋・遠方は、それぞれ「一」の付いた側です。自は「〜より」と読む字です。",1],
+          ["読む順","朋 → 有 → 遠方 → 自 → 来"],
+          ["書き下し","朋有り、遠方より来たる"],
+          ["訳","友人が、遠くから訪ねて来る"],
+          ["理由","2組の一二点を、左の組から順に片づけました。道具がそろえば、古典の文も同じ手順で読めます。"]
+        ],
+        src:"『論語』学而" }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― どの返り点の文か", q:"次の3つの文のうち、一二点で読む文はどれでしょう。",
+    choices:["読<span class='ktxt'>レ</span>書","登<span class='ktxt'>二</span>山<span class='ktxt'>一</span>","客有り"], ans:1,
+    why:["「読レ書」はレ点、「客有り」には返り点がありません。","「登二山一」は、二を飛ばして一で戻る一二点の文です。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>返り点のまとめ</caption><thead><tr><th>返り点</th><th>仕組み</th><th>使う場面</th></tr></thead><tbody><tr><th>レ点</th><td>下の1字を先に読み、戻る</td><td>1字だけの返り</td></tr><tr><th>一二点</th><td>二を飛ばし、一を読んだら二へ戻る</td><td>2字以上の返り</td></tr><tr><th>上下点</th><td>下を飛ばし、上を読んだら下へ戻る</td><td>長い範囲・入れ子</td></tr><tr><th>甲乙点</th><td>甲＝一、乙＝二（一二点と同じ）</td><td>一二点が使用済みのとき</td></tr><tr><th>優先順位</th><td colspan='2'>レ点 → 一二点・甲乙点 → 上下点（小さい返りから）</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"レ点が戻れるのは、何字先まででしたか。", a:"すぐ下の1字だけです。2字以上先へ戻るときは一二点などを使います。" },
+      { q:"一二点で、最初に読んでしまうと間違う字はどれでしたか。", a:"「二」の付いた字です。二は「あとで戻ってくる場所」の目印なので、先に飛ばしておきます。" },
+      { q:"返り点が入れ子になったときの処理順はどうでしたか。", a:"内側の小さい返りから片づけます。優先順位は、レ点 → 一二点・甲乙点 → 上下点です。" }
+    ]}
+},
+/* ────────── 2 置き字・再読文字 ────────── */
+{
+  phase:1, title:"置き字・再読文字 ― 読まない字、2回読む字",
+  sub:"置き字は書いてあっても読みません。再読文字は1字を2回に分けて読みます。どちらも「字の特別な扱い」の約束です。",
+  secs:[
+    { t:"置き字 ― 読まない字", steps:[
+      { k:"r", t:"武器 ― 置き字は「読まない」と決まった字", b:"<p>漢文の中には、<strong>書いてあっても読まない</strong>と約束された字があります。これを<strong>置き字（おきじ）</strong>といいます。文の骨格には関わらず、文末で文を締めたり、響きを整えたりする働きをします。</p><p>代表的な置き字は、<span class='key'>之・於・乎・也・焉・耳・矣・者・而</span>などです。ただし注意点が1つあります。之・於・也のように、<strong>位置によっては読む字</strong>も含まれています。次の例文で、両方の顔を確認します。</p>" },
+      { k:"ex", t:"例文 ― 読まない「也」", lead:"文末の「也」に注目してください。",
+        sen:"是二|君|子一|也",
+        layers:[
+          ["注釈","文末の<span class='kk'>也</span>は置き字で、読みません。断定の響きを添える字です。"],
+          ["読む順","君子 → 是"],
+          ["書き下し","是れ君子なり"],
+          ["訳","これは立派な人物である"],
+          ["理由","也を読まなくても意味は通ります。書き下しでは、也の働きが「なり」という断定の形に置き換わって現れます。"]
+        ]},
+      { k:"ex", t:"例文 ― 読む「之」", lead:"同じ「之」でも、今度は読みます。違いは位置です。",
+        sen:"愛レ|之",
+        layers:[
+          ["注釈","<span class='kk'>之</span>は、動詞の後ろで目的語になるとき「これ」と読みます。置き字になるのは、文末などで骨格に関わらない場合です。"],
+          ["読む順","之 → 愛"],
+          ["書き下し","之を愛す"],
+          ["訳","これを愛する"],
+          ["理由","見分けの決め手は位置です。<strong>動詞の目的語になっていれば読む</strong>、そうでなければ置き字を疑います。"]
+        ]},
+      { k:"quiz", t:"ミニ確認", q:"次のうち、置き字として読まないものはどれでしょう。",
+        choices:["文末の「也」","目的語の「之」（これ）","「於」（〜において）"], ans:0,
+        why:["文末の也は断定の響きを添えるだけの置き字です。","之は目的語なら「これ」、於は場所を表すとき「〜において」と読みます。"] }
+    ]},
+    { t:"再読文字 ― 2回に分けて読む字", steps:[
+      { k:"r", t:"武器 ― 1字が文頭と文末に分かれる", b:"<p><strong>再読文字（さいどくもじ）</strong>は、書き下すときに<strong>1字を2回に分けて読む</strong>字です。文頭で前半を読み、動詞の後ろでもう一度、後半を読みます。</p><p>代表は、<span class='key'>未（いまだ〜ず）・将（まさに〜んとす）・当（まさに〜べし）・須（すべからく〜べし）・猶（なほ〜ごとし）・況（いはんや）</span>です。返り点で言えば、「文頭の字が、動詞の後ろにも現れる」という特別な返り方をすると考えてください。</p>" },
+      { k:"ex", t:"例文 ― 未（いまだ〜ず）", lead:"一番よく出る再読文字です。",
+        sen:"未レ|知",
+        layers:[
+          ["注釈","<span class='kk'>未</span>は再読文字です。先に「いまだ」と読み、動詞の後ろで「ず」を補います。"],
+          ["読む順","知 → 未（後半の「ず」）"],
+          ["書き下し","いまだ知らず"],
+          ["訳","まだ知らない"],
+          ["理由","未は1字で「いまだ〜ず」という文の頭と終わりの両方を担います。だから「まだ〜ない」という意味になります。"]
+        ]},
+      { k:"ex", t:"例文 ― 将（まさに〜んとす）", lead:"未と形は似ていますが、後半が違います。",
+        sen:"将レ|行",
+        layers:[
+          ["注釈","<span class='kk'>将</span>は再読文字です。「まさに」と先に読み、動詞の後ろで「んとす」を補います。"],
+          ["読む順","行 → 将（後半の「んとす」）"],
+          ["書き下し","まさに行かんとす"],
+          ["訳","今にも行こうとしている"],
+          ["理由","未の後半は「ず（否定）」、将の後半は「んとす（直前・意志）」です。前半だけでなく、<strong>後半のセット</strong>で覚えます。"]
+        ]},
+      { k:"ex", t:"例文 ― 猶（なほ〜ごとし）", lead:"比喩を表す再読文字です。",
+        sen:"猶レ|火",
+        layers:[
+          ["注釈","<span class='kk'>猶</span>は再読文字です。「なほ」と先に読み、後ろで「ごとし」を補います。"],
+          ["読む順","火 → 猶（後半の「ごとし」）"],
+          ["書き下し","なほ火のごとし"],
+          ["訳","まるで火のようだ"],
+          ["理由","猶は「なほ〜ごとし」で、たとえを表します。「なほ」は現代語の「なお（今も）」とは別の働きなので、意味も一緒に押さえます。"]
+        ],
+        gobi:"<b>古い語の意味：</b>なほ＝ここでは「まるで〜のように」。現代語の「なお（今も・さらに）」とは働きが違います。" },
+      { k:"quiz", t:"ミニ確認", q:"「当<span class='ktxt'>レ</span>行」の書き下しとして正しいものはどれでしょう。",
+        choices:["まさに行くべし","行くに当たる","当たり前に行く"], ans:0,
+        why:["当は再読文字で、「まさに〜べし」と読みます。","前半「まさに」と後半「べし」のセットです。「当たる」と読むのは別の用法です。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― 置き字か、再読文字か", q:"「須<span class='ktxt'>レ</span>学」（学ばなければならない、という文）の「須」の扱いとして正しいものはどれでしょう。",
+    choices:["置き字なので読まない","再読文字なので「すべからく〜べし」と2回に分けて読む","「す」と1回だけ読む"], ans:1,
+    why:["須は再読文字です。前半「すべからく」、後半「べし」で読みます。","書き下しは「すべからく学ぶべし」となり、「学ばなければならない」という意味になります。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>置き字・再読文字のまとめ</caption><thead><tr><th>種類</th><th>字</th><th>扱い</th></tr></thead><tbody><tr><th>置き字</th><td>之・於・乎・也・焉・耳・矣・者・而 など</td><td>読まない（ただし之・於・也は位置により読む）</td></tr><tr><th>再読文字</th><td>未・将・当・須・猶・況・盍 など</td><td>2回に分けて読む（例：未＝いまだ〜ず）</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"置き字とは、どんな字でしたか。", a:"書いてあっても読まないと約束された字です。也・矣・焉などが代表です。" },
+      { q:"「未」の読み方を、後半まで含めて言ってください。", a:"「いまだ〜ず」です。文頭で「いまだ」、動詞の後ろで「ず」を読みます。" },
+      { q:"「猶」の読み方を、後半まで含めて言ってください。", a:"「なほ〜ごとし」です。たとえを表します。" }
+    ]}
+},
+/* ────────── 3 否定 ────────── */
+{
+  phase:2, title:"否定 ― 「〜ない」を作る",
+  sub:"否定は意味の性質でまとめた最初の単元です。不・非・無・未の使い分けと、二重否定を押さえます。",
+  secs:[
+    { t:"不と非 ― 動詞の否定と、断定の否定", steps:[
+      { k:"r", t:"武器 ― 否定の中心は「不」", b:"<p>否定の中心は<strong>不</strong>です。動詞の前に置いて「〜ず（〜ない）」と読みます。返り点の単元で出会った「書を読まず」の不が、これです。</p><p>もう1つ、<strong>非</strong>は性質が違います。非は「〜にあらず」と読み、<span class='key'>名詞や断定を否定する</span>字です。「動詞を否定する不」と「であることを否定する非」を、まず分けてください。</p>" },
+      { k:"ex", t:"例文 ― 不（〜ず）", lead:"最も基本の否定です。",
+        sen:"不レ|知",
+        layers:[
+          ["注釈","<span class='kk'>不</span>は動詞「知」の前で否定を作ります。レ点で動詞の後ろへ回して読みます。"],
+          ["読む順","知 → 不"],
+          ["書き下し","知らず"],
+          ["訳","知らない"],
+          ["理由","不は動詞の後ろで「ず」の形になります。「不＋動詞」を見たら、まず「〜ず」と読むのが基本です。"]
+        ]},
+      { k:"ex", t:"例文 ― 非（〜にあらず）", lead:"不と比べてください。否定する相手が違います。",
+        sen:"非レ|人",
+        layers:[
+          ["注釈","<span class='kk'>非</span>は名詞「人」を否定します。「あらず」と後ろで読みます。"],
+          ["読む順","人 → 非（後半の「あらず」）"],
+          ["書き下し","人にあらず"],
+          ["訳","人ではない"],
+          ["理由","非は「〜ではない（断定の否定）」です。動詞の否定（不）とは相手が違うので、字で使い分けます。"]
+        ]},
+      { k:"quiz", t:"ミニ確認", q:"「不<span class='ktxt'>レ</span>行」の書き下しとして正しいものはどれでしょう。",
+        choices:["行かず","行くにあらず","行きなし"], ans:0,
+        why:["不は動詞を否定する字で、「〜ず」と読みます。","「行」に付くので「行かず（行かない）」です。「あらず」は非、「なし」は無の読みです。"] }
+    ]},
+    { t:"無・未と、二重否定", steps:[
+      { k:"ex", t:"例文 ― 無（〜なし）", lead:"「ない」を名詞として言う否定です。",
+        sen:"無レ|人",
+        layers:[
+          ["注釈","<span class='kk'>無</span>は「なし」と読みます。「存在しない」という否定です。"],
+          ["読む順","人 → 無"],
+          ["書き下し","人なし"],
+          ["訳","人がいない"],
+          ["理由","無は「有（あり）」の反対です。「〜がない・〜がいない」と訳します。"]
+        ]},
+      { k:"r", t:"未の復習と、二重否定の入口", b:"<p><strong>未</strong>（いまだ〜ず）は、再読文字の単元で学びました。これも否定の仲間です。「まだ〜ない」という、時間を含んだ否定でした。</p><p>否定が2つ重なると、意味は肯定に戻ります。これを<strong>二重否定</strong>といい、「〜ざるなし」の形は「すべて〜だ」という<span class='key'>強い肯定</span>になります。次の例文で確かめます。</p>" },
+      { k:"ex", t:"例文 ― 二重否定（無レ不レ〜）", lead:"否定が2つ並んだ文です。1つずつ処理してください。",
+        sen:"無レ|不レ|知",
+        layers:[
+          ["注釈","<span class='kk'>無</span>（なし）と<span class='kk'>不</span>（ず）、2つの否定が重なっています。"],
+          ["読む順","知 → 不 → 無"],
+          ["書き下し","知らざるなし"],
+          ["訳","知らないことはない（＝何でも知っている）"],
+          ["理由","「知らない（不）」＋「ことはない（無）」で、否定が打ち消し合います。二重否定は、弱い肯定ではなく<strong>強い肯定</strong>として訳すのがコツです。"]
+        ]},
+      { k:"quiz", t:"ミニ確認", q:"「未<span class='ktxt'>レ</span>見」の書き下しとして正しいものはどれでしょう。",
+        choices:["いまだ見ず","見なし","見るにあらず"], ans:0,
+        why:["未は再読文字で、「いまだ〜ず」と読みます。","「まだ見ていない」という時間を含んだ否定です。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― どの否定か", q:"「非<span class='ktxt'>レ</span>金」の書き下しとして正しいものはどれでしょう。",
+    choices:["金にあらず","金なし","金を見ず"], ans:0,
+    why:["非は断定を否定する字で、「〜にあらず」と読みます。","相手が名詞「金」なので、「金ではない」という意味になります。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>否定のまとめ</caption><thead><tr><th>字・句形</th><th>読み</th><th>意味</th></tr></thead><tbody><tr><th>不〜</th><td>〜ず</td><td>動詞の否定（〜ない）</td></tr><tr><th>非〜</th><td>〜にあらず</td><td>断定の否定（〜ではない）</td></tr><tr><th>無〜</th><td>〜なし</td><td>存在の否定（〜がない）</td></tr><tr><th>未〜</th><td>いまだ〜ず</td><td>時間を含んだ否定（まだ〜ない）</td></tr><tr><th>無レ不レ〜</th><td>〜ざるなし</td><td>二重否定＝強い肯定（すべて〜）</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"動詞を否定する字と、その読みはどうでしたか。", a:"不です。「不＋動詞」で「〜ず（〜ない）」と読みます。" },
+      { q:"「〜ざるなし」は、どういう意味でしたか。", a:"二重否定による強い肯定で、「すべて〜だ」という意味です。" }
+    ]}
+},
+/* ────────── 4 疑問・反語 ────────── */
+{
+  phase:2, title:"疑問・反語 ― 問う形、言い切る形",
+  sub:"疑問の字（何・誰・安・焉）と文末の乎・哉、そして「形は疑問、意味は言い切り」の反語を学びます。",
+  secs:[
+    { t:"疑問の字", steps:[
+      { k:"r", t:"武器 ― 疑問は「疑問の字＋文末」で作る", b:"<p>疑問の文には目印が2つあります。<strong>文の前半</strong>に疑問の字（何・誰・安・焉・孰など）が入り、<strong>文末</strong>に乎・哉・也などが付きます。</p><p>疑問の字の読みは、そのまま意味になります。<span class='key'>何＝何・なんぞ、誰＝誰・たれ、安・焉＝いづくんぞ・いづくに</span>。まず安・焉の例から見ます。この2字は、疑問と反語の両方に現れる重要字です。</p>" },
+      { k:"ex", t:"例文 ― 安（いづくに〜か）", lead:"場所を問う疑問です。",
+        sen:"安レ|在",
+        layers:[
+          ["注釈","<span class='kk'>安</span>は疑問の字です。「いづくに（どこに）」と読みます。"],
+          ["読む順","在 → 安"],
+          ["書き下し","いづくにか在る"],
+          ["訳","どこにあるのか"],
+          ["理由","安は文頭で疑問を立てる字です。まず疑問として訳し、文脈が合わなければ次の小節の反語を疑います。"]
+        ],
+        gobi:"<b>古い語の意味：</b>いづく＝どこ。「いづくんぞ」は「どうして〜か」という反語の読みになります。" },
+      { k:"quiz", t:"ミニ確認", q:"「誰<span class='ktxt'>レ</span>知」の書き下しとして正しいものはどれでしょう。",
+        choices:["誰か知らん","知る人なし","誰も知らず"], ans:0,
+        why:["誰は疑問の字で、「誰か〜か」と読みます。","「誰か知らん」は「誰が知っているだろうか」という疑問の文です。"] }
+    ]},
+    { t:"反語 ― 形は疑問、意味は言い切り", steps:[
+      { k:"r", t:"武器 ― 反語は「逆にして言い切る」", b:"<p><strong>反語</strong>は、形は疑問文なのに、意味は反対の言い切りになる言い方です。「どうして分かるものか」と問えば、意味は「分かるはずがない（否定）」になります。</p><p>反語の目印は、<span class='key'>不亦〜乎（〜にあらずや）・豈〜んや（あに〜んや）・焉〜（いづくんぞ〜んや）</span>などの決まった組み合わせです。目印を見たら、訳は肯定と否定を逆にして言い切ります。</p>" },
+      { k:"ex", t:"例文 ― 不亦〜乎（『論語』）", lead:"漢文で最も有名な反語です。前の部分も一緒に読みます。",
+        sen:"学|而|時|習レ|之|、|不レ|亦レ|説(えつ)レ|乎",
+        layers:[
+          ["注釈","而は置き字に近い接続（〜して）、之は「これ」と読む目的語です。後半の<span class='kk'>不亦〜乎</span>が反語の目印です。"],
+          ["読む順","学 → 時 → 之 → 習 ／ 説 → 亦 → 不"],
+          ["書き下し","学びて時に之を習ふ。亦説ばしからずや"],
+          ["訳","学んで、折々に復習する。なんと嬉しいことではないか"],
+          ["理由","「説ばしからずや」は形の上では「嬉しくないか」という問いですが、反語なので意味は<strong>強い肯定</strong>「なんと嬉しいことか」です。"]
+        ],
+        gobi:"<b>古い語の意味：</b>説（えつ）＝喜ぶこと。現代語の「説明」の説とは別の読みです。",
+        src:"『論語』学而" },
+      { k:"ex", t:"例文 ― 豈〜んや", lead:"もう1つの代表的な反語です。",
+        sen:"豈レ|知レ|之",
+        layers:[
+          ["注釈","<span class='kk'>豈</span>は反語の目印で、「あに」と読み、文末に「んや」を補います。"],
+          ["読む順","之 → 知 → 豈"],
+          ["書き下し","あに之を知らんや"],
+          ["訳","どうしてこれが分かるだろうか（分かるはずがない）"],
+          ["理由","豈が出たら反語です。問いの形のまま訳さず、「〜はずがない」と否定で言い切ります。"]
+        ],
+        gobi:"<b>古い語の意味：</b>あに＝どうして。反語の文頭で使う古い副詞です。" },
+      { k:"quiz", t:"ミニ確認", q:"反語の文の訳し方として正しいものはどれでしょう。",
+        choices:["疑問のまま訳す","肯定と否定を逆にして、言い切りで訳す","疑問の部分を省略して訳す"], ans:1,
+        why:["反語は「形は疑問、意味は言い切り」です。","「嬉しくないか（不亦説乎）」なら「なんと嬉しいことか」と、逆にして言い切ります。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― 疑問か、反語か", q:"「焉<span class='ktxt'>レ</span>知」（焉は「いづくんぞ」と読む字です）の訳としてふさわしいものはどれでしょう。",
+    choices:["どこで知るのか、と場所を問う","どうして分かるものか（分かるはずがない）"], ans:1,
+    why:["焉＋動詞は、反語になることが多い組み合わせです。","「いづくんぞ知らんや」と読んで、「分かるはずがない」と言い切ります。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>疑問・反語のまとめ</caption><thead><tr><th>形</th><th>読み</th><th>意味</th></tr></thead><tbody><tr><th>何・誰</th><td>なん・たれ</td><td>物・人を問う疑問</td></tr><tr><th>安・焉</th><td>いづくに／いづくんぞ</td><td>場所の疑問／反語</td></tr><tr><th>不亦〜乎</th><td>〜にあらずや</td><td>反語（強い肯定）</td></tr><tr><th>豈〜</th><td>あに〜んや</td><td>反語（強い否定）</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"反語とは、どんな言い方でしたか。", a:"形は疑問文で、意味は反対の言い切りになる言い方です。訳すときは肯定と否定を逆にします。" },
+      { q:"反語の目印を2つ挙げてください。", a:"「不亦〜乎（〜にあらずや）」と「豈〜んや（あに〜んや）」です。焉〜も反語になりやすい形です。" }
+    ]}
+},
+/* ────────── 5 受身 ────────── */
+{
+  phase:2, title:"受身 ― 「〜される」を作る",
+  sub:"受身の代表型「為〜所〜」を中心に、見・被・於による受身までを、性質の同じ仲間としてまとめます。",
+  secs:[
+    { t:"為〜所〜 ― 受身の代表型", steps:[
+      { k:"r", t:"武器 ― 骨格だけ先に渡します", b:"<p>受身の代表型は、<span class='key'>為（A）〜所（B）</span>です。読みは「AのBする所と為る」、意味は「AにBされる」です。</p><p>骨格は2つの字の組です。<strong>為</strong>が「〜と為る（〜になる）」、<strong>所</strong>が「〜する所」という形を作り、2つが合わさって受身になります。為だけでも所だけでも受身にはならない、という点が大切です。次の例文で体験してください。</p>" },
+      { k:"ex", t:"体験 ― 人に笑われる", lead:"骨格に当てはめて読んでください。",
+        sen:"為二|人一|所レ|笑",
+        layers:[
+          ["注釈","<span class='kk'>為</span>と<span class='kk'>所</span>が骨格です。Aには動作をする人（人）、Bには動詞（笑）が入ります。"],
+          ["読む順","人 → 為 → 笑 → 所"],
+          ["書き下し","人の笑ふ所と為る"],
+          ["訳","人に笑われる"],
+          ["理由","「人の笑ふ所と為る」をそのまま読むと「人に笑われる」です。所が「される側」を作る印なので、<strong>為だけでは受身にならない</strong>理由がここにあります。"]
+        ]},
+      { k:"ex", t:"例文 ― 支えを減らして", lead:"注釈はヒント扱いです。まず骨格だけで読んでみてください。",
+        sen:"為二|鳥一|所レ|食(く)",
+        layers:[
+          ["注釈","為〜所〜の骨格に、A＝鳥、B＝食が入っています。",1],
+          ["読む順","鳥 → 為 → 食 → 所"],
+          ["書き下し","鳥の食ふ所と為る"],
+          ["訳","鳥に食べられる"],
+          ["理由","骨格が同じなら、中の字が替わっても読み方は同じです。これが「型で読む」ということです。"]
+        ],
+        gobi:"<b>古い語の意味：</b>食ふ（くふ）＝食べる。「食う」のもとの形です。" },
+      { k:"quiz", t:"ミニ確認", q:"「為<span class='ktxt'>二</span>犬<span class='ktxt'>一</span>所<span class='ktxt'>レ</span>追」の書き下しとして正しいものはどれでしょう。",
+        choices:["犬の追ふ所と為る","犬を追ふ所と為る","犬に追ふ所と為らず"], ans:0,
+        why:["為〜所〜の骨格では、A（犬）が動作をする側です。","「犬の追ふ所と為る」＝犬に追われる、という受身になります。"] }
+    ]},
+    { t:"見・被・於 ― もう3つの受身", steps:[
+      { k:"ex", t:"例文 ― 見（〜らる）", lead:"見は、動詞の前で受身を作る顔を持ちます。",
+        sen:"見レ|殺",
+        layers:[
+          ["注釈","<span class='kk'>見</span>はここでは「見る」ではなく、受身を作る字です。動詞の前に置きます。"],
+          ["読む順","殺 → 見"],
+          ["書き下し","殺さる"],
+          ["訳","殺される"],
+          ["理由","見＋動詞は「〜らる」と読みます。「見山（山を見る）」のように目的語が名詞なら通常の「見る」です。後ろが動詞かどうかが見分けです。"]
+        ]},
+      { k:"ex", t:"例文 ― 被（〜を被る）", lead:"被は本来の意味から受身に広がった字です。",
+        sen:"被レ|害",
+        layers:[
+          ["注釈","<span class='kk'>被</span>は「こうむる」と読みます。害を受ける、という意味です。"],
+          ["読む順","害 → 被"],
+          ["書き下し","害を被る"],
+          ["訳","害を受ける（被害を受ける）"],
+          ["理由","被は「受ける」という意味そのものが受身の働きをします。現代語の「被害」「被る」に残っている読みです。"]
+        ],
+        gobi:"<b>古い語の意味：</b>被る（こうむる）＝身に受ける。帽子を「かぶる」と同じ字の、別の読みです。" },
+      { k:"r", t:"於による受身", b:"<p>もう1つ、<strong>〜於（A）</strong>の形も受身になります。「笑<span class='ktxt'>二</span>於人<span class='ktxt'>一</span>」なら「人に笑はる」と読みます。</p><p>於は置き字として学びましたが、ここでは「に」と読んで、<span class='key'>動作をする人を示す</span>働きをしています。比較の単元では「より」と読む顔も出てきます。於は位置と文脈で読み分ける字です。</p>" },
+      { k:"quiz", t:"ミニ確認", q:"次のうち、受身の文はどれでしょう。",
+        choices:["見山（山を見る）","見殺（殺される）","見人（人を見る）"], ans:1,
+        why:["見の後ろが動詞（殺）のときだけ、受身「〜らる」になります。","後ろが名詞（山・人）なら、見は通常の「見る」です。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― 受身の型はどれか", q:"「為<span class='ktxt'>二</span>師<span class='ktxt'>一</span>所<span class='ktxt'>レ</span>教」の意味として正しいものはどれでしょう。",
+    choices:["先生に教えられる","先生が教える","先生に教える"], ans:0,
+    why:["為〜所〜は受身の骨格です。A（師）が動作をする側になります。","「師の教ふる所と為る」＝先生に教えられる、です。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>受身のまとめ</caption><thead><tr><th>型</th><th>読み</th><th>意味</th></tr></thead><tbody><tr><th>為A所B</th><td>AのBする所と為る</td><td>AにBされる</td></tr><tr><th>見〜</th><td>〜らる</td><td>〜される（後ろが動詞のとき）</td></tr><tr><th>被〜</th><td>〜を被る</td><td>〜を受ける</td></tr><tr><th>〜於A</th><td>Aに〜る</td><td>Aに〜される</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"受身の代表型の骨格と読みを言ってください。", a:"為A所Bで、「AのBする所と為る」と読み、「AにBされる」という意味です。" },
+      { q:"「見」が受身になるのは、どんなときでしたか。", a:"後ろに動詞が続くときです。後ろが名詞なら通常の「見る」です。" }
+    ]}
+},
+/* ────────── 6 使役 ────────── */
+{
+  phase:2, title:"使役 ― 「〜させる」を作る",
+  sub:"使役の中心「使（A）〜しむ」を学びます。「使う」という別の意味との見分けも扱います。",
+  secs:[
+    { t:"使A〜しむ ― 使役の代表型", steps:[
+      { k:"r", t:"武器 ― 使は「しむ」に姿を変える", b:"<p>使役の中心は<strong>使</strong>です。型は<span class='key'>使（A）〜</span>で、読みは「Aをして〜しむ」、意味は「Aに〜させる」です。</p><p>特徴は、使が書き下しで<strong>「しむ」という別の姿</strong>になって、動詞の後ろに現れることです。再読文字に似た振る舞いをします。文頭の使を見たら、「をして〜しむ」の型を思い出してください。</p>" },
+      { k:"ex", t:"体験 ― 人に本を読ませる", lead:"使の姿の変わり方に注目してください。",
+        sen:"使二|人一|読レ|書",
+        layers:[
+          ["注釈","<span class='kk'>使</span>が使役の目印です。Aには人（読ませる相手）、後ろには動詞の文（書を読む）が続きます。"],
+          ["読む順","人 → 使 → 書 → 読"],
+          ["書き下し","人をして書を読ましむ"],
+          ["訳","人に本を読ませる"],
+          ["理由","使は文頭にあっても、読むのはA（人）の後ろです。そして動詞の後ろで「しむ」としてもう一度現れます。<strong>文頭と動詞の後ろ、2か所に現れる</strong>のが使役の使の特徴です。"]
+        ]},
+      { k:"ex", t:"例文 ― 令も同じ働き", lead:"令は、使と同じ使役の字です。",
+        sen:"令レ|子レ|行",
+        layers:[
+          ["注釈","<span class='kk'>令</span>は使役の字です。「Aをして〜しむ」の型に当てはめます。"],
+          ["読む順","子 → 行 → 令"],
+          ["書き下し","子をして行かしむ"],
+          ["訳","子どもに行かせる"],
+          ["理由","令も、読みは「しむ」に変わります。使と令は、同じ型の仲間です。"]
+        ]},
+      { k:"quiz", t:"ミニ確認", q:"「使<span class='ktxt'>レ</span>馬<span class='ktxt'>レ</span>走」の書き下しとして正しいものはどれでしょう。",
+        choices:["馬をして走らしむ","馬を使って走る","馬に走らせることはない"], ans:0,
+        why:["使＋A＋動詞は使役の型で、「Aをして〜しむ」と読みます。","馬が動作をする側なので、「馬をして走らしむ（馬に走らせる）」です。"] }
+    ]},
+    { t:"見分け ― 「使う」の使", steps:[
+      { k:"r", t:"解説 ― 後ろが名詞なら「使う」", b:"<p>使には、もう1つの意味「<strong>使う</strong>」があります。「使<span class='ktxt'>レ</span>人」だけなら「人を使う」です。</p><p>見分けは後ろを見ることです。<span class='key'>後ろに動詞の文が続けば使役、名詞で文が終われば「使う」</span>。型の判別は、いつも「後ろに何が続くか」で行います。</p>" },
+      { k:"quiz", t:"ミニ確認", q:"「使<span class='ktxt'>二</span>僕<span class='ktxt'>一</span>掃<span class='ktxt'>二</span>庭<span class='ktxt'>一</span>」の書き下しとして正しいものはどれでしょう。",
+        choices:["僕をして庭を掃はしむ","僕を使って庭を掃ふ","僕は庭を掃ふ"], ans:0,
+        why:["使の後ろに「掃二庭一（庭を掃ふ）」という動詞の文が続いています。","だから使役で、「僕をして庭を掃はしむ（僕に庭を掃かせる）」です。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― 使役か、「使う」か", q:"「王使<span class='ktxt'>レ</span>人」の意味として正しいものはどれでしょう。",
+    choices:["王は人を使う","王は人に何かをさせる（後ろに動詞が必要）"], ans:0,
+    why:["この文は「人」という名詞で終わっていて、後ろに動詞の文がありません。","だから使役ではなく、「使う」の意味です。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>使役のまとめ</caption><thead><tr><th>型</th><th>読み</th><th>意味</th></tr></thead><tbody><tr><th>使A〜</th><td>Aをして〜しむ</td><td>Aに〜させる</td></tr><tr><th>令A〜</th><td>Aをして〜しむ</td><td>Aに〜させる</td></tr><tr><th>使＋名詞</th><td>〜を使う</td><td>使う（後ろに動詞がないとき）</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"使役の型と読みを言ってください。", a:"使A〜で、「Aをして〜しむ」と読み、「Aに〜させる」という意味です。" },
+      { q:"使が「使う」の意味になるのは、どんなときでしたか。", a:"後ろに動詞の文が続かず、名詞で文が終わるときです。" }
+    ]}
+},
+/* ────────── 7 比較 ────────── */
+{
+  phase:2, title:"比較 ― 比べる言い方",
+  sub:"比較は「於（より）」を中心に、最（最も）・莫〜於（〜より〜なし）・不如（〜にしかず）を性質の仲間として学びます。",
+  secs:[
+    { t:"於（より）と最（最も）", steps:[
+      { k:"r", t:"武器 ― 比較の印は「於」", b:"<p>比べる相手を示す印は<strong>於</strong>です。<span class='key'>〜於（A）</span>で「Aより〜」と読みます。於は置き字の単元で「読まない字」として出会いましたが、ここでは「より」と読む、別の顔です。</p><p>もう1つ、<strong>最</strong>は「最も」と読み、比べる相手なしで一番を言います。まず於の例から見ます。</p>" },
+      { k:"ex", t:"例文 ― 山は天より高い", lead:"練習のために作った文です。於の位置に注目してください。",
+        sen:"山|高二|於|天一",
+        layers:[
+          ["注釈","<span class='kk'>於</span>は比べる相手（天）の前で、「より」と読みます。"],
+          ["読む順","山 → 天 → 於 → 高"],
+          ["書き下し","山は天より高し"],
+          ["訳","山は天より高い"],
+          ["理由","於は比べる相手の前に置かれますが、読むときは相手の後ろへ回して「〜より」にします。受身の単元で見た「於＝に」とは、また別の顔です。"]
+        ]},
+      { k:"ex", t:"例文 ― 最（最も）", lead:"比べる相手が出てこない言い方です。",
+        sen:"此レ|花|最レ|美",
+        layers:[
+          ["注釈","<span class='kk'>最</span>は「最も」と読みます。此は「この」という指示の字です。"],
+          ["読む順","此 → 花 → 美 → 最"],
+          ["書き下し","此の花、最も美し"],
+          ["訳","この花が最も美しい"],
+          ["理由","最は相手を示さずに「一番」を言います。於が相手を示す比較、最が絶対の一番、と役割が分かれます。"]
+        ]},
+      { k:"quiz", t:"ミニ確認", q:"「水深<span class='ktxt'>二</span>於海<span class='ktxt'>一</span>」の書き下しとして正しいものはどれでしょう。",
+        choices:["水は海より深し","水は海において深し","水の深さは海なり"], ans:0,
+        why:["於は比べる相手（海）の前で、「より」と読みます。","「水は海より深し（水は海より深い）」です。"] }
+    ]},
+    { t:"莫〜於と不如 ― 言い換えの型", steps:[
+      { k:"ex", t:"例文 ― 莫〜於（〜より〜なし）", lead:"否定の「莫」と比較の「於」が組になった、最上級の言い方です。",
+        sen:"莫レ|大二|於|天一",
+        layers:[
+          ["注釈","<span class='kk'>莫</span>は「なし」と読む否定の字です。於（より）と組になっています。"],
+          ["読む順","天 → 於 → 大 → 莫"],
+          ["書き下し","天より大なるは莫し"],
+          ["訳","天より大きいものはない"],
+          ["理由","「天より大きいものはない」は、言い換えれば「天が一番大きい」です。否定＋比較で最上級を表す、漢文らしい言い回しです。"]
+        ]},
+      { k:"ex", t:"例文 ― 不如（〜にしかず）", lead:"「及ばない」という比較です。",
+        sen:"不レ|如レ|人",
+        layers:[
+          ["注釈","<span class='kk'>如</span>は「しく（及ぶ）」と読みます。不（如かず）で「及ばない」です。"],
+          ["読む順","人 → 如 → 不"],
+          ["書き下し","人に如かず"],
+          ["訳","人に及ばない"],
+          ["理由","不如は2字で1つの型です。「〜に如かず＝〜に及ばない・〜のほうがよい」と訳します。"]
+        ],
+        gobi:"<b>古い語の意味：</b>如かず（しかず）＝及ばない。「〜にしかず」の形で現代語にも残っています。" },
+      { k:"quiz", t:"ミニ確認", q:"「力不<span class='ktxt'>レ</span>如<span class='ktxt'>レ</span>牛」の書き下しとして正しいものはどれでしょう。",
+        choices:["力は牛に如かず","力は牛の如し","力は牛に如くなし"], ans:0,
+        why:["不如は「〜に如かず（及ばない）」という型です。","「力は牛に如かず」＝力は牛に及ばない、です。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― 比較の文はどれか", q:"次のうち、比較を表す文はどれでしょう。",
+    choices:["人なし（人がいない）","山は川より高し（山は川より高い）","人に笑はる（人に笑われる）"], ans:1,
+    why:["「より」が出てくる文が比較です。","1つ目は否定（無）、3つ目は受身（於による受身）でした。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>比較のまとめ</caption><thead><tr><th>型</th><th>読み</th><th>意味</th></tr></thead><tbody><tr><th>〜於A</th><td>Aより〜</td><td>比べる相手を示す</td></tr><tr><th>最〜</th><td>最も〜</td><td>絶対の一番</td></tr><tr><th>莫〜於A</th><td>Aより〜なるは莫し</td><td>Aより大きなものはない（最上級）</td></tr><tr><th>不如A</th><td>Aに如かず</td><td>Aに及ばない</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"比べる相手を示す印と、その読みはどうでしたか。", a:"於です。相手の後ろへ回して「〜より」と読みます。" },
+      { q:"「天より大なるは莫し」は、言い換えるとどういう意味でしたか。", a:"「天が一番大きい」です。否定と比較の組み合わせで最上級を表します。" }
+    ]}
+},
+/* ────────── 8 限定 ────────── */
+{
+  phase:2, title:"限定 ― 「ただ〜だけ」を言い切る",
+  sub:"限定の字（唯・只・独）と、二重否定で義務を表す「非〜不」の型を学びます。",
+  secs:[
+    { t:"唯・只・独 ― ただ〜のみ", steps:[
+      { k:"r", t:"武器 ― 限定の字は文頭に立つ", b:"<p>「ただ〜だけだ」という限定は、<strong>唯・只・独</strong>などの字を文頭に置いて表します。読みは<span class='key'>「ただ〜のみ」</span>で、字が文頭、意味の「のみ」が文の後ろに現れる形です。</p><p>まず唯の例で、型を確認してください。</p>" },
+      { k:"ex", t:"体験 ― ただ一人のみ", lead:"限定の基本の型です。",
+        sen:"唯二|一|人一",
+        layers:[
+          ["注釈","<span class='kk'>唯</span>は限定の字です。「ただ」と先に読み、後ろで「のみ」を補います。"],
+          ["読む順","一人 → 唯"],
+          ["書き下し","ただ一人のみ"],
+          ["訳","ただ一人だけだ"],
+          ["理由","唯は再読文字に似て、文頭の「ただ」と文末の「のみ」に分かれて読みます。範囲を1つに絞るのが限定です。"]
+        ]},
+      { k:"ex", t:"例文 ― 独（独り）", lead:"独は「ただ一人で」という限定です。",
+        sen:"独レ|知",
+        layers:[
+          ["注釈","<span class='kk'>独</span>は「ひとり」と読みます。自分だけ、という限定です。"],
+          ["読む順","知 → 独"],
+          ["書き下し","独り知る"],
+          ["訳","自分だけが知っている"],
+          ["理由","独は「独り（ひとり）」と読んで、対象を自分1人に絞ります。唯・只の「ただ〜のみ」と同じ限定の仲間です。"]
+        ],
+        gobi:"<b>古い語の意味：</b>独り（ひとり）＝自分だけ。現代語の「一人」と同じ字ですが、読みは「ひとり」です。" },
+      { k:"quiz", t:"ミニ確認", q:"「只<span class='ktxt'>二</span>三日<span class='ktxt'>一</span>」の書き下しとして正しいものはどれでしょう。",
+        choices:["ただ三日のみ","三日だけにあらず","三日を見ず"], ans:0,
+        why:["只は唯と同じ限定の字で、「ただ〜のみ」と読みます。","「ただ三日のみ」＝三日だけだ、です。"] }
+    ]},
+    { t:"非〜不 ― 二重否定の限定", steps:[
+      { k:"r", t:"武器 ― 「〜でなければ、〜でない」", b:"<p>否定の単元で学んだ二重否定には、もう1つの顔があります。<span class='key'>非（A）不（B）</span>という型で、「AでなければBでない」と読み、意味は「<strong>Aしなければならない</strong>」「AでないとBできない」という義務・条件の限定です。</p><p>非（あらず）と不（ず）、2つの否定が「条件」を作る例を見ます。</p>" },
+      { k:"ex", t:"例文 ― 学ばなければ成らない", lead:"練習のために作った文です。2つの否定を順に処理してください。",
+        sen:"非レ|学|不レ|成",
+        layers:[
+          ["注釈","<span class='kk'>非</span>（あらず）と<span class='kk'>不</span>（ず）の二重否定です。前半が条件、後半が結果になっています。"],
+          ["読む順","学 → 非 ／ 成 → 不"],
+          ["書き下し","学ばざれば成らず"],
+          ["訳","学ばなければ、成し遂げられない"],
+          ["理由","「学ぶのでなければ、成らない」を縮めた言い方です。二重否定の文は、肯定に直してから意味を取ると崩れません。"]
+        ]},
+      { k:"quiz", t:"ミニ確認", q:"「非<span class='ktxt'>レ</span>見不<span class='ktxt'>レ</span>知」の書き下しとして正しいものはどれでしょう。",
+        choices:["見ざれば知らず","見れば知る","見ずに知る"], ans:0,
+        why:["非〜不の型は「〜ざれば〜ず」と読みます。","「見ざれば知らず」＝見なければ分からない、という条件の限定です。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― 限定の文はどれか", q:"次のうち、限定を表す文はどれでしょう。",
+    choices:["ただ一人のみ来る","人が来ない","人に来させる"], ans:0,
+    why:["「ただ〜のみ」が限定の目印です。","2つ目は否定、3つ目は使役でした。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>限定のまとめ</caption><thead><tr><th>型</th><th>読み</th><th>意味</th></tr></thead><tbody><tr><th>唯・只〜</th><td>ただ〜のみ</td><td>ただ〜だけだ</td></tr><tr><th>独〜</th><td>独り〜</td><td>自分だけが〜</td></tr><tr><th>非A不B</th><td>AざればBず</td><td>Aしなければならない／AでないとBできない</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"「ただ〜のみ」と読む限定の字を2つ挙げてください。", a:"唯と只です。どちらも文頭に置いて「ただ〜のみ」と読みます。" },
+      { q:"「非A不B」は、どういう意味の型でしたか。", a:"「AでなければBでない」という二重否定で、「Aしなければならない」という義務・条件を表します。" }
+    ]}
+},
+/* ────────── 9 仮定 ────────── */
+{
+  phase:2, title:"仮定 ― 「もし〜なら」と「〜けれども」",
+  sub:"仮定の字（若・苟）と、譲歩の字（雖・縦）、結果を受ける則を、性質の違いで分けて学びます。",
+  secs:[
+    { t:"若・苟 ― もし〜ならば", steps:[
+      { k:"r", t:"武器 ― 仮定は文頭の字で分かる", b:"<p>「もし〜ならば」という仮定は、文頭の字が目印です。代表は<span class='key'>若・如・苟</span>で、どれも「もし」と読みます。</p><p>仮定の文は、まだ起きていないことを前提に置く言い方です。後ろには結果の文が続きます。まず若の例で型を確認します。</p>" },
+      { k:"ex", t:"体験 ― もし雨が降ったなら", lead:"練習のために作った文です。",
+        sen:"若二|雨一|降",
+        layers:[
+          ["注釈","<span class='kk'>若</span>は仮定の字です。「もし」と読みます。"],
+          ["読む順","雨 → 若 → 降"],
+          ["書き下し","もし雨降らば"],
+          ["訳","もし雨が降ったなら"],
+          ["理由","若は文頭で仮定を立てます。書き下しの「降らば」の「ば」が、日本語の仮定の印です。"]
+        ]},
+      { k:"ex", t:"例文 ― 苟（いやしくも）", lead:"苟は読みが特殊な仮定の字です。",
+        sen:"苟レ|行",
+        layers:[
+          ["注釈","<span class='kk'>苟</span>は「いやしくも」と読む仮定の字です。"],
+          ["読む順","行 → 苟"],
+          ["書き下し","いやしくも行かば"],
+          ["訳","かりにも行くのなら"],
+          ["理由","苟は意味は若と同じ「もし」ですが、読みが古い形です。読みと意味をセットで覚える字です。"]
+        ],
+        gobi:"<b>古い語の意味：</b>苟も（いやしくも）＝かりにも・もし。現代語には残っていない読みです。" },
+      { k:"quiz", t:"ミニ確認", q:"仮定の文の目印として正しいものはどれでしょう。",
+        choices:["文頭の「若」","文末の「也」","動詞の前の「不」"], ans:0,
+        why:["若は文頭で「もし」と読む仮定の字です。","也は置き字、不は否定でした。"] }
+    ]},
+    { t:"雖・縦・則 ― 譲歩と結果", steps:[
+      { k:"r", t:"武器 ― 「けれども」には2種類ある", b:"<p>仮定の隣にある性質が<strong>譲歩</strong>（〜けれども）です。譲歩の字には2つあり、意味が少し違います。</p><ul><li><strong>雖</strong>（といへども）：すでに事実であることを譲る「〜ではあるけれども」</li><li><strong>縦</strong>（たとひ〜とも）：まだ起きていないことを譲る「たとえ〜でも」</li></ul><p>事実かどうかで使い分ける点が、この小節の要点です。</p>" },
+      { k:"ex", t:"例文 ― 雖（といへども）", lead:"事実を譲る言い方です。",
+        sen:"雖レ|貧",
+        layers:[
+          ["注釈","<span class='kk'>雖</span>は譲歩の字です。「といへども」と後ろで読みます。"],
+          ["読む順","貧 → 雖"],
+          ["書き下し","貧しといへども"],
+          ["訳","貧しいけれども"],
+          ["理由","貧しいことは事実として認めた上で、文を続けます。雖は確定したことの譲歩です。"]
+        ],
+        gobi:"<b>古い語の意味：</b>といへども＝〜であるけれども。「言えども」が縮まった古い形です。" },
+      { k:"ex", t:"例文 ― 縦（たとひ〜とも）", lead:"雖と比べてください。譲る対象が違います。",
+        sen:"縦レ|敗",
+        layers:[
+          ["注釈","<span class='kk'>縦</span>は譲歩の字です。「たとひ」と先に読み、後ろで「とも」を補います。"],
+          ["読む順","敗 → 縦"],
+          ["書き下し","たとひ敗るといへども"],
+          ["訳","たとえ敗れることがあっても"],
+          ["理由","敗れることは、まだ起きていないことです。未実現のことを譲るのが縦、事実を譲るのが雖です。"]
+        ]},
+      { k:"ex", t:"例文 ― 則（〜ば則ち）", lead:"仮定の文の「結果」を受ける字です。",
+        sen:"学レ|則レ|進",
+        layers:[
+          ["注釈","<span class='kk'>則</span>は「すなはち」と読み、前の条件を受けて結果を言います。"],
+          ["読む順","学 → 則 → 進"],
+          ["書き下し","学べば則ち進む"],
+          ["訳","学べば、すなわち上達する"],
+          ["理由","則は仮定の文の後半に立ちます。「条件 → 則 → 結果」の並びが型です。"]
+        ]},
+      { k:"quiz", t:"ミニ確認", q:"雖と縦の違いとして正しいものはどれでしょう。",
+        choices:["雖は事実を譲り、縦はまだ起きていないことを譲る","雖はまだ起きていないことを譲り、縦は事実を譲る","どちらも意味は同じで、読みだけが違う"], ans:0,
+        why:["雖（といへども）は確定した事実の譲歩です。","縦（たとひ〜とも）は未実現の仮定の譲歩です。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― 仮定か、譲歩か", q:"「縦<span class='ktxt'>レ</span>雨」の意味として正しいものはどれでしょう。",
+    choices:["たとえ雨が降っても","もし雨が降るなら必ず","雨が降ったので"], ans:0,
+    why:["縦は「たとひ〜とも」という譲歩の字です。","「たとえ雨が降っても（〜する）」という文の前半になります。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>仮定のまとめ</caption><thead><tr><th>字・型</th><th>読み</th><th>意味</th></tr></thead><tbody><tr><th>若・如・苟〜</th><td>もし〜ば</td><td>仮定（もし〜ならば）</td></tr><tr><th>雖〜</th><td>〜といへども</td><td>譲歩（事実を譲る）</td></tr><tr><th>縦〜</th><td>たとひ〜とも</td><td>譲歩（未実現を譲る）</td></tr><tr><th>〜則〜</th><td>〜ば則ち〜</td><td>条件と結果</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"「もし」と読む仮定の字を2つ挙げてください。", a:"若と苟です（如もあります）。どれも文頭に立ちます。" },
+      { q:"雖と縦の違いは何でしたか。", a:"雖は事実を譲る「〜といへども」、縦はまだ起きていないことを譲る「たとひ〜とも」です。" }
+    ]}
+},
+/* ────────── 10 禁止 ────────── */
+{
+  phase:2, title:"禁止 ― 「〜するな」を言い切る",
+  sub:"禁止の字は勿・莫・毋・無の4つ。すべて「〜ことなかれ」と読みます。否定の莫との見分けも扱います。",
+  secs:[
+    { t:"勿・莫 ― 禁止の代表", steps:[
+      { k:"r", t:"武器 ― 禁止の字は4つ、読みは1つ", b:"<p>「〜するな」という禁止は、文頭の字で表します。字は<strong>勿・莫・毋・無</strong>の4つありますが、読みは共通で<span class='key'>「〜することなかれ」</span>です。</p><p>形は再読文字に似ています。文頭で字を読み、動詞の後ろで「ことなかれ」を補います。まず勿の例を見ます。</p>" },
+      { k:"ex", t:"体験 ― 行くことなかれ", lead:"禁止の基本の型です。",
+        sen:"勿レ|行",
+        layers:[
+          ["注釈","<span class='kk'>勿</span>は禁止の字です。動詞の前に置きます。"],
+          ["読む順","行 → 勿"],
+          ["書き下し","行くこと勿れ"],
+          ["訳","行ってはいけない"],
+          ["理由","勿は「なかれ」と後ろで読みます。「動詞＋ことなかれ」で禁止の文になります。"]
+        ],
+        gobi:"<b>古い語の意味：</b>勿れ（なかれ）＝〜してはいけない。現代語の「なかれ」という言葉の源です。" },
+      { k:"ex", t:"例文 ― 莫（なかれ）", lead:"莫は、否定（なし）と禁止（なかれ）の2つの顔を持ちます。",
+        sen:"莫レ|笑",
+        layers:[
+          ["注釈","<span class='kk'>莫</span>は禁止の字としても使います。文頭＋動詞の形です。"],
+          ["読む順","笑 → 莫"],
+          ["書き下し","笑ふこと莫れ"],
+          ["訳","笑ってはいけない"],
+          ["理由","莫が文頭で動詞を従えていれば禁止「なかれ」です。「〜は莫し（ない）」の形なら否定でした。位置と形で見分けます。"]
+        ]},
+      { k:"quiz", t:"ミニ確認", q:"「勿<span class='ktxt'>レ</span>入」の書き下しとして正しいものはどれでしょう。",
+        choices:["入ること勿れ","入ることなし","入らざるなし"], ans:0,
+        why:["勿は禁止の字で、「〜ことなかれ」と読みます。","「入ること勿れ」＝入ってはいけない、です。"] }
+    ]},
+    { t:"毋・無 ― 残りの禁止の字", steps:[
+      { k:"ex", t:"例文 ― 毋（なかれ）", lead:"毋も読みは同じです。",
+        sen:"毋レ|忘",
+        layers:[
+          ["注釈","<span class='kk'>毋</span>は禁止の字です。勿・莫と同じ働きをします。"],
+          ["読む順","忘 → 毋"],
+          ["書き下し","忘るること毋れ"],
+          ["訳","忘れてはいけない"],
+          ["理由","禁止の4字は、字が違っても読みと意味は同じです。字の違いは文体の違いと考えてください。"]
+        ]},
+      { k:"r", t:"整理 ― 禁止と否定の境界", b:"<p>禁止の字（勿・莫・毋・無）は、もとは否定の仲間です。違いは使い方にあります。<span class='key'>文頭に立って動詞を従えれば禁止、文の中で「ない」を表せば否定</span>です。</p><p>特に莫と無は両方の顔を持つので、「文頭か、文の中か」を必ず確認してください。次の単元の命令（〜せよ）と対にして覚えると、働きかけの文が整理できます。</p>" },
+      { k:"quiz", t:"ミニ確認", q:"「人莫し」と「莫レ行」の「莫」の違いとして正しいものはどれでしょう。",
+        choices:["前者は否定（ない）、後者は禁止（なかれ）","前者は禁止、後者は否定","どちらも禁止"], ans:0,
+        why:["「人莫し」は文の中で「人がいない」という否定です。","「莫レ行」は文頭＋動詞なので、「行くこと莫れ」という禁止です。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― 禁止の文はどれか", q:"次のうち、禁止を表す文はどれでしょう。",
+    choices:["行くこと勿れ","行かず","行かしむ"], ans:0,
+    why:["「〜ことなかれ」が禁止の目印です。","2つ目は否定、3つ目は使役でした。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>禁止のまとめ</caption><thead><tr><th>字</th><th>読み</th><th>意味</th></tr></thead><tbody><tr><th>勿・莫・毋・無〜</th><td>〜ことなかれ</td><td>〜してはいけない</td></tr><tr><th>見分け</th><td colspan='2'>文頭＋動詞なら禁止、文の中で「ない」なら否定（莫・無）</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"禁止の字を3つ挙げて、共通の読みを言ってください。", a:"勿・莫・毋（無もあります）で、読みは「〜ことなかれ」です。" },
+      { q:"「莫」が禁止になるのは、どんな形のときでしたか。", a:"文頭に立って動詞を従えるときです。文の中では否定（なし）になります。" }
+    ]}
+},
+/* ────────── 11 命令 ────────── */
+{
+  phase:2, title:"命令 ― 「〜せよ」と働きかける",
+  sub:"命令は、言い切りの形と文末の字で表します。請（どうぞ〜せよ）と願（〜してほしい）もあわせて学びます。",
+  secs:[
+    { t:"言い切りと請 ― 命令の形", steps:[
+      { k:"r", t:"武器 ― 命令には専用の字がない", b:"<p>禁止には専用の字がありましたが、命令には<span class='key'>専用の字がありません</span>。命令は、動詞を言い切る形そのものと、文末の字（矣・哉など）で表します。</p><p>もう1つの形が<strong>請</strong>です。「請ふ」は本来「頼む」という動詞で、相手に丁寧に「どうぞ〜してください」と求める命令になります。まず言い切りの例から見ます。</p>" },
+      { k:"ex", t:"例文 ― 言い切り＋矣", lead:"矣は置き字ですが、命令の文では言い切りの強さを作ります。",
+        sen:"行レ|矣",
+        layers:[
+          ["注釈","<span class='kk'>矣</span>は置き字で読みません。文末で文を言い切ります。"],
+          ["読む順","行（言い切り）"],
+          ["書き下し","行け"],
+          ["訳","行きなさい"],
+          ["理由","動詞の言い切り＋文末の矣で、命令の文になります。訳すときは「〜せよ・〜なさい」と、働きかけの形にします。"]
+        ]},
+      { k:"ex", t:"例文 ― 請（どうぞ〜せよ）", lead:"丁寧な命令の形です。",
+        sen:"請レ|坐",
+        layers:[
+          ["注釈","<span class='kk'>請</span>は「請ふ（頼む）」という動詞です。相手への依頼を表します。"],
+          ["読む順","坐 → 請"],
+          ["書き下し","請ふ、坐せよ"],
+          ["訳","どうぞ座ってください"],
+          ["理由","請は「お願いする」という意味から、丁寧な命令になります。強い言い切りとの違いは、相手への配慮の有無です。"]
+        ],
+        gobi:"<b>古い語の意味：</b>請ふ（こふ）＝頼む・願う。「乞う」と同じ語源の古い形です。" },
+      { k:"quiz", t:"ミニ確認", q:"禁止と命令の見分けとして正しいものはどれでしょう。",
+        choices:["文頭に勿などがあれば禁止、動詞の言い切りなら命令","文末の字だけで決まる","どちらも同じ意味"], ans:0,
+        why:["禁止は文頭の専用の字（勿・莫・毋・無）が目印です。","命令は専用の字がなく、動詞の言い切りで表します。"] }
+    ]},
+    { t:"願 ― 願望の形", steps:[
+      { k:"ex", t:"例文 ― 願（〜せんことを願ふ）", lead:"願は、相手への命令ではなく、自分の願望を言う形です。",
+        sen:"願レ|見",
+        layers:[
+          ["注釈","<span class='kk'>願</span>は「願ふ」という動詞です。自分の望みを述べます。"],
+          ["読む順","見 → 願"],
+          ["書き下し","見んことを願ふ"],
+          ["訳","見たいと思う（見せてほしい）"],
+          ["理由","願の主語は自分です。相手に「見よ」と命じるのではなく、「見せてほしい」という願望の含みになります。"]
+        ]},
+      { k:"r", t:"整理 ― 働きかけの3つの形", b:"<p>相手や自分への働きかけは、3つに整理できます。</p><ul><li><strong>禁止</strong>：文頭の字で「〜するな」（勿・莫・毋・無）</li><li><strong>命令</strong>：動詞の言い切り、または請で「どうぞ〜せよ」</li><li><strong>願望</strong>：願で「〜してほしい」</li></ul><p>文頭の字と主語を確認すれば、この3つは取り違えません。</p>" }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― どの働きかけか", q:"「請<span class='ktxt'>レ</span>入」の意味として正しいものはどれでしょう。",
+    choices:["どうぞ入ってください","入ってはいけない","入りたいと思う"], ans:0,
+    why:["請は丁寧な命令で、「どうぞ〜してください」です。","禁止なら勿、願望なら願が使われます。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>命令のまとめ</caption><thead><tr><th>形</th><th>読み・訳</th><th>働き</th></tr></thead><tbody><tr><th>動詞の言い切り（＋矣）</th><td>〜せよ</td><td>直接の命令</td></tr><tr><th>請〜</th><td>どうぞ〜せよ</td><td>丁寧な命令</td></tr><tr><th>願〜</th><td>〜せんことを願ふ</td><td>願望（〜してほしい）</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"命令には、禁止のような専用の字がありましたか。", a:"ありません。命令は動詞の言い切り（文末の矣など）で表します。" },
+      { q:"「請」と「願」の違いは何でしたか。", a:"請は相手への丁寧な命令（どうぞ〜せよ）、願は自分の願望（〜してほしい）です。" }
+    ]}
+},
+/* ────────── 12 感嘆 ────────── */
+{
+  phase:2, title:"感嘆 ― 心の動きを言い切る",
+  sub:"感嘆は文末の哉・乎と、文頭の嗚呼などで表します。疑問の文末との見分けも扱います。",
+  secs:[
+    { t:"哉・乎 ― 文末の感嘆", steps:[
+      { k:"r", t:"武器 ― 感嘆は文末で決まる", b:"<p>感嘆の文は、<span class='key'>文末の哉・乎</span>が目印です。読みは「〜なる哉（かな）」で、意味は「なんと〜なことか」です。</p><p>乎は疑問の単元でも文末に出てきました。疑問の乎か感嘆の乎かは、文の内容が「問い」か「心の動き」かで判断します。まず哉の例から見ます。</p>" },
+      { k:"ex", t:"体験 ― 美なる哉", lead:"感嘆の基本の形です。",
+        sen:"美レ|哉",
+        layers:[
+          ["注釈","<span class='kk'>哉</span>は文末で感嘆を表します。「かな」と読みます。"],
+          ["読む順","美 → 哉"],
+          ["書き下し","美なる哉"],
+          ["訳","なんと美しいことか"],
+          ["理由","哉は形容の字の後ろで「なる哉」となり、心の動きを言い切ります。"]
+        ]},
+      { k:"ex", t:"例文 ― 大なる哉", lead:"同じ型で、もう1つ。",
+        sen:"大レ|哉",
+        layers:[
+          ["注釈","<span class='kk'>大</span>は「大きい」。哉が感嘆を作ります。"],
+          ["読む順","大 → 哉"],
+          ["書き下し","大いなる哉"],
+          ["訳","なんと大きいことか"],
+          ["理由","型が同じなら、中の字が替わっても「なんと〜なことか」と訳せます。"]
+        ]},
+      { k:"quiz", t:"ミニ確認", q:"「賢<span class='ktxt'>レ</span>哉」の書き下しとして正しいものはどれでしょう。",
+        choices:["賢いなる哉","賢いか否か","賢い人なし"], ans:0,
+        why:["文末の哉は感嘆で、「なる哉」と読みます。","「賢いなる哉」＝なんと賢いことか、です。"] }
+    ]},
+    { t:"嗚呼・夫 ― 文頭の感嘆", steps:[
+      { k:"ex", t:"例文 ― 嗚呼（ああ）", lead:"文頭から心の動きを出す形です。",
+        sen:"嗚|呼レ|哀レ|哉",
+        layers:[
+          ["注釈","<span class='kk'>嗚呼</span>は文頭の感嘆詞です。「ああ」と読みます。"],
+          ["読む順","嗚呼 → 哀 → 哉"],
+          ["書き下し","嗚呼、哀しい哉"],
+          ["訳","ああ、悲しいことよ"],
+          ["理由","嗚呼は文頭で嘆きを先に出し、文末の哉で受ける形です。感嘆が文の頭と終わりの両方に現れます。"]
+        ],
+        gobi:"<b>古い語の意味：</b>嗚呼（ああ）＝嘆きの声。現代語の感嘆詞「ああ」そのものです。" },
+      { k:"r", t:"整理 ― 疑問の乎と感嘆の乎", b:"<p>文末の<strong>乎</strong>は、疑問と感嘆の両方に使われます。見分けは訳してみることです。<span class='key'>「〜か」と問うて意味が通れば疑問、「なんと〜か」と心の動きで通れば感嘆</span>です。</p><p>また文頭の<strong>夫</strong>（そ）は「そもそも」と読み、感嘆に近い重々しい始まり方をします。文頭と文末の両方を確認する癖をつけてください。</p>" },
+      { k:"quiz", t:"ミニ確認", q:"文末の「乎」が感嘆かどうかは、どう見分けますか。",
+        choices:["「なんと〜か」と訳して意味が通るか試す","乎の前字の音で決まる","常に感嘆と決まっている"], ans:0,
+        why:["乎は疑問と感嘆の両用です。形だけでは決まりません。","訳してみて、問いか心の動きかで判断します。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― 感嘆の文はどれか", q:"次のうち、感嘆を表す文はどれでしょう。",
+    choices:["大いなる哉","大なるか否か","大なること勿れ"], ans:0,
+    why:["文末の哉が感嘆の目印です。","2つ目は疑問、3つ目は禁止でした。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>感嘆のまとめ</caption><thead><tr><th>形</th><th>読み</th><th>意味</th></tr></thead><tbody><tr><th>〜哉</th><td>〜なる哉</td><td>なんと〜なことか</td></tr><tr><th>〜乎</th><td>〜か</td><td>疑問または感嘆（訳して判断）</td></tr><tr><th>嗚呼〜</th><td>ああ〜</td><td>文頭の嘆き</td></tr></tbody></table></div>",
+    recalls:[
+      { q:"感嘆の文の、文末の目印は何でしたか。", a:"哉（〜なる哉）です。乎も感嘆に使われます。" },
+      { q:"文末の乎が疑問か感嘆かは、どう見分けましたか。", a:"訳してみて、「〜か」という問いか、「なんと〜か」という心の動きかで判断します。" }
+    ]}
+},
+/* ────────── 13 書き下し総合 ────────── */
+{
+  phase:3, title:"書き下し総合 ― 支えなしで読む",
+  sub:"仕上げの単元です。『論語』の文を、今までの道具だけで読みます。注釈は最小限にしています。",
+  secs:[
+    { t:"論語で総仕上げ", steps:[
+      { k:"r", t:"進め方 ― 道具の確認", b:"<p>この単元では、『論語』の2つの文を読みます。使う道具は、今まで学んだものだけです。</p><ul><li>返り点（レ点・一二点・上下点・甲乙点、優先順位）</li><li>置き字（之・而・焉など）と再読文字</li><li>句法・句形（否定・反語・受身・使役・比較・限定・仮定・禁止・命令・感嘆）</li></ul><p>分からなくなったら、<span class='key'>文頭の字と文末の字</span>を見てください。句形の目印は、たいていどちらかにあります。</p>" },
+      { k:"ex", t:"総合1 ― 否定の文", lead:"『論語』学而篇の一文の前半です。不が2回出てきます。",
+        sen:"人|不レ|知|而|不レ|慍",
+        layers:[
+          ["注釈","而は「〜して」と読む接続の字です。不は2回とも否定（ず）です。",1],
+          ["読む順","知 → 不 ／ 慍 → 不"],
+          ["書き下し","人知らずして慍みず"],
+          ["訳","人が（自分のことを）分かってくれなくても、恨まない"],
+          ["理由","不知は「知らずして」と連用に訳すと自然です。否定の単元の不が、そのまま使えました。"]
+        ],
+        gobi:"<b>古い語の意味：</b>慍む（うらむ）＝恨みに思う・腹を立てる。ここでは「恨まない」と訳します。",
+        src:"『論語』学而" },
+      { k:"ex", t:"総合2 ― 反語で締める", lead:"同じ一文の後半です。反語の目印を探してください。",
+        sen:"不レ|亦レ|君|子レ|乎",
+        layers:[
+          ["注釈","不亦〜乎が目印です。疑問・反語の単元で学んだ形です。",1],
+          ["読む順","子 → 亦 → 不"],
+          ["書き下し","亦君子ならずや"],
+          ["訳","なんと君子ではないか（立派な君子だ）"],
+          ["理由","形は疑問、意味は強い肯定でした。総合1と合わせると、「人知らずして慍みず、亦君子ならずや」という一文が完成します。"]
+        ],
+        src:"『論語』学而" },
+      { k:"ex", t:"総合3 ― 返り点は1組だけ", lead:"有名な一文です。返り点は一二点が1組だけです。",
+        sen:"三|人|行|、|必|有二|我|師一|焉",
+        layers:[
+          ["注釈","焉は置き字です。必は「必ず」と読む副詞です。",1],
+          ["読む順","三人 → 行 ／ 師 → 有"],
+          ["書き下し","三人行けば、必ず我が師有り"],
+          ["訳","三人で歩けば、必ずその中に自分の師となる人がいる"],
+          ["理由","長く見える文でも、返り点は1組だけでした。習った道具がそろえば、支えは最小限で読めます。"]
+        ],
+        src:"『論語』述而" },
+      { k:"quiz", t:"ミニ確認", q:"「人知らずして慍みず、亦君子ならずや」全体の意味として正しいものはどれでしょう。",
+        choices:["人が分かってくれなくても恨まないのは、なんと立派な君子ではないか","人は君子を知らないので、恨むべきではないか","君子は人を知らないので恨まない"], ans:0,
+        why:["前半は否定（知らず・慍みず）、後半は反語（ならずや＝強い肯定）です。","反語を肯定で言い切ると、1つ目の意味になります。"] }
+    ]}
+  ],
+  mix:{ k:"quiz", t:"見分け ― 道具の総点検", q:"「人不知而不慍」の書き下しとして正しいものはどれでしょう。",
+    choices:["人知らずして慍みず","人を知らずして慍なし","人の知らざるを慍みず"], ans:0,
+    why:["不は2回とも動詞の否定（ず）で、而は「〜して」です。","「知らずして慍みず」と連用でつなぐのが自然な書き下しです。"] },
+  sum:{ tbl:"<div class='tbl-wrap'><table class='katsuyo'><caption>道具の総覧 ― 句形の目印</caption><thead><tr><th>性質</th><th>目印</th><th>読み・意味</th></tr></thead><tbody><tr><th>否定</th><td>不・非・無・未</td><td>〜ず／〜にあらず／〜なし／いまだ〜ず</td></tr><tr><th>疑問・反語</th><td>何・誰・安・焉／不亦〜乎・豈</td><td>〜か／逆にして言い切る</td></tr><tr><th>受身</th><td>為〜所〜・見・被</td><td>〜される</td></tr><tr><th>使役</th><td>使・令</td><td>Aをして〜しむ</td></tr><tr><th>比較</th><td>於・最・不如</td><td>〜より／最も／〜にしかず</td></tr><tr><th>限定</th><td>唯・只・独／非〜不</td><td>ただ〜のみ／〜しなければならない</td></tr><tr><th>仮定</th><td>若・苟／雖・縦</td><td>もし〜ば／〜といへども</td></tr><tr><th>禁止</th><td>勿・莫・毋・無</td><td>〜ことなかれ</td></tr><tr><th>命令</th><td>言い切り・請</td><td>〜せよ／どうぞ〜せよ</td></tr><tr><th>感嘆</th><td>哉・乎／嗚呼</td><td>なんと〜なことか</td></tr></tbody></table></div><p style='margin-top:12px'>おつかれさまでした。訓読・句法の14単元はこれで終わりです。重要漢字のページで字の確認を、漢詩のページで読み物の仕上げをしてください。</p>",
+    recalls:[
+      { q:"句形の目印は、文のどこにあることが多かったですか。", a:"文頭の字（若・使・勿など）と文末の字（哉・乎など）です。まず頭と終わりを確認します。" },
+      { q:"分からない文に出会ったとき、最初に確認する手順を言ってください。", a:"文頭と文末で句形の目印を探し、返り点の優先順位（小さい返りから）で読む順を決め、型に当てはめて書き下します。" }
+    ]}
+}
+];
+
+/* ═══════════ 漢文：重要漢字データ ═══════════ */
+var KANJI_GROUPS = [
+  { title:"否定の字", note:"否定の単元と対応", rows:[
+    ["不","フ","〜ず","動詞を否定する中心の字","不レ知 → 知らず（知らない）"],
+    ["非","ヒ","〜にあらず","断定を否定する字","非レ人 → 人にあらず（人ではない）"],
+    ["無","ム","なし","存在を否定する字","無レ人 → 人なし（人がいない）"],
+    ["未","ミ","いまだ〜ず","再読文字。まだ〜ない","未レ見 → いまだ見ず（まだ見ていない）"],
+    ["莫","バク","なし／なかれ","否定と禁止の両用","莫レ行 → 行くこと莫れ（行くな）"],
+    ["勿","ブツ","なかれ","禁止の字","勿レ入 → 入ること勿れ（入るな）"],
+    ["否","ヒ","いな","文末で「〜か否か」","是レ否 → 是か否か（よいか悪いか）"]
+  ]},
+  { title:"疑問・反語の字", note:"疑問・反語の単元と対応", rows:[
+    ["何","カ","なに／なんぞ","物を問う疑問の字","何レ求 → 何を求むるか"],
+    ["誰","スイ","たれ","人を問う疑問の字","誰レ知 → 誰か知らん"],
+    ["安","アン","いづくに／いづくんぞ","場所の疑問・反語","安レ在 → いづくにか在る"],
+    ["焉","エン","いづくんぞ","反語になりやすい字","焉レ知 → いづくんぞ知らんや"],
+    ["豈","キ","あに〜んや","反語の目印","豈レ知レ之 → あに之を知らんや"],
+    ["乎","コ","か／や","文末で疑問・感嘆を作る","説レ乎 → 説ばしからずや（反語）"]
+  ]},
+  { title:"受身・使役の字", note:"受身・使役の単元と対応", rows:[
+    ["為","イ","なす／〜と為る","受身「為〜所〜」の骨格","為二人一所レ笑 → 人の笑ふ所と為る"],
+    ["所","ショ","ところ","「〜する所」の形を作る","為二人一所レ笑 → 人に笑われる"],
+    ["見","ケン","〜らる","後ろが動詞なら受身","見レ殺 → 殺さる（殺される）"],
+    ["被","ヒ","こうむる","受ける、の受身","被レ害 → 害を被る"],
+    ["使","シ","しむ／つかう","使役の中心の字","使二人一レ行 → 人をして行かしむ"],
+    ["令","レイ","しむ","使と同じ使役の字","令レ子レ行 → 子をして行かしむ"],
+    ["遣","ケン","つかはす","人を送る・やる","遣レ使 → 使ひを遣はす"]
+  ]},
+  { title:"比較・限定・仮定の字", note:"比較・限定・仮定の単元と対応", rows:[
+    ["於","オ","より／に／おいて","比較では「より」と読む","高二於天一 → 天より高し"],
+    ["如","ジョ","ごとし／しく","「のようだ」と「及ぶ」","不レ如レ人 → 人に如かず（及ばない）"],
+    ["最","サイ","もっとも","絶対の一番","最レ美 → 最も美し"],
+    ["唯","ユイ","ただ〜のみ","限定の字","唯二一人一 → ただ一人のみ"],
+    ["若","ジャク","もし","仮定の字","若二雨一レ降 → もし雨降らば"],
+    ["雖","スイ","といへども","事実を譲る譲歩の字","雖レ貧 → 貧しといへども"],
+    ["縦","ショウ","たとひ〜とも","未実現を譲る譲歩の字","縦レ敗 → たとひ敗るといへども"]
+  ]},
+  { title:"文を支える字", note:"全単元で使う基本の字", rows:[
+    ["之","シ","これ／の／ゆく","目的語では「これ」と読む","愛レ之 → 之を愛す"],
+    ["其","キ","その／それ","指示の字","其レ人 → 其の人"],
+    ["而","ジ","して","接続の字（置き字に近い）","学而時習レ之 → 学びて時に之を習ふ"],
+    ["則","ソク","すなはち","結果を受ける字","学レ則レ進 → 学べば則ち進む"],
+    ["也","ヤ","なり","文末の置き字（断定）","是二君子一也 → 是れ君子なり"],
+    ["矣","イ","―（置き字）","文末で言い切る字","行レ矣 → 行け"],
+    ["哉","サイ","かな","文末の感嘆の字","美レ哉 → 美なる哉"],
+    ["者","シャ","もの","「〜する者」の形を作る","読レ書レ者 → 書を読む者"]
+  ]}
+];
+(function buildKanji(){
+  var html = "";
+  KANJI_GROUPS.forEach(function(g){
+    html += "<div class='block'><div class='block-head gaiyou'><span class='ic'>字</span><h2>" + g.title + "</h2></div><p class='sec-note' style='margin-bottom:4px'>" + g.note + "。「例」は白文 → 書き下しの順に示しています。</p>";
+    html += "<div class='tbl-wrap'><table class='katsuyo'><thead><tr><th>漢字</th><th>音読み</th><th>訓読み・読み</th><th>意味</th><th>例</th></tr></thead><tbody>";
+    g.rows.forEach(function(r){
+      html += "<tr><th style='font-size:19px'>" + r[0] + "</th><td>" + r[1] + "</td><td>" + r[2] + "</td><td>" + r[3] + "</td><td>" + r[4] + "</td></tr>";
+    });
+    html += "</tbody></table></div></div>";
+  });
+  document.getElementById("kanji-body").innerHTML = html;
+})();
+
+/* ═══════════ 漢文：単元一覧の描画 ═══════════ */
+(function buildKList(){
+  var html = "";
+  KPHASES.forEach(function(ph, pi){
+    var unitsInPhase = KUNITS.map(function(u,i){ return {u:u,i:i}; }).filter(function(x){ return x.u.phase === pi; });
+    if (!unitsInPhase.length) return;
+    html += "<div class='phase'><div class='phase-head'><span class='ph-no'>" + ph.no + "</span><h3>" + ph.title + "</h3><p>" + ph.note + "</p></div>";
+    unitsInPhase.forEach(function(x){
+      var nsteps = 0;
+      x.u.secs.forEach(function(s){ nsteps += s.steps.length; });
+      if (x.u.mix) nsteps += 1;
+      if (x.u.sum) nsteps += 1 + x.u.sum.recalls.length;
+      html += "<button class='unit-row' onclick='go(\"kunit\"," + x.i + ")'><span class='no'>" + (x.i+1) + "</span><span class='tt'><span class='t'>" + x.u.title + "</span><span class='s' style='display:block'>" + x.u.sub + "</span><span class='tags'><span class='tag'>全" + nsteps + "ステップ</span><span class='tag'>小節" + x.u.secs.length + "</span></span></span><span class='arr'>›</span></button>";
+    });
+    html += "</div>";
+  });
+  document.getElementById("kunit-list").innerHTML = html;
+})();
+
+/* ═══════════ 漢文：ステッププレイヤー ═══════════ */
+var kState = { unit:-1, step:0, font:1, visited:{} };
+var kSteps = [];
+var kCur = null;
+
+function flatSteps(u){
+  var arr = [];
+  u.secs.forEach(function(s){ s.steps.forEach(function(st){ arr.push({ sec:s.t, st:st }); }); });
+  if (u.mix) arr.push({ sec:"見分け", st:u.mix });
+  if (u.sum){
+    arr.push({ sec:"まとめ", st:{ k:"tbl", t:"まとめ ― 要点の整理", html:u.sum.tbl } });
+    u.sum.recalls.forEach(function(r){ arr.push({ sec:"まとめ", st:{ k:"recall", t:"まとめ ― 思い出す確認", q:r.q, a:r.a } }); });
+  }
+  return arr;
+}
+function parseSen(s){
+  return s.split("|").map(function(tok){
+    var m = tok.match(/^(.)(?:\(([^)]*)\))?(.)?$/);
+    var kc = { c:m[1] };
+    if (m[2]) kc.r = m[2];
+    if (m[3]) kc.k = m[3];
+    return kc;
+  });
+}
+function hakuHtml(sen, src){
+  var h = "<div class='sen-box'><span class='haku'>";
+  parseSen(sen).forEach(function(kc){
+    var inner = kc.c;
+    if (kc.r) inner = "<ruby>" + kc.c + "<rt>" + kc.r + "</rt></ruby>";
+    if (kc.c === "、" || kc.c === "。") inner = "<span class='punct'>" + kc.c + "</span>";
+    h += "<span class='kc'>" + inner + (kc.k ? "<span class='kt'>" + kc.k + "</span>" : "") + "</span>";
+  });
+  h += "</span>" + (src ? "<div class='src'>" + src + "</div>" : "") + "</div>";
+  return h;
+}
+/* プレイヤーの文脈（漢文／古文で共用する） */
+var kUnits = KUNITS, kPhases = KPHASES, kBodyId = "kunit-body", kListGo = "kunpo";
+function setPlayerContext(mode){
+  if (mode === "b"){ kUnits = BUNITS; kPhases = PHASES; kBodyId = "unit-body"; kListGo = "bunpo"; }
+  else { kUnits = KUNITS; kPhases = KPHASES; kBodyId = "kunit-body"; kListGo = "kunpo"; }
+}
+function openUnit(i){
+  kState.unit = i; kState.step = 0;
+  kState.vkey = (kBodyId === "unit-body" ? "b" : "k") + i;
+  kSteps = flatSteps(kUnits[i]);
+  if (!kState.visited[kState.vkey]) kState.visited[kState.vkey] = {};
+  kState.visited[kState.vkey][0] = true;
+  renderKUnit();
+}
+function openKUnit(i){ setPlayerContext("k"); openUnit(i); }
+function openBUnit(i){ setPlayerContext("b"); openUnit(i); }
+function gsenHtml(st){
+  return "<div class='sen-box yoko'><span class='gsen'>" + st.gsen + "</span>" + (st.gsrc ? "<div class='src'>" + st.gsrc + "</div>" : "") + "</div>";
+}
+function senHtml(st){
+  if (st.sen) return hakuHtml(st.sen, st.src);
+  if (st.gsen) return gsenHtml(st);
+  return "";
+}
+function kGoStep(i){
+  if (i < 0 || i >= kSteps.length) return;
+  kState.step = i;
+  kState.visited[kState.vkey][i] = true;
+  renderKUnit();
+  window.scrollTo(0,0);
+}
+function kSetFont(n){
+  kState.font = n;
+  var p = document.querySelector(".kplayer");
+  if (p) p.className = "kplayer fs" + n;
+  var btns = document.querySelectorAll(".fsbtn button");
+  for (var i = 0; i < btns.length; i++) btns[i].classList.toggle("on", i === n);
+}
+function kToggleList(){
+  var el = document.getElementById("ksteplist");
+  if (el) el.classList.toggle("open");
+}
+function stepListHtml(){
+  var h = "", lastSec = null;
+  kSteps.forEach(function(item, i){
+    if (item.sec !== lastSec){ h += "<div class='sl-sec'>" + item.sec + "</div>"; lastSec = item.sec; }
+    var done = kState.visited[kState.vkey] && kState.visited[kState.vkey][i];
+    h += "<button class='sl-row" + (i === kState.step ? " cur" : "") + "' onclick='kGoStep(" + i + ")'><span class='n'>" + (i+1) + "</span><span>" + item.st.t + "</span>" + (done ? "<span class='ck'>✓</span>" : "") + "</button>";
+  });
+  return h;
+}
+function renderKUnit(){
+  var u = kUnits[kState.unit];
+  var total = kSteps.length, idx = kState.step, item = kSteps[idx];
+  kCur = { revealed:0, sel:-1, judged:false, correct:false, whyShown:0, answered:false, self:null };
+  var html = "";
+  html += "<div class='unit-hero'><div class='uno'>単元 " + (kState.unit+1) + " / " + kUnits.length + "　―　" + kPhases[u.phase].no + "「" + kPhases[u.phase].title + "」</div><h1>" + u.title + "</h1><p class='sub'>" + u.sub + "</p></div>";
+  html += "<div class='ktoolbar'><button class='listbtn' onclick='kToggleList()'>ステップ一覧（任意のステップへ移動できます）</button><span class='sp'></span><span style='font-size:12.5px;color:var(--ink3);font-weight:700'>文字サイズ</span><span class='fsbtn'>"
+    + "<button onclick='kSetFont(0)' class='" + (kState.font===0?"on":"") + "'>小</button>"
+    + "<button onclick='kSetFont(1)' class='" + (kState.font===1?"on":"") + "'>中</button>"
+    + "<button onclick='kSetFont(2)' class='" + (kState.font===2?"on":"") + "'>大</button></span></div>";
+  html += "<div class='steplist' id='ksteplist'>" + stepListHtml() + "</div>";
+  var pct = Math.round((idx+1) / total * 100);
+  html += "<div class='kprog'><div class='bar'><div class='fill' style='width:" + pct + "%'></div></div><div class='txt'><span>ステップ " + (idx+1) + " / " + total + "</span><span>" + (idx+1 >= total ? "最後のステップです" : "あと " + (total-idx-1) + " ステップ") + "</span></div></div>";
+  html += "<div class='kplayer fs" + kState.font + "'><div class='kcard'>" + stepHtml(item) + "</div>";
+  html += "<div class='knav'><button onclick='kGoStep(" + (idx-1) + ")'" + (idx === 0 ? " disabled" : "") + ">← 前のステップ</button>"
+    + "<button class='nextb' id='knext' onclick='kGoStep(" + (idx+1) + ")'" + (idx >= total-1 ? " disabled" : "") + ">" + (idx >= total-1 ? "単元の終わりです" : "次のステップ →") + "</button></div>";
+  html += "<button class='to-list' onclick='go(\"" + kListGo + "\")'>単元一覧にもどる</button></div>";
+  document.getElementById(kBodyId).innerHTML = html;
+  if (item.st.k === "ex") kRenderLayers();
+  updateNextGate();
+}
+function stepHtml(item){
+  var st = item.st, h = "<div class='ksec'>" + item.sec + "</div><h2>" + st.t + "</h2>";
+  if (st.k === "r"){
+    h += st.b;
+    if (st.box) h += "<div class='point-box'>" + st.box + "</div>";
+  } else if (st.k === "ex"){
+    if (st.lead) h += "<p>" + st.lead + "</p>";
+    h += senHtml(st);
+    h += "<div id='klayers'></div><div id='kreveal'></div>";
+    if (st.gobi) h += "<div class='gobi'>" + st.gobi + "</div>";
+  } else if (st.k === "pred"){
+    h += "<p>" + st.q + "</p>";
+    h += senHtml(st);
+    h += "<div class='choices' id='kchoices'></div><div id='kfeedback'></div>";
+  } else if (st.k === "quiz"){
+    h += "<p>" + st.q + "</p>";
+    h += senHtml(st);
+    h += "<div class='choices' id='kchoices'></div>";
+    h += "<button class='kakutei' id='kkakutei' onclick='kJudge()' disabled>答えを確定する</button>";
+    h += "<div id='kjudge'></div><div id='kwhy'></div>";
+  } else if (st.k === "recall"){
+    h += "<p>" + st.q + "</p><p style='color:var(--ink2);font-size:.92em'>まず頭の中で答えてから、答えを開いてください。</p>";
+    h += "<div id='krecall'><button class='revealbtn' onclick='kShowAnswer()'>答えを見る</button></div>";
+  } else if (st.k === "tbl"){
+    h += st.html;
+  }
+  if (st.k === "pred" || st.k === "quiz") setTimeout(kRenderChoices, 0);
+  return h;
+}
+function kRenderChoices(){
+  var st = kSteps[kState.step].st;
+  var el = document.getElementById("kchoices");
+  if (!el) return;
+  var h = "";
+  st.choices.forEach(function(c, i){
+    var cls = "chbtn";
+    if (kCur.judged){
+      if (i === st.ans) cls += " right";
+      else if (i === kCur.sel) cls += " wrong";
+    } else if (i === kCur.sel) cls += " sel";
+    h += "<button class='" + cls + "' onclick='kSelect(" + i + ")'" + (kCur.judged ? " disabled" : "") + ">" + c + "</button>";
+  });
+  el.innerHTML = h;
+}
+function kSelect(i){
+  if (kCur.judged) return;
+  kCur.sel = i;
+  kRenderChoices();
+  var st = kSteps[kState.step].st;
+  if (st.k === "pred"){
+    document.getElementById("kfeedback").innerHTML = "<div class='point-box' style='margin-top:12px'>" + st.after + "</div>";
+  } else {
+    var kb = document.getElementById("kkakutei");
+    if (kb) kb.disabled = false;
+  }
+  updateNextGate();
+}
+function kJudge(){
+  var st = kSteps[kState.step].st;
+  if (kCur.sel < 0 || kCur.judged) return;
+  kCur.judged = true;
+  kCur.correct = (kCur.sel === st.ans);
+  kRenderChoices();
+  var kb = document.getElementById("kkakutei");
+  if (kb) kb.style.display = "none";
+  var j = document.getElementById("kjudge");
+  if (kCur.correct){
+    j.innerHTML = "<div class='judge ok'><div class='mark'>○</div><div class='jt'>正解です</div><div class='js'>理由を段階表示で確かめましょう。</div></div>";
+  } else {
+    j.innerHTML = "<div class='judge ng'><div class='mark'>×</div><div class='jt'>不正解です</div><div class='js'>正解は「" + st.choices[st.ans] + "」です。理由を確かめてから進みましょう。</div><button class='retrybtn' onclick='renderKUnit()'>もう一度挑戦する</button></div>";
+  }
+  kCur.whyShown = 1;
+  kRenderWhy();
+  updateNextGate();
+}
+function kRenderWhy(){
+  var st = kSteps[kState.step].st;
+  var el = document.getElementById("kwhy");
+  if (!el || !st.why) return;
+  var h = "";
+  for (var i = 0; i < kCur.whyShown && i < st.why.length; i++){
+    h += "<div class='layer'><div class='lb'>理由 " + (i+1) + "</div><div class='bd'>" + st.why[i] + "</div></div>";
+  }
+  if (kCur.whyShown < st.why.length){
+    h += "<button class='revealbtn' onclick='kMoreWhy()'>理由の続きを見る</button>";
+  }
+  el.innerHTML = h;
+}
+function kMoreWhy(){ kCur.whyShown++; kRenderWhy(); }
+function kRenderLayers(){
+  var st = kSteps[kState.step].st;
+  var el = document.getElementById("klayers");
+  if (!el) return;
+  var h = "";
+  for (var i = 0; i < kCur.revealed && i < st.layers.length; i++){
+    h += "<div class='layer'><div class='lb'>" + st.layers[i][0] + "</div><div class='bd'>" + st.layers[i][1] + "</div></div>";
+  }
+  el.innerHTML = h;
+  var rb = document.getElementById("kreveal");
+  if (kCur.revealed < st.layers.length){
+    var nx = st.layers[kCur.revealed];
+    rb.innerHTML = "<button class='revealbtn" + (nx[2] ? " hintb" : "") + "' onclick='kReveal()'>" + (nx[2] ? "ヒントを見る（" + nx[0] + "）" : "次の層を見る（" + nx[0] + "）") + "</button>";
+  } else {
+    rb.innerHTML = "";
+  }
+}
+function kReveal(){ kCur.revealed++; kRenderLayers(); updateNextGate(); }
+function kShowAnswer(){
+  var st = kSteps[kState.step].st;
+  kCur.answered = true;
+  document.getElementById("krecall").innerHTML =
+    "<div class='answer-box'><div class='lb'>答え</div><div>" + st.a + "</div></div>"
+    + "<p style='margin-top:14px;font-weight:700'>自分の答えはどうでしたか。</p>"
+    + "<div class='selfjudge'><button id='ksj-ok' onclick='kSelfJudge(true)'>○ 言えた</button><button id='ksj-ng' onclick='kSelfJudge(false)'>× 言えなかった</button></div>"
+    + "<div id='ksj-msg'></div>";
+}
+function kSelfJudge(ok){
+  kCur.self = ok;
+  var b1 = document.getElementById("ksj-ok"), b2 = document.getElementById("ksj-ng");
+  if (b1) b1.className = ok ? "picked-ok" : "";
+  if (b2) b2.className = ok ? "" : "picked-ng";
+  document.getElementById("ksj-msg").innerHTML = "<div class='point-box' style='margin-top:12px'>" + (ok ? "その調子です。このまま次の確認へ進みましょう。" : "大丈夫です。答えを声に出して読み直してから進むと、次は言えるようになります。") + "</div>";
+  updateNextGate();
+}
+function updateNextGate(){
+  var btn = document.getElementById("knext");
+  if (!btn || kState.step >= kSteps.length - 1) return;
+  var st = kSteps[kState.step].st, block = false;
+  if (st.k === "ex") block = kCur.revealed < st.layers.length;
+  else if (st.k === "pred") block = kCur.sel < 0;
+  else if (st.k === "quiz") block = !kCur.judged;
+  else if (st.k === "recall") block = kCur.self === null;
+  btn.disabled = block;
 }
 </script>
 </body>
